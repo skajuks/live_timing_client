@@ -1,0 +1,65 @@
+
+.app__live-main {
+    width: 100vw;
+    height: 100vh;
+    background: #c6c6c6;
+    overflow-y: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.app__navbar {
+    width: 100%;
+    height: 48px;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    background: #fbfbfdcc;
+    backdrop-filter: saturate(180%) blur(20px);
+    font-family: "SF-Pro", sans-serif;
+
+    ul {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        gap: 40px;
+
+        li {
+            cursor: pointer;
+        }
+    }
+
+    .app__navbar-logo {
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.app__navbar-infobox {
+    background: #fbfbfd;
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: "SF-Pro", sans-serif;
+    font-size: 0.9rem;
+    color: #272727;
+}
+
+.app__live-footer {
+    width: 100%;
+    height: 300px;
+    background: #f0f1f1;
+}

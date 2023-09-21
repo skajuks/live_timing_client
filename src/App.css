@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Outfit&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+
+body,
+html {
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "SF-Pro";   /*Can be any text*/
+  src: local("SF-Pro-Display-Regular"),
+    url("../public/fonts/SF-Pro-Display-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SF-Pro-Semibold";
+  src: local("SF-Pro-Display-Semibold"),
+    url("../public/fonts/SF-Pro-Display-Semibold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SF-Pro-Bold";
+  src: local("SF-Pro-Display-Bold"),
+    url("../public/fonts/SF-Pro-Display-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SF-Pro-Heavy";
+  src: local("SF-Pro-Display-Heavy"),
+    url("../public/fonts/SF-Pro-Display-Heavy.ttf") format("truetype");
+}
+
+/* Monospace numbers for time values */
+.monospace_numbers {
+  font-family: "Lato", monospace;
+  letter-spacing: 1px;
+}

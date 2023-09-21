@@ -1,0 +1,403 @@
+
+.app_liveList-selected-main {
+    width: 100%;
+    height: fit-content;
+    font-family: "Outfit", sans-serif;
+    background-size: cover;
+
+    .app_liveList-top-selector {
+        width: 100%;
+        height: 100px;
+        background: #f1f1f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        .app_liveList-color-selector-item {
+            width: 120px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-family: "SF-Pro", sans-serif;
+            font-size: 0.9rem;
+
+            input {
+                border: 1px solid #3f3f3f;
+                background: none;
+                padding: 0;
+                cursor: pointer;
+                height: 50px;
+                width: 80px;
+            }
+            input[type="color"]::-webkit-color-swatch-wrapper {
+                padding: 0;
+            }
+            input[type="color"]::-webkit-color-swatch {
+                border: none;
+            }
+        }
+        .app_liveList-color-selector-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            button {
+                border: none;
+                width: 150px;
+                height: 36px;
+                background: #f2930e;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.01);
+                }
+            }
+        }
+    }
+
+
+
+
+    .app_liveList-selected-results {
+        width: 100%;
+        height: calc((15 * 40px) + 150px);
+        background: #000000;
+        color: #eeeeee;
+
+
+        .app__liveList-overflow-x-wrapper {
+            overflow-x: auto;
+            height: calc(100% - 150px);
+            display: flex;
+            flex-direction: column;
+            white-space: nowrap;
+            align-items: center;
+
+            &::-webkit-scrollbar {
+                height: 5px;
+            }
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #f2930e;
+            }
+        }
+
+        .app__liveList-selected-race-data {
+            max-width: max-content;
+            min-width: fit-content;
+            height: calc(15 * 40px);
+            margin-inline: 5px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .app__liveList-selected-race-data-item {
+                width: 100%;
+                height: 35px;
+                margin-bottom: 5px;
+                display: flex;
+                align-items: center;
+                font-family: "SF-Pro", sans-serif;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(0.995);
+                }
+
+                &:nth-child(1) {
+                    margin-top: 5px;
+                }
+                .app_liveList-item-pos {
+                    width: 31px;
+                    height: 25px;
+                    margin-inline: 5px;
+                    background: #eeeeee;
+                    color: #000;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    font-size: 1.2rem;
+                    font-family: "SF-Pro-Heavy", sans-serif;
+                    border-bottom-right-radius: 7px;
+                }
+                .app_liveList-item-nr {
+                    margin-inline: 5px;
+                    width: 51px;
+                    text-align: center;
+                    color:#ffb700;
+                    font-weight: 800;
+                }
+                .app_liveList-item-state {
+                    width: 51px;
+                    height: 23px;
+                    margin-inline: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        width: 70%;
+                        height: 100%;
+                    }
+                }
+                .app_liveList-item-status {
+                    margin-inline: 5px;
+                    width: 51px;
+                    display: flex;
+                    justify-content: center;
+                }
+                .app_liveList-item-firstname {
+                    margin-inline: 5px;
+                    width: 151px;
+                    text-overflow: ellipsis;
+                    text-wrap: nowrap;
+                    font-family: "Outfit", sans-serif;
+
+                    font-size: 1.1rem;
+                }
+                .app_liveList-item-lastname {
+                    margin-inline: 5px;
+                    width: 151px;
+                    text-overflow: ellipsis;
+                    text-wrap: nowrap;
+                    font-family: "Outfit", sans-serif;
+                    font-weight: 600;
+
+                    font-size: 1.15rem;
+                }
+                .app_liveList-item-class {
+                    width: 101px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-overflow: ellipsis;
+                    text-wrap: nowrap;
+                    font-size: 0.8rem;
+                }
+                .app_liveList-item-team {
+                    width: 161px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-overflow: ellipsis;
+                    text-wrap: nowrap;
+                    font-size: 0.8rem;
+                }
+                .app_liveList-item-lap {
+                    width: 51px;
+                    margin-inline: 5px;
+                }
+                .app_liveList-item-last_time {
+                    width: 131px;
+                    margin-inline: 5px;
+                }
+                .app_liveList-item-best_time {
+                    width: 131px;
+                    margin-inline: 5px;
+                }
+                .app_liveList-item-diff {
+                    width: 131px;
+                    margin-inline: 5px;
+                }
+                .app_liveList-item-speed {
+                    width: 130px;
+                    margin-inline: 5px;
+                }
+            }
+        }
+
+        header {
+            width: calc(100% - 10px);
+            max-width: 1600px;
+            margin-right: 5px;
+            margin-left: calc((100% - 1605px) / 2);
+            height: 150px;
+            display: flex;
+            position: relative;
+            font-family: "SF-Pro", sans-serif;
+
+            .app_liveList-selected-track-name {
+                width: 350px;
+                height: 100%;
+                margin-left: 10px;
+                margin-top: 10px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                display: flex;
+                flex-direction: column;
+
+                p {
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                }
+            }
+            .app_liveList-selected-flag-and-chart{
+                position: absolute;
+                top: 10px;
+                left: 40%;
+                width: 20%;
+                height: 40px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .app_liveList-selected-time {
+                position: absolute;
+                bottom: 2px;
+                left: 50%;
+                width: 200px;
+                transform: translate(-50%);
+                height: 34px;
+                font-weight: 800;
+                letter-spacing: 1px;
+                font-size: 1.3rem;
+
+                p {
+                    width: 100%;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .app_liveList-selected-time-flag-line {
+                position: absolute;
+                left: 5px;
+                bottom: 0px;
+                width: 100%;
+                height: 4px;
+            }
+
+            .app_liveList-selected-settings {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                width: 120px;
+                height: 45px;
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                .app_liveList-selected-settings-btn {
+                    width: 35px;
+                    height: 35px;
+                    background: transparent;
+                    border: none;
+
+                    &:hover {
+                        transform: scale(0.96);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .app_liveList-selected-fullscreen {
+                position: absolute;
+                right: 5px;
+                top: 55px;
+                width: 120px;
+                height: 40px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+
+                border: none;
+                background: transparent;
+                outline: 1px solid #f2930e;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 400;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(0.97);
+                    background: #f2930e;
+                    transition: background 0.5s ease-in-out;
+                }
+            }
+        }
+        .app__liveList-selected-race-legend {
+            max-width: max-content;
+            min-width: fit-content;
+            margin-inline: 5px;
+            height: 35px;
+            background: #151519;
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+
+            .app__liveList-selected-race-legend-item {
+                height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-right: 1px solid #3e3e3e;
+
+                &:nth-last-child(1) {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .app_liveList-selected-simulator {
+        width: 100%;
+        height: 400px;
+        background: #161616;
+    }
+    .app_liveList-selected-divider {
+        width: 100%;
+        height: 15px;
+        background: #eeeeee;
+    }
+}
+
+@media (max-width: 1600px) {
+    .app__liveList-selected-race-data {
+        align-self: flex-start;
+    }
+    .app__liveList-selected-race-legend {
+        align-self: flex-start;
+    }
+    .app_liveList-selected-results > header {
+        margin-left: 0px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .app_liveList-selected-track-name {
+        font-size: 0.7rem;
+        justify-self: flex-start;
+        p {
+            font-size: 1.4rem !important;
+        }
+    }
+}
+@media (max-width: 450px) {
+    .app_liveList-selected-track-name {
+        font-size: 0.5rem;
+        justify-self: flex-start;
+        p {
+            font-size: 1.1rem !important;
+        }
+    }
+    .app_liveList-selected-fullscreen {
+        width: 40px !important;
+    }
+}
