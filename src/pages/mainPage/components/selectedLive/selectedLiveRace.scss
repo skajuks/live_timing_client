@@ -4,6 +4,7 @@
     height: fit-content;
     font-family: "Outfit", sans-serif;
     background-size: cover;
+    position: relative;
 
     .app_liveList-top-selector {
         width: 100%;
@@ -197,14 +198,23 @@
                 .app_liveList-item-lap {
                     width: 51px;
                     margin-inline: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .app_liveList-item-last_time {
                     width: 131px;
                     margin-inline: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .app_liveList-item-best_time {
                     width: 131px;
                     margin-inline: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .app_liveList-item-diff {
                     width: 131px;

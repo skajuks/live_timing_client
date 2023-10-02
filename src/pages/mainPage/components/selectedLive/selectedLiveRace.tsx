@@ -1,6 +1,6 @@
 import "./selectedLiveRace.scss";
 import { useState, useEffect, useRef } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { RiFullscreenLine} from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { BiFontSize } from "react-icons/bi";
@@ -78,6 +78,7 @@ const defaultScoreboardColors = ["#1c2431", "#191b26", "#235430", "#ffffff"];
 
 export const SelectedLiveRace = () => {
     const {hash} = useParams();
+    const navigate = useNavigate();
     const [activeRace, setActiveRace] = useState<raceDataElement>();
     const [selectedCompetitors, setSelectedCompetitors] = useState<string[]>([]);
     const [selectedColors, setSelectedColors] = useState<string[]>(defaultScoreboardColors);
@@ -172,10 +173,6 @@ export const SelectedLiveRace = () => {
         }
     }, []);
 
-
-
-
-
     return (
         <div className="app_liveList-selected-main">
             {
@@ -242,7 +239,9 @@ export const SelectedLiveRace = () => {
                     <div className="app_liveList-selected-flag-and-chart">
 
                     </div>
-                    <button className="app_liveList-selected-fullscreen">
+                    <button className="app_liveList-selected-fullscreen"
+                        onClick={() => { navigate(`/live/full/${hash}`) }}
+                    >
                         Fullscreen
                         <RiFullscreenLine color="#ffffff" size={"20px"}/>
                     </button>
@@ -305,7 +304,10 @@ export const SelectedLiveRace = () => {
                                         {item?.nr}
                                     </div>
                                     <div className="app_liveList-item-state">
-                                    <img src={`https://flagcdn.com/${item.state.toLowerCase()}.svg`} alt="-" />
+                                    {
+                                        item.state &&
+                                        <img src={`https://flagcdn.com/${item.state?.toLowerCase()}.svg`} alt="-" />
+                                    }
                                     </div>
                                     <div className="app_liveList-item-status">
                                         {getPositionArrow(item?.status)}

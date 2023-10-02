@@ -3,11 +3,19 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 
+interface raceTypeData {
+    race_type_name: string;
+    race_type_id: number;
+}
 interface raceInfoElement {
     token: string;
     race_name: string;
     track_name: string;
     id: number;
+    laps: number;
+    flag: string;
+    elapsed_time: string;
+    race_type_data: raceTypeData;
 };
 
 export const LiveList: React.FC = () => {
@@ -80,7 +88,8 @@ export const LiveList: React.FC = () => {
                             <div className="app_liveList-item-name">
                                 <MdLocationPin color="#ffffff" size={"18px"}/>
                                 <p>{item.track_name}</p>
-                                {item.id}
+                                <p>{item.race_type_data?.race_type_name}</p>
+                                <p>{item.flag}</p>
                             </div>
 
                             <button></button>

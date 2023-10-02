@@ -1,6 +1,9 @@
 import "./mainPage.scss";
 import { LiveList } from "./components/live/liveList";
 import { SelectedLiveRace } from "./components/selectedLive/selectedLiveRace";
+import { SelectedLiveFull } from "./components/selectedLiveFull/selectedLiveFull";
+import { RaceHistoryGroups } from './components/history/raceHistoryGroups';
+import { RaceHistoryEvent } from "./components/history/event/raceHistoryEvent";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 export const MainPage = () => {
@@ -19,7 +22,7 @@ export const MainPage = () => {
                         </div>
                     </li>
                     <li onClick={() => { navigate("/") }}>Live Timing</li>
-                    <li>Race History</li>
+                    <li onClick={() => { navigate("/history") }}>Race History</li>
                 </ul>
             </nav>
             <div className="app__navbar-infobox">
@@ -27,13 +30,16 @@ export const MainPage = () => {
             </div>
             <Routes>
                 <Route path={"/"} element={<LiveList />} />
-                <Route path={"/history"} />
-                <Route path={"/history/:hash"} />
+                <Route path={"/history"} element={<RaceHistoryGroups />} />
+                <Route path={"/history/:hash"} element={<RaceHistoryEvent />} />
+                <Route path={"/history/:hash/:eventId"} />
                 <Route path={"/live/"} />
                 <Route path={"/live/:hash"} element={<SelectedLiveRace />}/>
+                <Route path={"/live/full/:hash"} element={<SelectedLiveFull />}/>
             </Routes>
             <footer className="app__live-footer">
-
+                This is a footer
+                footer template text
             </footer>
         </div>
     );
