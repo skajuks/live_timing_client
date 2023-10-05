@@ -2,6 +2,7 @@ import "./liveList.scss";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
+import { BoardTable } from "../../../../components/ScoreboardTable/ScoreboardTable";
 
 interface raceTypeData {
     race_type_name: string;
@@ -42,12 +43,20 @@ export const LiveList: React.FC = () => {
     return (
         <div
             className="app_liveList-main"
-
         >
             <header>
                 Live Timing
                 <p>View all ongoing races.</p>
             </header>
+            <BoardTable
+                legend={[
+                    {data: "race_name", name: "Type", width: 5, img: false, center: true, customSrc: ""},
+                    {data: "track_name", name: "Type", width: 5, img: false, center: true, customSrc: ""},
+                    {data: "race_flag", name: "Event Name", width: 40, img: false, center: false, customSrc: ""},
+                ]}
+                data={{}}
+                properties={{}}
+            />
             <div className="app_liveList-selector-wrapper">
                 <div className="app_liveList-selector">
                     <div className="app_liveList-selector-item"

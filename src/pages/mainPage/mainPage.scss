@@ -6,6 +6,17 @@
     overflow-y: auto;
     background-size: cover;
     background-repeat: no-repeat;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #5e5e5e;
+        border-radius: 3px;
+    }
 }
 
 .app__navbar {

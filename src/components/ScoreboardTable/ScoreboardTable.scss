@@ -1,4 +1,65 @@
 
+.__board_table_wrapped {
+    width: 100%;
+    overflow-x: auto;
+    height: fit-content;
+    background: linear-gradient(to bottom,#000, #000b07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::-webkit-scrollbar {
+        height: 7px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #f2930e;
+    }
+}
+
+.__board_table_filter {
+    width: 100%;
+    max-width: 1600px;
+    height: 70px;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+
+    .__board_table_filter_items {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            width: 150px;
+            height: 38px;
+            align-self: flex-end;
+            margin-bottom: 6px;
+            border: none;
+            border-radius: 3px;
+            background: #efa134;
+            cursor: pointer;
+        }
+
+        .__board_table_filter_item {
+            color: #000 !important;
+        }
+        .select_field_wrapper_countries_edit {
+            color: #fff;
+            width: 180px;
+        }
+        .select_field_wrapper_sports_edit {
+            color: #fff;
+            padding-inline: 10px;
+            width: 180px;
+        }
+    }
+}
+
 .__board_table {
     max-width: max-content;
     min-width: 1600px;
@@ -7,10 +68,10 @@
 
     .__board_table_legend {
         width: 100%;
-        height: 25px;
+        height: 30px;
         display: flex;
         align-items: center;
-        background: linear-gradient(to right, #e8ab11, #de6910);
+        background: #3ccf92;
         color: #000;
         font-weight: 700;
         border-radius: 7px;
@@ -29,7 +90,7 @@
         }
     }
     .__board_table_data {
-        height: calc(100% - 40px);
+        height: calc(15 * 38px);
         width: 100%;
         overflow-y: auto;
 
@@ -78,6 +139,13 @@
         }
     }
 }
+
+.extension {
+    width: 100%;
+    height: 300px;
+    background: #000b07;
+}
+
 @media (max-width: 1620px) {
     .__board_table {
         align-self: flex-start;

@@ -37,6 +37,7 @@ export const MainPage = () => {
                 <Route path={"/live/:hash"} element={<SelectedLiveRace />}/>
                 <Route path={"/live/full/:hash"} element={<SelectedLiveFull />}/>
             </Routes>
+
             <footer className="app__live-footer">
                 This is a footer
                 footer template text
