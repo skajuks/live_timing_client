@@ -4,7 +4,7 @@ import Field from '../Field';
 
 class SelectField extends Field{
     getWrapClassName() {
-        return "select_field_wrapper_" + this.getNamePostfix();
+        return "select_field_wrapper_";
     }
     callback = (value) => {
         if (this.props.onChange) {

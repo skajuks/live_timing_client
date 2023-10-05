@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { countries, sports, monthNames } from "../../helpers/static/data";
 import { OptionsTransformer } from "../../helpers/OptionsTransformer";
 import { parseDate } from "../../helpers/Parsers";
+import { BsSortUpAlt, BsSortDownAlt } from "react-icons/bs";
 
 export interface BoardField {
     data: string;
@@ -30,6 +31,8 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
 
     const [countryFilterValue, setCountryFilterValue] = useState<string>("");
     const [sportFilterValue, setSportFilterValue] = useState<string | null>("");
+    const [nameFilterValue, setNameFilterValue] = useState<string>("");
+    const [dateFilterValue, setDateFilterValue] = useState<string>("desc");
 
     const legendBar: any = [];
     const legendItems: any = [];
@@ -37,7 +40,8 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
     const getDataWithFilters = async (values: any) => {
         setCurrentPage(1); // set current page to 1
         try {
-            const response = await fetch(`http://localhost:3002/api/getMaxPages?country=${values.ctry}&sports=${values.sports}`);
+            const pageStr = `http://localhost:3002/api/getMaxPages?country=${values.ctry}&sports=${values.sports}&name=${values.name}`
+            const response = await fetch(pageStr);
             const data = await response.json();
             if (!data.pages || data.pages === 0) {
                 setCurrentPageData(null);
@@ -45,7 +49,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
             }
             if (data.pages) {
                 setMaxPage(data.pages);
-                const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${currentPage}&country=${values.ctry}&sports=${values.sports}`);
+                const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${currentPage}&country=${values.ctry}&sports=${values.sports}&date=${values.date}&name=${values.name}`);
                 const pageData = await response.json();
                 if (pageData.data) {
                     pageData.data.forEach((item: any) => {
@@ -131,7 +135,12 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                             label="Country"
                             onChange={(val : any) => {
                                 setCountryFilterValue(val);
-                                getDataWithFilters({ctry: val, sports: sportFilterValue});
+                                console.log(val);
+                                getDataWithFilters({ctry: val,
+                                                    sports: sportFilterValue,
+                                                    date: dateFilterValue,
+                                                    name: nameFilterValue
+                                });
                             }}
                         />
                         <SelectField
@@ -140,11 +149,59 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                             options={new OptionsTransformer(sports).get()}
                             onChange={(val: any) => {
                                 setSportFilterValue(val);
-                                getDataWithFilters({ctry: countryFilterValue, sports: val});
+                                getDataWithFilters({ctry: countryFilterValue,
+                                                    sports: val,
+                                                    date: dateFilterValue,
+                                                    name: nameFilterValue
+                                });
                             }}
                             label="Sport"
                             name="sports"
                         />
+                        <div className="__board_table_filter_name_filter">
+                            <label>Event Name</label>
+                            <input
+                                type="text"
+                                onChange={(event) => {
+                                    setNameFilterValue(event.target.value);
+                                }}
+                            />
+                        </div>
+                        <button
+                            onClick={() => {
+                                getDataWithFilters({ctry: countryFilterValue,
+                                                    sports: sportFilterValue,
+                                                    date: dateFilterValue,
+                                                    name: nameFilterValue
+                                                });
+                            }}
+                        >Search Race name</button>
+                        <div className="__board_table_date_sorters">
+                            <button
+                                value={"asc"}
+                                style={{background: dateFilterValue === "asc" ? "#36129a" : "#171719"}}
+                                onClick={() => {
+                                        setDateFilterValue("asc");
+                                        getDataWithFilters({ctry: countryFilterValue,
+                                            sports: sportFilterValue,
+                                            date: "asc",
+                                            name: nameFilterValue
+                                        });
+                                }}
+                            ><BsSortUpAlt size={"80%"}/></button>
+                            <button
+                                value={"desc"}
+                                style={{background: dateFilterValue === "desc" ? "#36129a" : "#171719"}}
+                                onClick={() => {
+                                        setDateFilterValue("desc");
+                                        getDataWithFilters({ctry: countryFilterValue,
+                                            sports: sportFilterValue,
+                                            date: "desc",
+                                            name: nameFilterValue
+                                        });
+                                }}
+                            ><BsSortDownAlt size={"80%"}/></button>
+                        </div>
                     </div>
                 </div>
             }

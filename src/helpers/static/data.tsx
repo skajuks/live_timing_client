@@ -1,6 +1,6 @@
 
 export const sports = {
-    0: "All Sports",
+    0: "All",
     1: "Car Racing",
     2: "Motorcycle Racing",
     3: "Supermoto",
@@ -16,7 +16,7 @@ export const sports = {
 };
 
 export const countries = {
-    ALL: "All Countries",
+    ALL: "All",
     AF: 'Afghanistan',
     AX: 'Aland Islands',
     AL: 'Albania',
