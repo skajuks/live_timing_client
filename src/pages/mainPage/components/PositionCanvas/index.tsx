@@ -10,7 +10,7 @@ function RenderPositionGraph(ctx: CanvasRenderingContext2D) {
     ctx.clearRect(0, 0, W, H)
 
     ctx.strokeStyle = "#F00"
-    ctx.lineWidth = 4
+    ctx.lineWidth = 6
     ctx.strokeRect(0, 0, W, H)
 }
 

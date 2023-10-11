@@ -14,13 +14,16 @@
         align-items: center;
         justify-content: center;
         color: #f5f5f7;
-        font-size: 50px;
-        font-family: "SF-Pro", sans-serif;
-        font-weight: 600;
+        font-size: 60px;
+
+        font-family: "GT walsheim bold", sans-serif;
+        letter-spacing: -2.4px;
 
         p {
             font-size: 14px;
             font-weight: 300;
+            font-family: "SF-Pro", sans-serif;
+            letter-spacing: 0;
         }
         .app__historyGroups_data_filter {
             position: absolute;

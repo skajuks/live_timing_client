@@ -165,6 +165,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                                 onChange={(event) => {
                                     setNameFilterValue(event.target.value);
                                 }}
+                                placeholder={"Enter event name"}
                             />
                         </div>
                         <button
@@ -175,7 +176,17 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                                                     name: nameFilterValue
                                                 });
                             }}
-                        >Search Race name</button>
+                        >Search</button>
+                        <button
+                            onClick={() => {
+                                setNameFilterValue("");
+                                getDataWithFilters({ctry: countryFilterValue,
+                                    sports: sportFilterValue,
+                                    date: dateFilterValue,
+                                    name: ""
+                                });
+                            }}
+                        >Clear</button>
                         <div className="__board_table_date_sorters">
                             <button
                                 value={"asc"}
@@ -214,6 +225,12 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                 </div>
                 <div className="__board_table_data">
                     {
+                        !maxPage && maxPage !== 0 ?
+                        <div className="__board_table_data_loading">
+                            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+                            <p>Loading Event History...</p>
+                        </div> :
+                        !currentPageData ? <div className="__board_table_no_data">No races found</div> :
                         currentPageData && currentPageData.data.map((item: any, index: number) =>
                             <div
                                 className="__board_table_data_item"
@@ -254,25 +271,29 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                     }
                 </div>
             </div>
-            <div className="app__historyGroups_pageChange">
-                <button
-                    onClick={() => {
-                        if (currentPage - 1 !== 0) {
-                            setCurrentPage(currentPage - 1);
-                            getPageData(currentPage - 1);
-                        }
-                    }}
-                >{`<`}</button>
-                <span>{`${currentPage} / ${maxPage}`}</span>
-                <button
-                    onClick={() => {
-                        if (currentPage + 1 <= maxPage!) {
-                            setCurrentPage(currentPage + 1);
-                            getPageData(currentPage + 1);
-                        }
-                    }}
-                >{`>`}</button>
-            </div>
+            {
+                maxPage &&
+                <div className="app__historyGroups_pageChange">
+                    <button
+                        onClick={() => {
+                            if (currentPage - 1 !== 0) {
+                                setCurrentPage(currentPage - 1);
+                                getPageData(currentPage - 1);
+                            }
+                        }}
+                    >{`<`}</button>
+                    <span>{`${currentPage} / ${maxPage}`}</span>
+                    <button
+                        onClick={() => {
+                            if (currentPage + 1 <= maxPage!) {
+                                setCurrentPage(currentPage + 1);
+                                getPageData(currentPage + 1);
+                            }
+                        }}
+                    >{`>`}</button>
+                </div>
+            }
+
         </div>
     );  
 };
