@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { BsPlayFill } from "react-icons/bs";
 import "./raceHistoryEvent.scss";
 import { parseDate } from '../../../../../helpers/Parsers';
+import { BoardTable } from '../../../../../components/ScoreboardTable/ScoreboardTable';
 
 interface EventData {
     championship: string,
@@ -24,74 +25,35 @@ export const RaceHistoryEvent = () => {
     const [eventData, setEventData] = useState<EventData[]>([]);
 
     const getEventData = async (date: string, trackName: string) => {
-        const response = await fetch(`http://localhost:3002/api/getEventData?date=${date}&track_name=${trackName}`);
+        const response = await fetch(`http://192.168.8.252:3002/api/getEventData?date=${date}&track_name=${trackName}`);
         const data = await response.json();
         setEventData(data.data);
     };
-
-    const legend: any = [
-        {name: "Name", width: 20, img: false, center: true},
-        {name: "Race Type", width: 20, img: true, center: true},
-        {name: "Start Time", width: 20, img: false, center: false},
-        {name: "End Time", width: 20, img: false, center: false},
-    ];
-    const legendBar: any = [];
 
     useEffect(() => {
         getEventData(state.eventDate, state.eventTrack);
     }, [state]);
 
-    const asdasd = (array: any) => {
-        array.forEach((item: any, index: number) => {
-            legendBar.push(
-                <div
-                    className="__board_table_legendField"
-                    key={`${index}_board_table_field_legend`}
-                    style={{
-                        width: `${item.width}%`,
-                        justifyContent : item.center ? "center" : "flex-start"
-                    }}
-                >
-                <p
-                    style={{marginLeft: item.center ? "0px" : "20px"}}
-                >{item.name}</p>
-                </div>
-            )
-        })
-    };
-    asdasd(legend);
-
     return (
-        <div className="app_liveList-main">
+        <div
+            className="app__historyEvent-main"
+            style={{backgroundImage: "url('/svg/Lines.svg')"}}
+        >
             <header>
-                {state.eventTrack}
+                <h3>{state.eventTrack}</h3>
                 <p>{parseDate(state.eventDate)}</p>
             </header>
-            <div className="__board_table_wrapped">
-                <div className="__board_table">
-                    <div className="__board_table_legend">
-                        {legendBar}
-                    </div>
-                    <div className="__board_table_data">
-                    {
-                        eventData && eventData.map((item, index) =>
-                            <div
-                                className="__board_table_data_item"
-                                key={`${index}_historyEvent-item`}
-                            >
-                                {item.name}
-                                {item.race_type}
-                                {item.start_time}
-                                {item.end_time || "-"}
-                            </div>
-                        )
-                    }
-                    </div>
-                    <div className="app__historyGroups_pageChange">
-
-                    </div>
-                </div>
-            </div>
+            <BoardTable
+                legend={[
+                    {data: "race_type", dataParent: "", name: "Run Type", width: 10, img: false, center: true, customSrc: "", customElement: ""},
+                    {data: "name", dataParent: "", name: "Name", width: 70, img: false, center: true, customSrc: "", customElement: ""},
+                    {data: "start_time", dataParent: "", name: "Start Time", width: 10, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "end_time", dataParent: "", name: "End Time", width: 10, img: false, center: false, customSrc: "", customElement: ""},
+                ]}
+                data={{}}
+                properties={{navRunHistory: true, currentPageData: eventData, maxPage: 1}}
+                functions={{}}
+            />
         </div>
     );
 };

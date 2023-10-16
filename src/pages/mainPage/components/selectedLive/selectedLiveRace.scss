@@ -1,7 +1,6 @@
 
 .app_liveList-selected-main {
     width: 100%;
-    height: fit-content;
     font-family: "Outfit", sans-serif;
     background-size: cover;
     position: relative;
@@ -60,8 +59,16 @@
         }
     }
 
-
-
+    .app_liveList-selected-loading {
+        width: 100%;
+        height: calc((15 * 40px) + 150px);
+        background: #000000;
+        color: #eeeeee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     .app_liveList-selected-results {
         width: 100%;

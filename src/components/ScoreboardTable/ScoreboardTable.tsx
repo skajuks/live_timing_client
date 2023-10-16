@@ -1,7 +1,6 @@
 import "./ScoreboardTable.scss";
 import { useNavigate } from "react-router-dom";
 import SelectField from "../Fields/SelectField/SelectField";
-import { useState, useEffect, useRef } from "react";
 import { countries, sports, monthNames } from "../../helpers/static/data";
 import { OptionsTransformer } from "../../helpers/OptionsTransformer";
 import { parseDate } from "../../helpers/Parsers";
@@ -9,36 +8,35 @@ import { BsSortUpAlt, BsSortDownAlt } from "react-icons/bs";
 
 export interface BoardField {
     data: string;
+    dataParent: string;
     name: string;
     width: number;
     img: boolean;
     center: boolean;
     customSrc: string;
+    customElement: any;
 };
 
 export interface BoardTableProps {
     legend: BoardField[];
     data: any;
     properties: any; // You can specify a more specific type if needed
+    functions: any;
 }
 
-export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}) => {
+export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties, functions}) => {
 
     const navigate = useNavigate();
-    const [maxPage, setMaxPage] = useState(null);
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [currentPageData, setCurrentPageData] = useState<any>();
-
-    const [countryFilterValue, setCountryFilterValue] = useState<string>("");
-    const [sportFilterValue, setSportFilterValue] = useState<string | null>("");
-    const [nameFilterValue, setNameFilterValue] = useState<string>("");
-    const [dateFilterValue, setDateFilterValue] = useState<string>("desc");
-
     const legendBar: any = [];
     const legendItems: any = [];
 
-    const getDataWithFilters = async (values: any) => {
-        setCurrentPage(1); // set current page to 1
+    const clearValueInput = (id: string) => {
+        const el = (document.getElementById(id) as HTMLInputElement);
+        if (el && el.value) { el.value = ''; }
+    };
+
+    const getDataWithFilters = async (values: any, setCurrentPageData: Function, setMaxPage: Function) => {
+        functions.setCurrentPage(1); // set current page to 1
         try {
             const pageStr = `http://localhost:3002/api/getMaxPages?country=${values.ctry}&sports=${values.sports}&name=${values.name}`
             const response = await fetch(pageStr);
@@ -49,7 +47,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
             }
             if (data.pages) {
                 setMaxPage(data.pages);
-                const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${currentPage}&country=${values.ctry}&sports=${values.sports}&date=${values.date}&name=${values.name}`);
+                const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${properties.currentPage}&country=${values.ctry}&sports=${values.sports}&date=${values.date}&name=${values.name}`);
                 const pageData = await response.json();
                 if (pageData.data) {
                     pageData.data.forEach((item: any) => {
@@ -60,7 +58,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                         }
                     })
                 }
-                setCurrentPageData(pageData);
+                setCurrentPageData(pageData?.data);
             }
         } catch (error) {
 
@@ -70,37 +68,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
         // show data
     };
 
-    const getPageData = async (currentPage: number = 1) => {
-        const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${currentPage}`);
-        const data = await response.json();
-        if (data.data) {
-            data.data.forEach((item: any) => {
-                if (item.event_date) {
-                    item.parsed_date = parseDate(item.event_date);
-                } else {
-                    item.parsed_date = "";
-                }
-            })
-        }
-        setCurrentPageData(data);
-    };
-
-    useEffect(() => {
-        // get the max page amount
-        const getMaxPage = async () => {
-            try {
-                const response = await fetch("http://localhost:3002/api/getMaxPages");
-                const data = await response.json();
-                setMaxPage(data.pages);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        getMaxPage();
-        getPageData(currentPage);
-    }, []);
-
-    const asdasd = (array: any) => {
+    const insertLegend = (array: any) => {
         array.forEach((item: any, index: number) => {
             legendBar.push(
                 <div
@@ -119,7 +87,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
             legendItems.push(item);
         })
     };
-    asdasd(legend);
+    insertLegend(legend);
 
     return (
         <div className="__board_table_wrapped">
@@ -134,13 +102,15 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                             name="countries"
                             label="Country"
                             onChange={(val : any) => {
-                                setCountryFilterValue(val);
-                                console.log(val);
+                                functions.setCountryFilterValue(val);
                                 getDataWithFilters({ctry: val,
-                                                    sports: sportFilterValue,
-                                                    date: dateFilterValue,
-                                                    name: nameFilterValue
-                                });
+                                                    sports: properties.sportFilterValue,
+                                                    date: properties.dateFilterValue,
+                                                    name: properties.nameFilterValue
+                                },
+                                functions.currentPage,
+                                functions.maxPage
+                                );
                             }}
                         />
                         <SelectField
@@ -148,12 +118,15 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                             id="app__historyGroups_selector_sport"
                             options={new OptionsTransformer(sports).get()}
                             onChange={(val: any) => {
-                                setSportFilterValue(val);
-                                getDataWithFilters({ctry: countryFilterValue,
+                                functions.setSportFilterValue(val);
+                                getDataWithFilters({ctry: properties.countryFilterValue,
                                                     sports: val,
-                                                    date: dateFilterValue,
-                                                    name: nameFilterValue
-                                });
+                                                    date: properties.dateFilterValue,
+                                                    name: properties.nameFilterValue
+                                },
+                                functions.currentPage,
+                                functions.maxPage
+                                );
                             }}
                             label="Sport"
                             name="sports"
@@ -162,54 +135,68 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                             <label>Event Name</label>
                             <input
                                 type="text"
+                                id="board_table_event_name_input"
                                 onChange={(event) => {
-                                    setNameFilterValue(event.target.value);
+                                    functions.setNameFilterValue(event.target.value);
                                 }}
                                 placeholder={"Enter event name"}
                             />
                         </div>
                         <button
                             onClick={() => {
-                                getDataWithFilters({ctry: countryFilterValue,
-                                                    sports: sportFilterValue,
-                                                    date: dateFilterValue,
-                                                    name: nameFilterValue
-                                                });
+                                getDataWithFilters({ctry: properties.countryFilterValue,
+                                                    sports: properties.sportFilterValue,
+                                                    date: properties.dateFilterValue,
+                                                    name: properties.nameFilterValue
+                                },
+                                functions.currentPage,
+                                functions.maxPage
+                                );
                             }}
                         >Search</button>
                         <button
                             onClick={() => {
-                                setNameFilterValue("");
-                                getDataWithFilters({ctry: countryFilterValue,
-                                    sports: sportFilterValue,
-                                    date: dateFilterValue,
+                                functions.setNameFilterValue("");
+                                getDataWithFilters({ctry: properties.countryFilterValue,
+                                    sports: properties.sportFilterValue,
+                                    date: properties.dateFilterValue,
                                     name: ""
-                                });
+                                },
+                                functions.currentPage,
+                                functions.maxPage
+                                );
+                                clearValueInput("board_table_event_name_input");
                             }}
                         >Clear</button>
                         <div className="__board_table_date_sorters">
                             <button
                                 value={"asc"}
-                                style={{background: dateFilterValue === "asc" ? "#36129a" : "#171719"}}
+                                style={{background: properties.dateFilterValue === "asc" ? "#067158" : "#171719"}}
                                 onClick={() => {
-                                        setDateFilterValue("asc");
-                                        getDataWithFilters({ctry: countryFilterValue,
-                                            sports: sportFilterValue,
+                                        functions.setDateFilterValue("asc");
+                                        getDataWithFilters({ctry: properties.countryFilterValue,
+                                            sports: properties.sportFilterValue,
                                             date: "asc",
-                                            name: nameFilterValue
-                                        });
+                                            name: properties.nameFilterValue
+                                        },
+                                        functions.currentPage,
+                                        functions.maxPage
+                                        );
                                 }}
                             ><BsSortUpAlt size={"80%"}/></button>
                             <button
                                 value={"desc"}
-                                style={{background: dateFilterValue === "desc" ? "#36129a" : "#171719"}}
+                                style={{background:  properties.dateFilterValue === "desc" ? "#067158" : "#171719"}}
                                 onClick={() => {
-                                        setDateFilterValue("desc");
-                                        getDataWithFilters({ctry: countryFilterValue,
-                                            sports: sportFilterValue,
+                                        functions.setDateFilterValue("desc");
+                                        getDataWithFilters({ctry: properties.countryFilterValue,
+                                            sports: properties.sportFilterValue,
                                             date: "desc",
-                                            name: nameFilterValue
-                                        });
+                                            name: properties.nameFilterValue
+                                        },
+                                        functions.currentPage,
+                                        functions.maxPage
+                                        );
                                 }}
                             ><BsSortDownAlt size={"80%"}/></button>
                         </div>
@@ -225,17 +212,18 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                 </div>
                 <div className="__board_table_data">
                     {
-                        !maxPage && maxPage !== 0 ?
+                        !properties.maxPage && properties.maxPage !== 0 ?
                         <div className="__board_table_data_loading">
                             <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
                             <p>Loading Event History...</p>
                         </div> :
-                        !currentPageData ? <div className="__board_table_no_data">No races found</div> :
-                        currentPageData && currentPageData.data.map((item: any, index: number) =>
+                        !properties.currentPageData ? <div className="__board_table_no_data">No races found</div> :
+                        properties.currentPageData && properties.currentPageData.map((item: any, index: number) =>
                             <div
                                 className="__board_table_data_item"
                                 key={`${index}_board_table_data_item`}
                                 onClick={() => {
+                                    properties.navHistory ?
                                     navigate(`/history/${item.id}`, {
                                         state: {
                                             eventId: item.id,
@@ -243,6 +231,8 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                                             eventDate: item.event_date
                                         }
                                     })
+                                    :
+                                    navigate(`/live/${item.token}`);
                                 }}
                             >
                                 {
@@ -258,11 +248,13 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                                             item_name.img ?
                                             <img
                                                 style={
-                                                    {width: item_name.customSrc ? "45px" : "26px", height: item_name.customSrc ? "45px" : "26px"}
+                                                    {width: item_name.customSrc ? "45px" : "35px", height: item_name.customSrc ? "45px" : "26px"}
                                                 }
-                                                src={item_name.customSrc ? `${item_name.customSrc}${item?.[item_name.data]}.png` : `https://flagcdn.com/${item?.[item_name.data].toLowerCase()}.svg`}
+                                                src={item_name.customSrc ? `${item_name.customSrc}${item?.[item_name.data]}.png` : `https://flagcdn.com/${item?.[item_name.data]?.toLowerCase()}.svg`}
                                             /> :
-                                            item?.[item_name.data]
+                                            item_name.customElement ? item_name.customElement(item) :
+                                            item_name.dataParent ? item?.[item_name.dataParent]?.[item_name.data] : item?.[item_name.data]
+
                                         }</p>
                                     )
                                 }
@@ -272,22 +264,22 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties}
                 </div>
             </div>
             {
-                maxPage &&
+                properties.maxPage && properties.pageSwitch &&
                 <div className="app__historyGroups_pageChange">
                     <button
                         onClick={() => {
-                            if (currentPage - 1 !== 0) {
-                                setCurrentPage(currentPage - 1);
-                                getPageData(currentPage - 1);
+                            if (properties.currentPage - 1 !== 0) {
+                                functions.currentPage(properties.currentPage - 1);
+                                functions.pageData(properties.currentPage - 1);
                             }
                         }}
                     >{`<`}</button>
-                    <span>{`${currentPage} / ${maxPage}`}</span>
+                    <span>{`${properties.currentPage} / ${properties.maxPage}`}</span>
                     <button
                         onClick={() => {
-                            if (currentPage + 1 <= maxPage!) {
-                                setCurrentPage(currentPage + 1);
-                                getPageData(currentPage + 1);
+                            if (properties.currentPage + 1 <= properties.maxPage!) {
+                                functions.currentPage(properties.currentPage + 1);
+                                functions.pageData(properties.currentPage + 1);
                             }
                         }}
                     >{`>`}</button>

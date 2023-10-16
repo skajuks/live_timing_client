@@ -24,6 +24,7 @@ export const MainPage = () => {
                     </li>
                     <li onClick={() => { navigate("/") }}>Live Timing</li>
                     <li onClick={() => { navigate("/history") }}>Race History</li>
+                    <li>Backgrounds</li>
                 </ul>
             </nav>
             <div className="app__navbar-infobox">
