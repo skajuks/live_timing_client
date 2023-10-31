@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BsPlayFill } from "react-icons/bs";
 import "./raceHistoryEvent.scss";
 import { parseDate } from '../../../../../helpers/Parsers';
@@ -21,27 +21,40 @@ interface EventData {
 
 export const RaceHistoryEvent = () => {
 
-    const { state } = useLocation();
+    const navigate = useNavigate();
+    const {date, track_name} = useParams();
     const [eventData, setEventData] = useState<EventData[]>([]);
 
-    const getEventData = async (date: string, trackName: string) => {
-        const response = await fetch(`http://192.168.8.252:3002/api/getEventData?date=${date}&track_name=${trackName}`);
+    const getEventData = async (date: string, track_name: string) => {
+        const response = await fetch(`http://localhost:3015/api/getEventData?date=${date}&track_name=${track_name}`);
         const data = await response.json();
         setEventData(data.data);
     };
 
+    const navigateTo = (item: any) => {
+        navigate(`/history/${date}/${track_name}/${item.id}`);
+    };
+
     useEffect(() => {
-        getEventData(state.eventDate, state.eventTrack);
-    }, [state]);
+        if (!date || !track_name) { return; } // add some 404 page that says race not found or deleted
+        getEventData(date, track_name);
+    }, []);
+
+    const bg = localStorage.getItem("background");
 
     return (
         <div
             className="app__historyEvent-main"
-            style={{backgroundImage: "url('/svg/Lines.svg')"}}
+            style={{
+                backgroundImage: bg ? `url('/svg/${bg}.svg')` : "url('/svg/Squares.svg')",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+            }}
         >
             <header>
-                <h3>{state.eventTrack}</h3>
-                <p>{parseDate(state.eventDate)}</p>
+                <h3>{track_name}</h3>
+                <p>{parseDate(date!)}</p>
             </header>
             <BoardTable
                 legend={[
@@ -53,6 +66,7 @@ export const RaceHistoryEvent = () => {
                 data={{}}
                 properties={{navRunHistory: true, currentPageData: eventData, maxPage: 1}}
                 functions={{}}
+                customFunctions={{navigateTo: navigateTo}}
             />
         </div>
     );

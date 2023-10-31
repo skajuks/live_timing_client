@@ -1,6 +1,7 @@
 import { monthNames } from "./static/data";
 
 export function parseDate(dateString: string) {
+    if (!dateString) { return ""};
     const dateParts = dateString.split("-");
     const year = Number(dateParts[0]);
     const month = Number(dateParts[1]);

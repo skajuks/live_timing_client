@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import SelectField from "../Fields/SelectField/SelectField";
 import { countries, sports, monthNames } from "../../helpers/static/data";
 import { OptionsTransformer } from "../../helpers/OptionsTransformer";
-import { parseDate } from "../../helpers/Parsers";
 import { BsSortUpAlt, BsSortDownAlt } from "react-icons/bs";
 
 export interface BoardField {
@@ -22,9 +21,10 @@ export interface BoardTableProps {
     data: any;
     properties: any; // You can specify a more specific type if needed
     functions: any;
+    customFunctions: any;
 }
 
-export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties, functions}) => {
+export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties, functions, customFunctions}) => {
 
     const navigate = useNavigate();
     const legendBar: any = [];
@@ -33,39 +33,6 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
     const clearValueInput = (id: string) => {
         const el = (document.getElementById(id) as HTMLInputElement);
         if (el && el.value) { el.value = ''; }
-    };
-
-    const getDataWithFilters = async (values: any, setCurrentPageData: Function, setMaxPage: Function) => {
-        functions.setCurrentPage(1); // set current page to 1
-        try {
-            const pageStr = `http://localhost:3002/api/getMaxPages?country=${values.ctry}&sports=${values.sports}&name=${values.name}`
-            const response = await fetch(pageStr);
-            const data = await response.json();
-            if (!data.pages || data.pages === 0) {
-                setCurrentPageData(null);
-                return setMaxPage(data.pages);
-            }
-            if (data.pages) {
-                setMaxPage(data.pages);
-                const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${properties.currentPage}&country=${values.ctry}&sports=${values.sports}&date=${values.date}&name=${values.name}`);
-                const pageData = await response.json();
-                if (pageData.data) {
-                    pageData.data.forEach((item: any) => {
-                        if (item.event_date) {
-                            item.parsed_date = parseDate(item.event_date);
-                        } else {
-                            item.parsed_date = "";
-                        }
-                    })
-                }
-                setCurrentPageData(pageData?.data);
-            }
-        } catch (error) {
-
-        }
-        // get max pages
-        // get data for page 1
-        // show data
     };
 
     const insertLegend = (array: any) => {
@@ -103,14 +70,14 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                             label="Country"
                             onChange={(val : any) => {
                                 functions.setCountryFilterValue(val);
-                                getDataWithFilters({ctry: val,
-                                                    sports: properties.sportFilterValue,
-                                                    date: properties.dateFilterValue,
-                                                    name: properties.nameFilterValue
-                                },
-                                functions.currentPage,
-                                functions.maxPage
-                                );
+                                customFunctions.filters({
+                                    values: {
+                                        ctry: val,
+                                        sports: properties.sportFilterValue,
+                                        date: properties.dateFilterValue,
+                                        name: properties.nameFilterValue
+                                    }
+                                });
                             }}
                         />
                         <SelectField
@@ -119,14 +86,14 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                             options={new OptionsTransformer(sports).get()}
                             onChange={(val: any) => {
                                 functions.setSportFilterValue(val);
-                                getDataWithFilters({ctry: properties.countryFilterValue,
-                                                    sports: val,
-                                                    date: properties.dateFilterValue,
-                                                    name: properties.nameFilterValue
-                                },
-                                functions.currentPage,
-                                functions.maxPage
-                                );
+                                customFunctions.filters({
+                                    values: {
+                                        ctry: properties.countryFilterValue,
+                                        sports: val,
+                                        date: properties.dateFilterValue,
+                                        name: properties.nameFilterValue
+                                    }
+                                });
                             }}
                             label="Sport"
                             name="sports"
@@ -144,59 +111,59 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                         </div>
                         <button
                             onClick={() => {
-                                getDataWithFilters({ctry: properties.countryFilterValue,
-                                                    sports: properties.sportFilterValue,
-                                                    date: properties.dateFilterValue,
-                                                    name: properties.nameFilterValue
-                                },
-                                functions.currentPage,
-                                functions.maxPage
-                                );
+                                customFunctions.filters({
+                                    values: {
+                                        ctry: properties.countryFilterValue,
+                                        sports: properties.sportFilterValue,
+                                        date: properties.dateFilterValue,
+                                        name: properties.nameFilterValue
+                                    }
+                                });
                             }}
                         >Search</button>
                         <button
                             onClick={() => {
                                 functions.setNameFilterValue("");
-                                getDataWithFilters({ctry: properties.countryFilterValue,
-                                    sports: properties.sportFilterValue,
-                                    date: properties.dateFilterValue,
-                                    name: ""
-                                },
-                                functions.currentPage,
-                                functions.maxPage
-                                );
+                                customFunctions.filters({
+                                    values: {
+                                        ctry: properties.countryFilterValue,
+                                        sports: properties.sportFilterValue,
+                                        date: properties.dateFilterValue,
+                                        name: ""
+                                    }
+                                });
                                 clearValueInput("board_table_event_name_input");
                             }}
                         >Clear</button>
                         <div className="__board_table_date_sorters">
                             <button
                                 value={"asc"}
-                                style={{background: properties.dateFilterValue === "asc" ? "#067158" : "#171719"}}
+                                style={{background: properties.dateFilterValue === "asc" ? "#424242" : "#171719"}}
                                 onClick={() => {
                                         functions.setDateFilterValue("asc");
-                                        getDataWithFilters({ctry: properties.countryFilterValue,
-                                            sports: properties.sportFilterValue,
-                                            date: "asc",
-                                            name: properties.nameFilterValue
-                                        },
-                                        functions.currentPage,
-                                        functions.maxPage
-                                        );
+                                        customFunctions.filters({
+                                            values: {
+                                                ctry: properties.countryFilterValue,
+                                                sports: properties.sportFilterValue,
+                                                date: "asc",
+                                                name: properties.nameFilterValue
+                                            }
+                                        });
                                 }}
                             ><BsSortUpAlt size={"80%"}/></button>
                             <button
                                 value={"desc"}
-                                style={{background:  properties.dateFilterValue === "desc" ? "#067158" : "#171719"}}
+                                style={{background:  properties.dateFilterValue === "desc" ? "#424242" : "#171719"}}
                                 onClick={() => {
                                         functions.setDateFilterValue("desc");
-                                        getDataWithFilters({ctry: properties.countryFilterValue,
-                                            sports: properties.sportFilterValue,
-                                            date: "desc",
-                                            name: properties.nameFilterValue
-                                        },
-                                        functions.currentPage,
-                                        functions.maxPage
-                                        );
+                                        customFunctions.filters({
+                                            values: {
+                                                ctry: properties.countryFilterValue,
+                                                sports: properties.sportFilterValue,
+                                                date: "desc",
+                                                name: properties.nameFilterValue
+                                            }
+                                        });
                                 }}
                             ><BsSortDownAlt size={"80%"}/></button>
                         </div>
@@ -223,16 +190,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                                 className="__board_table_data_item"
                                 key={`${index}_board_table_data_item`}
                                 onClick={() => {
-                                    properties.navHistory ?
-                                    navigate(`/history/${item.id}`, {
-                                        state: {
-                                            eventId: item.id,
-                                            eventTrack: item.event_track_name,
-                                            eventDate: item.event_date
-                                        }
-                                    })
-                                    :
-                                    navigate(`/live/${item.token}`);
+                                    customFunctions.navigateTo(item);
                                 }}
                             >
                                 {
@@ -264,7 +222,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                 </div>
             </div>
             {
-                properties.maxPage && properties.pageSwitch &&
+                properties.maxPage && properties.pageSwitch ?
                 <div className="app__historyGroups_pageChange">
                     <button
                         onClick={() => {
@@ -284,8 +242,10 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                         }}
                     >{`>`}</button>
                 </div>
+                :
+                <div className="app__historyGroups_pageChange"/>
             }
 
         </div>
-    );  
+    );
 };

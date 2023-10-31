@@ -1,8 +1,7 @@
 import "./liveList.scss";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { MdLocationPin } from "react-icons/md";
 import { BoardTable } from "../../../../components/ScoreboardTable/ScoreboardTable";
+import { useNavigate } from "react-router-dom";
 
 interface raceTypeData {
     race_type_name: string;
@@ -23,6 +22,11 @@ export const LiveList: React.FC = () => {
     const [activeRaces, setActiveRaces] = useState<raceInfoElement[]>([]);
     const navigate = useNavigate();
 
+    const [countryFilterValue, setCountryFilterValue] = useState<string>("");
+    const [sportFilterValue, setSportFilterValue] = useState<string | null>("");
+    const [nameFilterValue, setNameFilterValue] = useState<string>("");
+    const [dateFilterValue, setDateFilterValue] = useState<string>("desc");
+
     function flagToColor(flag: string): string {
         switch (flag) {
             case "Unknown": return "#000";
@@ -41,10 +45,22 @@ export const LiveList: React.FC = () => {
         );
     };
 
+    const getDataWithFilters = async (args: any) => {
+        try {
+            // Add option to filter out incomming live race feed
+        } catch (error) {
+
+        }
+    };
+
+    const navigateTo = (item: any) => {
+        navigate(`/live/${item.token}`);
+    };
+
     useEffect(() => {
         const getActiveRaces = async () => {
             try {
-                const response = await fetch("http://192.168.8.252:3002/api/activeRaces");
+                const response = await fetch("http://localhost:3015/api/activeRaces");
                 const data = await response.json();
                 setActiveRaces(data);
             } catch (err) {
@@ -52,12 +68,19 @@ export const LiveList: React.FC = () => {
             }
         }
         getActiveRaces();
-    }, [])
+    }, []);
+
+    const bg = localStorage.getItem("background");
 
     return (
         <div
             className="app_liveList-main"
-            style={{backgroundImage: "url('/svg/Lines.svg')"}}
+            style={{
+                backgroundImage: bg ? `url('/svg/${bg}.svg')` : "url('/svg/Lines.svg')",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+            }}
         >
             <header>
                 <h3>Live Timing</h3>
@@ -75,7 +98,11 @@ export const LiveList: React.FC = () => {
                 ]}
                 data={{}}
                 properties={{filters: true, currentPageData: activeRaces, maxPage: 1}}
-                functions={{}}
+                functions={{
+                    setCountryFilterValue: setCountryFilterValue, setSportFilterValue: setSportFilterValue,
+                    setNameFilterValue: setNameFilterValue, setDateFilterValue: setDateFilterValue
+                }}
+                customFunctions={{filters: getDataWithFilters, navigateTo: navigateTo}}
             />
         </div>
     );

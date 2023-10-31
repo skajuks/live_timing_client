@@ -32,7 +32,7 @@ export const BoardTableMini: React.FC<BoardTableProps> = ({legend, data, propert
     };
 
     const getPageData = async (currentPage: number = 1) => {
-        const response = await fetch(`http://localhost:3002/api/getPageEvents?page=${currentPage}`);
+        const response = await fetch(`http://localhost:3015/api/getPageEvents?page=${currentPage}`);
         const data = await response.json();
         if (data.data) {
             data.data.forEach((item: any) => {
@@ -50,7 +50,7 @@ export const BoardTableMini: React.FC<BoardTableProps> = ({legend, data, propert
         // get the max page amount
         const getMaxPage = async () => {
             try {
-                const response = await fetch("http://localhost:3002/api/getMaxPages");
+                const response = await fetch("http://localhost:3015/api/getMaxPages");
                 const data = await response.json();
                 setMaxPage(data.pages);
             } catch (err) {
@@ -170,5 +170,5 @@ export const BoardTableMini: React.FC<BoardTableProps> = ({legend, data, propert
                 >{`>`}</button>
             </div>
         </div>
-    );  
+    );
 };

@@ -63,7 +63,7 @@ function getRaceTime(data: any) {
     if (data?.race_details?.laps === 1) {
         return "FINAL LAP";
     }
-    const raceTimerData = (data.race_details.laps !== 9999 ? { name: "LAPS ", data: data.race_details.laps } : {
+    const raceTimerData = (data.race_details?.laps !== 9999 ? { name: "LAPS ", data: data.race_details?.laps } : {
         name: data.race_details.race_type_id === 2 ? "TO GO " : "TIME ",
         data: (data.race_time?.left_time !== "00:00:00" ? (data.race_time?.left_time.startsWith("00:") ? data.race_time?.left_time.slice(3) : data.race_time.left_time) : (data.race_time?.elapsed_time.startsWith("00:") ? data.race_time?.elapsed_time.slice(3) : data.race_time.elapsed_time))
     });
@@ -81,10 +81,9 @@ export function SelectedLiveFull() {
         const getActiveRace = async () => {
             try {
                 if (!hash) { return; }
-                const response = await fetch(`http://192.168.8.252:3002/api/activeRace?id=${hash}`);
+                const response = await fetch(`http://localhost:3015/api/activeRace?id=${hash}`);
                 const data = await response.json();
-                console.log(data?.data?.api_data);
-                if (data?.data?.api_data?.race_competitors_list?.length > 15) {
+                if (data?.data?.race_competitors_list?.length > 15) {
                     const maxPages = Math.ceil(data?.data?.api_data?.race_competitors_list?.length / 15);
                     console.log(maxPages);
                     // If there are more than 12 entries, show the entries for the current page.
@@ -102,7 +101,7 @@ export function SelectedLiveFull() {
                         }
                     }, 10000);
                 } else {
-                    setActiveRace(data?.data?.api_data);
+                    setActiveRace(data?.data);
                 }
             } catch (err) {
                 console.log(err);

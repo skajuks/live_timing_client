@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(0, 0, 0); display: block; z-index: 1; position: relative; shape-rendering: auto;" preserveAspectRatio="xMidYMid" viewBox="0 0 2326 1178">
+<g transform="translate(1163,589) scale(1,1) translate(-1163,-589)"><defs>
+  <symbol id="bestagon-1230003555033045223513">
+  <path d="M30.60533776974206 0L59.98646202869443 16.9632L59.98646202869444 50.889599999999994L30.60533776974206 67.8528L1.2242135107896814 50.889600000000016L1.2242135107896779 16.963199999999997Z" fill="inherit"></path>
+  </symbol>
+</defs><use href="#bestagon-1230003555033045223513" x="-0.002835250198131689" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.7499947442194s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-30.60817301994019" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.3470119385334964s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-30.60817301994019" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.875308566914066s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-30.60817301994019" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.6946584871429833s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-0.002835250198131689" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.016893324218218986s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-30.60817301994019" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.837200197904753s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-0.002835250198131689" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.645111046371211s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-30.60817301994019" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.0769432521681344s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-0.002835250198131689" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.845967799036885s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-30.60817301994019" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.879000291837989s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="-0.002835250198131689" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.029657231856193s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="61.20784028928599" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.960539242337504s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="30.602502519543926" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.104919215231219s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="61.20784028928599" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.472299928730536s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="30.602502519543926" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.12009150241135913s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="61.20784028928599" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.9632770338604124s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="30.602502519543926" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.3654959997623655s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="61.20784028928599" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.5551806553817724s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="30.602502519543926" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.217623505122406s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="61.20784028928599" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.414893560604742s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="30.602502519543926" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.08767859464868s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="61.20784028928599" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.662110692225518s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="91.81317805902805" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.628801763094312s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="91.81317805902805" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.66724151107183s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="122.4185158287701" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.496333104595897s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="91.81317805902805" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.4304733933467961s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="122.4185158287701" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.7022962458655124s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="91.81317805902805" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.077615560580505s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="122.4185158287701" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.241397864031455s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="91.81317805902805" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.066457983763946s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="122.4185158287701" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.632360000516556s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="91.81317805902805" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.5129347725745785s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="122.4185158287701" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.0651393984724522s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.414448626626983s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.742970242820439s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.412764733816664s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="183.62919136825423" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.585898023773211s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.0226401220831582s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="183.62919136825423" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.450171174055098s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.031066705219358s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="183.62919136825423" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.927554384286431s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.88652397134579s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.3812693628766244s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="153.02385359851218" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.120511708035273s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="183.62919136825423" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.186345770879106s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="244.83986690773833" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.044198912191966s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="214.23452913799628" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.524284590629385s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="244.83986690773833" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.6775364444037795s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="214.23452913799628" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.041449505192081s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="244.83986690773833" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.350373330788388s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="214.23452913799628" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.633278370550443s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="244.83986690773833" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.569293435223041s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="214.23452913799628" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.751249920587847s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="244.83986690773833" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.121882292257332s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="214.23452913799628" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.744476647686597s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="244.83986690773833" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.379582617319649s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="88.34999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.5046025260383491s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.77944289773038s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="306.0505424472224" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.7542140174304s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.673445349028375s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.64367777977689s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="306.0505424472224" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.292714685149113s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.733957695036521s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="306.0505424472224" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.9955459029079603s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.617355754259725s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="306.0505424472224" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.759862517079215s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="275.4452046774804" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.160189191973408s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="306.0505424472224" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.70858623676717s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.7828562496672875s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.738189672646707s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="367.2612179867066" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.240726446443383s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.977322519285316s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="367.2612179867066" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.8467809478726736s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.39532066811286404s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="367.2612179867066" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.431719603806466s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.7862591548363915s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="367.2612179867066" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.452579520059565s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.320978195073335s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="367.2612179867066" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.245092031562274s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="336.65588021696453" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.735145098973259s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="397.86655575644863" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.5465425594407325s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="428.4718935261907" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.329068763251755s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="428.4718935261907" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.6837962494912073s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="397.86655575644863" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.414885348967456s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="428.4718935261907" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.615875109439518s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="397.86655575644863" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.3926153797882903s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="428.4718935261907" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.676236703681542s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="428.4718935261907" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.919209502766629s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="397.86655575644863" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.485710346623909s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="397.86655575644863" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.42085996397985825s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="428.4718935261907" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.7995511422761115s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="459.07723129593273" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.21990588400858s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="459.07723129593273" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.9444987442446857s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="489.6825690656748" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.3542531142999126s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="459.07723129593273" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.265871448161674s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="459.07723129593273" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.1413710406255038s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="489.6825690656748" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.4451238525692012s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="459.07723129593273" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.228487031696246s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="489.6825690656748" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.466641567923288s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="459.07723129593273" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.965576099933246s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="489.6825690656748" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.737695743225633s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="489.6825690656748" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.277874292644834s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="489.6825690656748" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.072677973514858s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.222528599521987s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.446092181532245s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.702113140241952s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="520.2879068354168" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.390056632148095s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.558065475095644s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="520.2879068354168" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.926806156779568s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.551778579316117s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="520.2879068354168" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.3262896601257643s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.520735159466108s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="550.8932446051589" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.163023038601226s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="520.2879068354168" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.733158535769787s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="520.2879068354168" y="1042.5299999999997" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.179362754210011s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="247.37999999999997" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.070452586867553s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="581.4985823749009" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.241768703039127s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.4037118949157925s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="581.4985823749009" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.537699371278882s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.906706327496357s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="581.4985823749009" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.345811787639988s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.4589928772408s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="581.4985823749009" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.738852283269614s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.82822050730995s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="581.4985823749009" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.594758117262554s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.954503185834926s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="581.4985823749009" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.771086713544072s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="612.103920144643" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.681147476178738s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="673.3145956841271" y="141.35999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.23141865694653s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.35034104455125s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="673.3145956841271" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.22050631832358s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.188587580549498s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="673.3145956841271" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.143485591794569s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.803287770602793s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="673.3145956841271" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.4057458149735753s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.3410989381301737s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="673.3145956841271" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.275143699202131s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.547786388148873s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="673.3145956841271" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.265735519624287s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.803185748008501s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="642.709257914385" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.531035917836356s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.20091837485750164s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="734.5252712236113" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.774297703726937s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.016434445581178s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="734.5252712236113" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.38933540664317s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.784526344956738s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="734.5252712236113" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.232484348139675s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.47856734780787s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="734.5252712236113" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.841308145031302s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.286050593978906s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.59294123973887s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="734.5252712236113" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.8221854944355234s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.926667472332856s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="703.9199334538692" y="1042.5299999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.567960508785902s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="765.1306089933533" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.8826676151066848s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="765.1306089933533" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.214861602298649s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="795.7359467630954" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.1939600124591365s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="765.1306089933533" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.2972848250701685s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="795.7359467630954" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.3459413887095861s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="765.1306089933533" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.399513929555653s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="795.7359467630954" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.802532672990891s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="765.1306089933533" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.62000587356374s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="795.7359467630954" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.840218342582051s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="765.1306089933533" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.9126988648799137s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="795.7359467630954" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.352636867869846s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="795.7359467630954" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.839028017065897s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="194.36999999999998" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.907805027917005s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.101222895508462s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.956767558464222s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="856.9466223025795" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.805019961051178s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.166611282027672s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="856.9466223025795" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.6274884185263923s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.777750218367176s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="856.9466223025795" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.172834196860448s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.284678986943372s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="826.3412845328374" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.4898436365689274s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="856.9466223025795" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.76644166684207s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.831388476742653s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="918.1572978420636" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.084605984742824s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="918.1572978420636" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.4613154218812006s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.398441085630395s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="918.1572978420636" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.005284081935896s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.537597406756845s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="918.1572978420636" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.3749223790016352s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.999312841028768s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="918.1572978420636" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.0619931885088363s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.338567494391141s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.594417595022122s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="918.1572978420636" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.49414296844381145s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="887.5519600723215" y="1042.5299999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.605367680513398s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="979.3679733815477" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.4006040617824373s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="948.7626356118056" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.32523045282508s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="979.3679733815477" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.19493703053200973s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="948.7626356118056" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.9923288409077697s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="979.3679733815477" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.89046184304798s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="948.7626356118056" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.087257607566022s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="979.3679733815477" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.588924330837785s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="948.7626356118056" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.5592358246742s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="979.3679733815477" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.202249410099109s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="948.7626356118056" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.431451250135265s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="979.3679733815477" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.6584115103617036s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="948.7626356118056" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.889845702927389s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="141.35999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.7592333840910364s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.098545203560953s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1009.9733111512897" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.6882750073606823s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.5664311333225225s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1009.9733111512897" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.311729097468737s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.386723385002203s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1009.9733111512897" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.738499048039292s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.0337160885711523s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1009.9733111512897" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.29099236211617363s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.6120404837527755s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1009.9733111512897" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.07487534482188s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1009.9733111512897" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.9769290834365116s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1040.5786489210318" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.767131991282369s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1071.1839866907737" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.46250935120902s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1071.1839866907737" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.21140301127608563s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1101.789324460516" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.513162333436801s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1071.1839866907737" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.784377411931503s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1101.789324460516" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.693578969299422s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1071.1839866907737" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.35375342590787007s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1071.1839866907737" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.045498031410795s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1163" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.045498297642879s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1132.3946622302578" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.270605800512005s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1163" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.2710640068562626s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1132.3946622302578" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.8369093686598084s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1163" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.369325800018874s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1132.3946622302578" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.80063331419337s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1163" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.820625648431913s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1132.3946622302578" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.138858297571828s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1163" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.144013138018024s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1132.3946622302578" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.591569314887586s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1132.3946622302578" y="1042.5299999999997" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.387229302706334s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.4411970998787766s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1193.605337769742" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.1382493971345817s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.195330231136551s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1193.605337769742" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.5864355317886067s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.6622953340591713s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1193.605337769742" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.902347567477282s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.965663954449012s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1193.605337769742" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.211727375464616s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.9311126638831286s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.498689607144167s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1193.605337769742" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.423439956496346s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1224.210675539484" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.6847612644473293s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1254.816013309226" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.35235492452069s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1254.816013309226" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.837213164559014s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1285.4213510789682" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.138993110828416s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1254.816013309226" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.1260217640220604s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1254.816013309226" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.660549750950679s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1285.4213510789682" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.381090256655999s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1254.816013309226" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.238964751079915s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1285.4213510789682" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.041862454223827s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1254.816013309226" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.651861564607804s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1285.4213510789682" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.174117223507348s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1285.4213510789682" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.861364451873866s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="141.35999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.01761936039149s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.3472464140462903s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.505033842857015s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1316.0266888487101" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.0371007373023815s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.569295278239903s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1316.0266888487101" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.206432379742575s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.662526307557878s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1316.0266888487101" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.89129288607101s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.7006745443715925s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.20476926882448s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1316.0266888487101" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.8062511801561976s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.0407964154349854s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1346.6320266184523" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.412861763310888s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1407.8427021579364" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.3535815850605344s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1377.2373643881942" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.220947103058839s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1407.8427021579364" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.5110467731345243s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1377.2373643881942" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.6351226751520711s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1407.8427021579364" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.8604608246413177s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1377.2373643881942" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.2980879611565355s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1407.8427021579364" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.3997415529627464s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1407.8427021579364" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.6858831474968845s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1407.8427021579364" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.904187980484458s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.197247452552467s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.12584870623455702s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.3619826027897237s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1469.0533776974207" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.507148205047045s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.9688263359990157s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1469.0533776974207" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.094430806131973s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.07413766526273236s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.6724180087313059s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1469.0533776974207" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.35382159992697s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1438.4480399276786" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.814790989339251s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1499.6587154671627" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.723003399647293s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1530.2640532369048" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.7982105117938003s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1499.6587154671627" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.9319210172648233s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1530.2640532369048" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.9631643694002587s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1499.6587154671627" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.144411219532297s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1530.2640532369048" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.45082499297524947s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1499.6587154671627" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.423814248122628s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1530.2640532369048" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.7536813831693232s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1499.6587154671627" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.1695957958517944s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1530.2640532369048" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.790586050508974s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="88.34999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.05502713362714s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.6424013357469716s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.197696446709291s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1591.474728776389" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.624974752246443s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.45895382744564284s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1591.474728776389" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.887089815919342s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.81748706810319s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1591.474728776389" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.8533831357579369s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.8240415963113779s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1591.474728776389" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.343052394918232s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.822197851446486s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1591.474728776389" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.0427290137471035s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.2297558533310378s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1560.8693910066468" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.766301506686754s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1591.474728776389" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.283267289526027s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1652.685404315873" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.959609082139533s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1652.685404315873" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.038890818667923s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1622.0800665461309" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.4395313135514907s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1652.685404315873" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.03328470125890215s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1622.0800665461309" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.8603206673529478s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1652.685404315873" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.050459513075872s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1622.0800665461309" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.316468897372495s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1652.685404315873" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.19789080066339s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1622.0800665461309" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.5337206399174437s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1652.685404315873" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.805302105852875s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="194.36999999999998" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.554088194341135s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="247.37999999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.673030566344767s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.9713089890552773s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.976176566638961s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.400899802094073s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.269223753035504s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.920286678794932s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.8490450631877744s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.498765887535001s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.7195675398192733s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.944487121455135s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.2056718184718784s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.391125527375181s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1683.290742085615" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.457233605967061s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1713.8960798553571" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.701029310645223s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="247.37999999999997" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.4830769139971895s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1744.501417625099" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.765136602129173s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.281051387732331s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1744.501417625099" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.1740280766305697s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.5322638991821425s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1744.501417625099" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.125596597571608s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.932774253779753s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1744.501417625099" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.483602893178156s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.073369833339521s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1744.501417625099" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.0112704989222885s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.417957355364651s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1775.1067553948412" y="883.4999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.6940136845770062s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1744.501417625099" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.0681864993054813s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="141.35999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.565790572900013s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.1959306453267295s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.454341478947305s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.707525657938924s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.244405582246259s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.451584697176049s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.0265215891206148s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.440628921220638s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.770845161729527s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.105899488918217s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.5442415419368127s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.6613084372345424s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1836.3174309343253" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.699458137056318s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="936.5099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.430086469114521s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1805.7120931645832" y="1042.5299999999997" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.311775931597854s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1866.9227687040673" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.4017410109636472s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1866.9227687040673" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.8784650483411225s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1897.5281064738094" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.8690074587078005s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1866.9227687040673" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.602168547900655s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1897.5281064738094" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.078149396801587s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1866.9227687040673" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.061957503632406s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1897.5281064738094" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.320704767360872s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1897.5281064738094" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.152522809983555s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1866.9227687040673" y="1042.5299999999997" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.5409784601210927s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="194.36999999999998" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.6203686881051271s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.7684826730421084s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1958.7387820132935" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.174069894334382s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.576717735067418s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1958.7387820132935" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.7396718025423663s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.950693423895859s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1958.7387820132935" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.785277693327222s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.9325222925901442s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.142722892106546s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1958.7387820132935" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.253026624542176s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1928.1334442435514" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.232994334016993s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1989.3441197830355" y="194.36999999999998" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.290545587225722s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2019.9494575527774" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.307281442403504s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1989.3441197830355" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.0818302436250136s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2019.9494575527774" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.009128314062182s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1989.3441197830355" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.3907171475622166s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2019.9494575527774" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.87403428521772s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1989.3441197830355" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.3070133019524945s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2019.9494575527774" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.483930835820869s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1989.3441197830355" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.455331063898893s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2019.9494575527774" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.1574030214652744s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="1989.3441197830355" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.254816112773369s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2081.1601330922617" y="247.37999999999997" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.342304510517687s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.936502738043107s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2081.1601330922617" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.433816887981329s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.515698807604471s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.56364071695383s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2081.1601330922617" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.8540284432749266s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.9546205438078825s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2081.1601330922617" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.834625498177859s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.901474679259318s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2081.1601330922617" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.640554513387876s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.304027558865533s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2081.1601330922617" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.8237107749608406s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2050.5547953225196" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.206513483116655s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="194.36999999999998" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.967185425580103s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.400658902083673s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2142.370808631746" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.8779598034511076s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="406.4099999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.9200525327913804s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2142.370808631746" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.183832875467159s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.3454982067126484s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2142.370808631746" y="565.4399999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.25235280381864s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.618416044953369s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2142.370808631746" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.9054592011070324s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="724.4699999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.424844546857694s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2142.370808631746" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.050877962587947s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2111.765470862004" y="830.4899999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.499150423874347s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2142.370808631746" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.511726164416155s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2172.9761464014878" y="194.36999999999998" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.167927432139627s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2172.9761464014878" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.197096998058614s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2203.58148417123" y="353.3999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.652066212502037s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2172.9761464014878" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.014410962091256s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2203.58148417123" y="459.4199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.0864973036830667s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2172.9761464014878" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.99454893694872s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2203.58148417123" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-2.1912006808361517s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2172.9761464014878" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.8197834830079946s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2203.58148417123" y="671.4599999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.069002292095995s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2203.58148417123" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.841763133579404s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2172.9761464014878" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.226320135083975s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2203.58148417123" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.786560969999403s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="141.35999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.382912059078338s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="300.38999999999993" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.53012741554306s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.4500193448532612s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="459.4199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.80385831457943s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="512.43" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.117179641929562s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-9.177990407629604s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="618.4499999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.839682383578344s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-1.2599579313308662s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.943151126895065s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="777.4799999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.475258351461049s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-6.714584609241547s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.825774769599544s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2234.186821940972" y="936.5099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.88029661441444s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2264.7921597107143" y="989.5199999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.89336265227646s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="194.36999999999998" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.966395909034043s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="300.38999999999993" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.114715575787727s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2326.002835250198" y="353.3999999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.963186815500023s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="406.4099999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.282097655913448s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="512.43" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.7206902772682988s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2326.002835250198" y="565.4399999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.287480894094838s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="618.4499999999999" fill="#0d0c0d">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.9813067639736417s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2326.002835250198" y="671.4599999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-0.13623332139838462s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="724.4699999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-7.157654262798367s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2326.002835250198" y="777.4799999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-4.799519007614121s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2295.397497480456" y="830.4899999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-8.2926909195305s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2326.002835250198" y="883.4999999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-5.1208514153464035s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use><use href="#bestagon-1230003555033045223513" x="2326.002835250198" y="989.5199999999999" fill="#252225">
+  <animate attributeName="fill" repeatCount="indefinite" dur="10s" begin="-3.519445768550653s" values="#252225;#0d0c0d" keyTimes="0;1"></animate>
+</use></g>
+</svg>

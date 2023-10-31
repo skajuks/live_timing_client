@@ -1,9 +1,9 @@
 import "./raceHistoryGroups.scss";
 import { BoardTable } from "../../../../components/ScoreboardTable/ScoreboardTable";
-import { BoardTableMini } from "../../../../components/ScoreboardTable/ScoreboardTableMini";
-import { useMediaQuery } from 'react-responsive';
 import { useState, useEffect } from "react";
 import { parseDate } from "../../../../helpers/Parsers";
+import { useNavigate } from "react-router-dom";
+
 
 interface RaceHistoryData {
     id: number;
@@ -21,6 +21,8 @@ export interface RaceHistoryElement {
 
 export const RaceHistoryGroups = () => {
 
+    const navigate = useNavigate();
+
     const [maxPage, setMaxPage] = useState(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [currentPageData, setCurrentPageData] = useState<any>();
@@ -31,7 +33,7 @@ export const RaceHistoryGroups = () => {
     const [dateFilterValue, setDateFilterValue] = useState<string>("desc");
 
     const getPageData = async (currentPage: number = 1) => {
-        const response = await fetch(`http://192.168.8.252:3002/api/getPageEvents?page=${currentPage}`);
+        const response = await fetch(`http://localhost:3015/api/getPageEvents?page=${currentPage}`);
         const data = await response.json();
         if (data.data) {
             data.data.forEach((item: any) => {
@@ -45,11 +47,48 @@ export const RaceHistoryGroups = () => {
         setCurrentPageData(data.data);
     };
 
+    const getDataWithFilters = async (args: any) => {
+        setCurrentPage(1);
+        try {
+            const pageStr = `http://localhost:3015/api/getMaxPages?country=${args.values.ctry}&sports=${args.values.sports}&name=${args.values.name}`
+            const response = await fetch(pageStr);
+            const data = await response.json();
+            if (!data.pages || data.pages === 0) {
+                setCurrentPageData(null);
+                return setMaxPage(data.pages);
+            }
+            if (data.pages) {
+                setMaxPage(data.pages);
+                const response = await fetch(`http://localhost:3015/api/getPageEvents?page=${currentPage}&country=${args.values.ctry}&sports=${args.values.sports}&date=${args.values.date}&name=${args.values.name}`);
+                const pageData = await response.json();
+                if (pageData.data) {
+                    pageData.data.forEach((item: any) => {
+                        if (item.event_date) {
+                            item.parsed_date = parseDate(item.event_date);
+                        } else {
+                            item.parsed_date = "";
+                        }
+                    })
+                }
+                setCurrentPageData(pageData?.data);
+            }
+        } catch (error) {
+
+        }
+        // get max pages
+        // get data for page 1
+        // show data
+    };
+
+    const navigateTo = (item: any) => {
+        navigate(`/history/${item.event_date}/${item.event_track_name}`);
+    };
+
     useEffect(() => {
         // get the max page amount
         const getMaxPage = async () => {
             try {
-                const response = await fetch("http://192.168.8.252:3002/api/getMaxPages");
+                const response = await fetch("http://localhost:3015/api/getMaxPages");
                 const data = await response.json();
                 setMaxPage(data.pages);
             } catch (err) {
@@ -60,10 +99,17 @@ export const RaceHistoryGroups = () => {
         getPageData(currentPage);
     }, []);
 
+    const bg = localStorage.getItem("background");
+
     return (
         <div
             className="app__historyGroups_main"
-            style={{backgroundImage: "url('/svg/Lines.svg')"}}
+            style={{
+                    backgroundImage: bg ? `url('/svg/${bg}.svg')` : "url('/svg/Squares.svg')",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                }}
         >
             <header>
                 <h3>Event History</h3>
@@ -82,14 +128,12 @@ export const RaceHistoryGroups = () => {
                     filters: true, navHistory: true, pageSwitch: true, maxPage: maxPage, sportFilterValue: sportFilterValue, dateFilterValue: dateFilterValue, nameFilterValue: nameFilterValue,
                     countryFilterValue: countryFilterValue, currentPageData: currentPageData, currentPage: currentPage
                 }}
-                functions={{maxPage: setMaxPage, currentPage: setCurrentPage, pageData: getPageData, setCurrentPage: setCurrentPage,
+                functions={{maxPage: setMaxPage, currentPage: setCurrentPage, currentPageData: setCurrentPageData, pageData: getPageData, setCurrentPage: setCurrentPage,
                             setCountryFilterValue: setCountryFilterValue, setSportFilterValue: setSportFilterValue,
                             setNameFilterValue: setNameFilterValue, setDateFilterValue: setDateFilterValue
                 }}
+                customFunctions={{filters: getDataWithFilters, navigateTo: navigateTo}}
             />
-            <div className="app__sponsors_line">
-                <h4>Our Supporters</h4>
-            </div>
         </div>
     );
 }

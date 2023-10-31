@@ -160,9 +160,9 @@ export const SelectedLiveRace = () => {
         const getActiveRace = async () => {
             try {
                 if (!hash) { return; }
-                const response = await fetch(`http://192.168.8.252:3002/api/activeRace?id=${hash}`);
+                const response = await fetch(`http://localhost:3015/api/activeRace?id=${hash}`);
                 const data = await response.json();
-                setActiveRace(data?.data?.api_data);
+                setActiveRace(data?.data);
             } catch (err) {
                 console.log(err);
             }

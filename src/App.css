@@ -6,6 +6,12 @@ html {
   overflow: hidden;
 }
 
+
+::selection {
+  background-color: #555555;
+}
+
+
 * {
   margin: 0;
 }

@@ -4,7 +4,7 @@
     height: 100vh;
     background: #c6c6c6;
     overflow-y: auto;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
 
@@ -65,6 +65,7 @@
     align-items: center;
     justify-content: center;
     font-family: "SF-Pro", sans-serif;
+    z-index: 5;
     font-size: 0.9rem;
     color: #272727;
 }
@@ -72,5 +73,103 @@
 .app__live-footer {
     width: 100%;
     height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(to bottom, #ffffff, #a9a9a9);
+
+    span {
+        margin-bottom: 20px;
+        font-family: "SF-Pro", sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+}
+
+.app__background_opened {
     background: #f0f1f1;
+    height: 200px;
+    width: 100%;
+    z-index: 5;
+    overflow: hidden;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #3b3b3b;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #c9c9c9;
+    }
+
+    .app_background_opened_inner {
+        height: 100%;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:nth-child(1) {
+            margin-left: 10px;
+        }
+        &:last-child {
+            margin-right: 10px;
+        }
+
+        .app__background_card {
+            width: 220px !important;
+            height: 180px;
+            border-radius: 10px;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+
+
+            &:not(:hover) {
+                animation-play-state: paused;
+            }
+
+            &:hover {
+                transform: scale(1.02);
+                cursor: pointer;
+                animation-play-state: running;
+            }
+
+            span {
+                color: azure;
+                font-family: "SF-Pro", sans-serif;
+                font-size: 1.1rem;
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+            }
+        }
+    }
+}
+
+.app__imageSlider {
+    width: 100%;
+    height: 100px;
+}
+.app__imageSlider_img {
+    width: 100% !important;
+    height: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.slick-slide {
+    height: 100px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+@media (max-width: 1620px) {
+    .app__background_opened {
+    }
 }

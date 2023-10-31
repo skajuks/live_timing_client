@@ -103,13 +103,14 @@
             outline: none;
             border: none;
             border-radius: 3px;
-            background: #067158;
+            background: #232323;
+            outline: 1px solid #4f4f4f;
             color: #fff;
             cursor: pointer;
 
             &:hover {
                 transition: background 0.5s ease-in-out;
-                background: #066f71;
+                background: #424242;
             }
         }
 
@@ -151,9 +152,11 @@
                 outline: none;
                 border: none;
                 padding: 0px;
-                background: #202022;
-                color: #fff;
+                background: #fff;
+                color: #000;
                 padding-left: 5px;
+                border-radius: 5px;
+                border-top-left-radius: 0px;
             }
         }
 
@@ -220,25 +223,25 @@
 
     .__board_table_legend {
         width: 100%;
-        height: 40px;
+        height: 30px;
         display: flex;
         align-items: center;
-        background: #1c3a38;
+
         color: #f0ecec;
         font-weight: 400;
-        border-top-right-radius: 7px;
-        border-top-left-radius: 7px;
         font-family: "SF-Pro", sans-serif;
 
         .__board_table_legendField {
             display: flex;
             height: 100%;
             align-items: center;
-            border-right: 3px solid #000000;
+            background: #3d22d4;
+            margin-right: 3px;
             font-size: 0.93rem;
 
             &:last-child {
                 border-right: none;
+                margin-right: 0px;
             }
         }
     }
@@ -254,7 +257,7 @@
         .__board_table_data_item {
             width: 100%;
             height: 35px;
-            background: #101010df;
+            background: #1e2126;
             color: aliceblue;
             margin-top: 2px;
 
@@ -265,22 +268,21 @@
                 margin-top: 4px;
             }
             &:nth-child(odd) {
-                background: #131313df;
+                background: #121315;
             }
             &:hover {
                 cursor: pointer;
-                background: #19191cdf;
-                color: #38cf90;
+                background: #29066f;
             }
 
             p {
                 display: flex;
                 align-items: center;
-                border-right: 3px solid #000;
+                margin-right: 3px;
                 height: 100%;
 
                 &:last-child {
-                    border: none;
+                    margin-right: none;
                 }
             }
 
