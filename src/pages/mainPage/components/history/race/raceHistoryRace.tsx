@@ -2,16 +2,18 @@ import { useParams } from "react-router-dom";
 import "./raceHistoryRace.scss";
 import { useEffect, useState } from "react";
 import { parseDate } from "../../../../../helpers/Parsers";
-import { AiOutlineFieldTime } from "react-icons/ai";
+import { AiOutlineFieldTime, AiOutlineClose } from "react-icons/ai";
 import { BsTrophyFill } from "react-icons/bs";
 import { BiFontSize } from "react-icons/bi";
 import { IoColorPalette, IoFilterOutline } from "react-icons/io5";
+import { FcRotateToLandscape, FcRotateToPortrait } from "react-icons/fc";
 import { RiTimerFlashFill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
 import React from "react";
 import Select from 'react-select';
+import { useMediaQuery } from 'react-responsive'
 import makeAnimated from 'react-select/animated';
 import { OptionsTransformer } from '../../../../../helpers/OptionsTransformer';
 
@@ -24,7 +26,7 @@ const ResizableTableFastestLapComponent = (props: any) => {
     const isFastest = props.data === props.fastest?.best_lap_time;
     return (
         <p style={{
-            color: isFastest ? "#bc29cc" : "azure",
+            color: isFastest ? "#c44df0" : "azure",
             fontWeight: isFastest ? "800" : "100"
         }}>{props.data}</p>
     );
@@ -39,7 +41,7 @@ const ResizableTablePosComponent = (props: any) => {
 const ResizableTableTimeTakenComponent = (props: any) => {
     return (
         <p style={{
-                color: props.data === "DNF" ? "#e01220" : "#18d968",
+                color: props.data === "DNF" ? "#f03a4c" : "#3ff289",
                 fontWeight: props.data === "DNF" ? "800" : "300"
             }}>{props.data}</p>
     );
@@ -52,7 +54,7 @@ const ResizableTableImgComponent = (props: any) => {
 };
 
 
-class RaceHistoryRaceWinners extends React.Component <{data: any}, {raceWinner: any, fastestLap: any, raceType: string}> {
+class RaceHistoryRaceWinners extends React.Component <{data: any, mediaQuery: any}, {raceWinner: any, fastestLap: any, raceType: string}> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -77,7 +79,16 @@ class RaceHistoryRaceWinners extends React.Component <{data: any}, {raceWinner: 
     render() {
         if (!this.state.raceWinner) { return (<></>); }
         return (
-            <div className="app__historyRace-data-race-winners">
+            <div
+                className={`${this.props.mediaQuery.mobile ?
+                    "mobile__historyRace-data-race-winners" : "app__historyRace-data-race-winners"
+                }`}
+                style={{
+                    flexDirection: this.props.mediaQuery.mobile ?
+                        !this.props.mediaQuery.split ? "row" : "column"
+                    : "row"
+                }}
+            >
             {
                 <div className="app__historyRace-data-winner">
                     <BsTrophyFill color="#ffe608" size={"30px"}/>
@@ -101,7 +112,7 @@ class RaceHistoryRaceWinners extends React.Component <{data: any}, {raceWinner: 
 }
 
 class ResizableTableFilter extends React.Component
-    <{data: any, fields: any, callback: Function, show: boolean},
+    <{data: any, fields: any, callback: Function, show: boolean, mediaQuery: any},
     {selectedClasses: any, selectedColumns: any, availableData: any}> {
 
     // Variables
@@ -219,16 +230,24 @@ class ResizableTableFilter extends React.Component
     render() {
         return (
             <div
-                className={`resizable-table-filter-row ${this.props.show ? "filter-height-100" : ""}`}
-                style={{overflow: this.props.show ? "visible" : "hidden"}}
+                className={`${this.props.mediaQuery.mobile ?
+                    "mobile_resizable-table-filter-row" : "resizable-table-filter-row"
+                } ${this.props.show ? this.props.mediaQuery.mobile ? "mobile_filter-height" : "filter-height-100" : ""}`}
+                style={{
+                    overflow: this.props.show ? "visible" : "hidden",
+                    height: this.props.show ? this.props.mediaQuery.mobile ? "fit-content": "100px" : "0"
+                }}
             >
                 {
                     this.optionsClass &&
-                    <div className="resizable-table-filter-selector">
+                    <div
+                        className={`${this.props.mediaQuery.mobile ?
+                            "mobile_resizable-table-filter-selector" : "resizable-table-filter-selector"}`}
+                    >
                         <p>Selected Classes</p>
                         <Select
                             name="classes"
-                            className="resizable-table-filter-select"
+                            className={`${this.props.mediaQuery.mobile ? "mobile_resizable-select" : "resizable-table-filter-select"}`}
                             closeMenuOnSelect={false}
                             defaultValue={this.optionsClass}
                             options={this.optionsClass}
@@ -240,12 +259,12 @@ class ResizableTableFilter extends React.Component
                                 ...theme,
                                 colors: {
                                     ...theme.colors,
-                                    primary25: "black",
+                                    primary25: "#0f101a",
                                     primary: "#131417",
-                                    neutral0: "black",
+                                    neutral0: "#0f101a",
                                     neutral15: "#131417",
-                                    neutral10: "#9e153e",
-                                    neutral20: "#1a1b1f",
+                                    neutral10: "#1d5ebf",
+                                    neutral20: "#282b4d",
                                     neutral80: "azure",
                                 }
                             })}
@@ -254,12 +273,15 @@ class ResizableTableFilter extends React.Component
                 }
                 {
                     this.optionsFields &&
-                    <div className="resizable-table-filter-selector">
+                    <div
+                        className={`${this.props.mediaQuery.mobile ?
+                            "mobile_resizable-table-filter-selector" : "resizable-table-filter-selector"}`}
+                    >
                         <p>Selected Fields</p>
                         <Select
                             name="fields"
                             defaultValue={this.optionsFields}
-                            className="resizable-table-filter-select"
+                            className={`${this.props.mediaQuery.mobile ? "mobile_resizable-select" : "resizable-table-filter-select"}`}
                             options={this.allOptionsFields}
                             components={this.animated}
                             isMulti={true}
@@ -269,12 +291,12 @@ class ResizableTableFilter extends React.Component
                                 ...theme,
                                 colors: {
                                     ...theme.colors,
-                                    primary25: "black",
+                                    primary25: "#0f101a",
                                     primary: "#131417",
-                                    neutral0: "black",
+                                    neutral0: "#0f101a",
                                     neutral15: "#131417",
                                     neutral10: "#3d22d4",
-                                    neutral20: "#1a1b1f",
+                                    neutral20: "#282b4d",
                                     neutral80: "azure",
                                 }
                             })}
@@ -287,7 +309,7 @@ class ResizableTableFilter extends React.Component
 };
 
 class ResizableTable extends React.Component
-    <{data: any, fields: any, fontSize: number, colors: any[]},
+    <{data: any, fields: any, fontSize: number, colors: any[], mediaQuery: any},
     {colwidths: any, groupedData: any, groupedDataKeys: string[], currentChildWidth: number}
     > {
 
@@ -346,7 +368,9 @@ class ResizableTable extends React.Component
                     }
                 } else {
                     groupedData[key] = [];
-                    groupedData[key].push(value);
+                    if (item.class && this.fields.enabledClasses.includes(item.class)) {
+                        groupedData[key].push(value);
+                    }
                     columnWidthData[key] = this.fields.config[key]?.defaultWidth || this.defaultColWidth;
                 }
             };
@@ -389,10 +413,15 @@ class ResizableTable extends React.Component
             currentChildWidth: Number(sum - this.state.colwidths[colkey] + width)
         });
     }
+    print(what: any) {
+        console.log(what);
+    }
     render(): any {
         if (!this.props.data) {
             return (
-                <div className="app__historyRace-table-inside">
+                <div className={
+                    this.props.mediaQuery.mobile ? "mobile__historyRace-table-inside-loader" : "app__historyRace-table-inside-loader"
+                }>
                     <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
                     <p>Loading competitor data...</p>
                 </div>
@@ -402,12 +431,12 @@ class ResizableTable extends React.Component
         return (
         <div
             className="app__historyRace-table-inside"
-            style={{
-                    margin: this.state.currentChildWidth > this.maxTableWidth ? "0" : "0 auto"
-                }}
         >
                 <div className="resizable_wrapper">
                 {
+                    ((!this.props.mediaQuery.portrait && this.props.mediaQuery.mobile) ||
+                    (!this.props.mediaQuery.mobile))
+                    ?
                     this.state.groupedDataKeys.map((item: any, index: number) =>
                         <ResizableBox
                             className="resizeable_table_head"
@@ -424,10 +453,61 @@ class ResizableTable extends React.Component
                             {this.parseHeader(item)}
                         </ResizableBox>
                     )
+                    :
+                    Object.keys(this.fields.verticalModeDefaults).map((item: any, index: number) =>
+                        <div
+                            className="non-resizable_table_head"
+                            key={`non-resizeable_item_head${index}`}
+                            style={{width: `${this.fields.verticalModeDefaults[item].width}%`}}
+                        >
+                            {this.parseHeader(this.fields.verticalModeDefaults[item]?.shortname || item)}
+                        </div>
+                    )
                 }
                 </div>
-            <div className="resizeable_content-wrapper">
-                {this.state.groupedDataKeys.map((item: any, index: number) =>
+            <div
+                className="resizeable_content-wrapper"
+                style={{display: this.props.mediaQuery.mobile && this.props.mediaQuery.portrait ? "block" : "flex"}}
+            >
+                {
+                this.props.mediaQuery.mobile && this.props.mediaQuery.portrait ?
+                this.data?.competitor?.map((item: any, index: number) =>
+                    <div
+                        className="mobile__resiazble_content"
+                        key={`resizable_item_content${index}`}
+                        style={{background: `${index % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`}}
+                    >
+                        {
+                            Object.keys(this.fields.verticalModeDefaults).map((field: any, index2: number) =>
+                                <div
+                                    className="mobile__resiazble_item"
+                                    key={`resizable_mobile_item_content${index2}$_${field}`}
+                                    style={{
+                                        width: `${this.fields.verticalModeDefaults[field].width}%`,
+                                        justifyContent: this.fields.verticalModeDefaults[field].justifyStart ?
+                                            "flex-start" : "center"
+                                    }}
+                                >
+                                {
+                                    this.fields.verticalModeDefaults[field].customElement ?
+                                    this.fields.verticalModeDefaults[field].customElement({data: item[field]})
+                                    :
+                                    <p
+                                        key={`${item[field]}_${index}`}
+                                        style={{
+                                            marginLeft: this.fields.verticalModeDefaults[field].justifyStart ?
+                                                "10px": "0px"
+                                        }}
+                                    >{item[field]}
+                                    </p>
+                                }
+                                </div>
+                            )
+                        }
+                    </div>
+                ) :
+                // finish this for simpified results :)))
+                this.state.groupedDataKeys.map((item: any, index: number) =>
                     <div
                         className="resiazble_content"
                         key={`resizeable_item_content${index}`}
@@ -446,7 +526,8 @@ class ResizableTable extends React.Component
                             </div>
                         )}
                     </div>
-                )}
+                )
+                }
             </div>
         </div>
         );
@@ -456,6 +537,27 @@ class ResizableTable extends React.Component
 const fields = {
     banned: ["id", "race_id", "position_by_time", "position_by_lap", "diff_by_time", "diff_by_lap", "gap_by_time", "gap_by_lap"],
     enabled: ["position", "nr", "state", "firstname", "lastname", "class", "best_lap_time", "finished_time", "best_lap", "sponsor"],
+    verticalModeDefaults: {
+            position: {
+                            customElement: ResizableTablePosComponent,
+                            width: 10,  // percentage
+                            maxWidth: 60,   // pixels
+                            shortname: "Pos"
+                      },
+            nr: {
+                width: 15,
+                maxWidth: 60,
+                shortname: "Nr"
+            },
+            state: {
+                customElement: ResizableTableImgComponent,
+                width: 10,
+                maxWidth: 80,
+                shortname: "State"
+            },
+            firstname: { width: 30, justifyStart: true},
+            lastname: { width: 35, justifyStart: true},
+    },
     enabledClasses: [],
     defaultFontSize: 20,
     order: ["position", "nr", "state", "state2", "firstname", "lastname", "class", "sponsor", "make", "best_lap", "best_lap_time", "finished_time", "lap", "diff", "gap"],
@@ -467,7 +569,7 @@ const fields = {
         },
         nr: { label: "Start nr", defaultWidth: 90 },
         state: {
-            label: "Country 1",
+            label: "Country",
             customElement: ResizableTableImgComponent,
             isImageElement: true,
             defaultWidth: 90
@@ -496,7 +598,8 @@ const fields = {
         finished_time: {
             label: "Time taken",
             defaultWidth: 150,
-            customElement: ResizableTableTimeTakenComponent},
+            customElement: ResizableTableTimeTakenComponent
+        },
         lap: { label: "Laps" },
         diff: { label: "Diff" },
         gap: { label: "Gap" },
@@ -524,21 +627,29 @@ export const RaceHistoryRace = () => {
     const [raceData, setRaceData] = useState<any>(null);
     const [fieldsData, setFieldData] = useState<any>(fields);
     const [fontSize, setFontSize] = useState<number>(fontSizeOptions[0].value);
-    const [selectedColors, setSelectedColors] = useState<any>(["#1f2126", "#131315"]);
+    const [selectedColors, setSelectedColors] = useState<any>(["#1a1e2e", "#141721"]);
     const [showFilters, setShowFilters] = useState<boolean>(false);
+    const [showSettings, setShowSettings] = useState<boolean>(false);
+
+    // Media queries
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 850px)" });
+    const splitRaceWinners = useMediaQuery({ query: "(max-width: 690px)" });
+    const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
 
     const getData = async () => {
         const response = await fetch(`http://localhost:3015/api/getRaceData?track_name=${track_name}&id=${eventId}&date=${date}`);
         const data = await response.json();
         setRaceData(data);
+        console.log(data);
     };
     const getFilterData = (data: any) => {
         setFieldData({...fieldsData, enabled: data.fields, enabledClasses: data.classes});
     };
 
     useEffect(() => {
-        if (!date || !track_name || !eventId) { return; }
-        getData();
+        if (date && track_name && eventId) {
+            getData();
+        }
     }, []);
 
     return (
@@ -552,39 +663,43 @@ export const RaceHistoryRace = () => {
             }}
         >
             <div className="app__historyRace-table-wrapper">
-                <div className="app__historyRace-settings">
-                    <div className="app__historyRace-settings-selector">
-                        <BiFontSize size={"25px"} color="azure"/>
-                        <Select
-                            name="fontSize"
-                            defaultValue={fontSizeOptions[2]}
-                            className="resizable-table-filter-select"
-                            options={fontSizeOptions}
-                            onChange={(data: any) => { setFontSize(data.value) }}
-                            theme={(theme) => ({
-                                ...theme,
-                                colors: {
-                                    ...theme.colors,
-                                    primary25: "#121212",
-                                    primary75: "azure",
-                                    primary: "#3d22d4",
-                                    neutral0: "#0f1012",
-                                    neutral5: "azure",
-                                    neutral10: "azure",
-                                    neutral15: "#3d22d4",
-                                    neutral20: "#202126",
-                                    neutral80: "azure",
-                                }
-                            })}
-                        />
+                {
+                    showSettings &&
+                    <div
+                        className={`app__historyRace-settings ${showSettings && "historyRace-settings-50"}`}
+                        style={{overflow: showSettings ? "visible" : "hidden"}}
+                    >
+                        <div className="app__historyRace-settings-selector">
+                            <BiFontSize size={"25px"} color="azure"/>
+                            <Select
+                                name="fontSize"
+                                defaultValue={fontSizeOptions[2]}
+                                className="resizable-table-filter-select"
+                                options={fontSizeOptions}
+                                onChange={(data: any) => { setFontSize(data.value) }}
+                                theme={(theme) => ({
+                                    ...theme,
+                                    colors: {
+                                        ...theme.colors,
+                                        primary25: "#0f101a",
+                                        primary: "#131417",
+                                        neutral0: "#0f101a",
+                                        neutral15: "#131417",
+                                        neutral10: "#3d22d4",
+                                        neutral20: "#282b4d",
+                                        neutral80: "azure",
+                                    }
+                                })}
+                            />
+                        </div>
+                        <div className="app__historyRace-settings-selector">
+                            <IoColorPalette size={"25px"} color="azure"/>
+                            <input type="color" id="i65" defaultValue={selectedColors[0]} onChange={(e) => {setSelectedColors([e.target.value ,selectedColors[1]])}}/>
+                            <input type="color" id="i64" defaultValue={selectedColors[1]} onChange={(e) => {setSelectedColors([selectedColors[0], e.target.value])}}/>
+                        </div>
                     </div>
-                    <div className="app__historyRace-settings-selector">
-                        <IoColorPalette size={"25px"} color="azure"/>
-                        <input type="color" id="i65" defaultValue={selectedColors[0]} onChange={(e) => {setSelectedColors([e.target.value ,selectedColors[1]])}}/>
-                        <input type="color" id="i64" defaultValue={selectedColors[1]} onChange={(e) => {setSelectedColors([selectedColors[0], e.target.value])}}/>
-                    </div>
-                </div>
-                <div className="app__historyRace-data">
+                }
+                <div className={isTabletOrMobile ? "mobile__historyRace-data" : "app__historyRace-data"}>
                     <div className="app__historyRace-data-top">
                         <div className="app__historyRace-data-top-event-data">
                             <span>{raceData?.race_data?.name}</span>
@@ -596,29 +711,77 @@ export const RaceHistoryRace = () => {
                         </div>
                     </div>
                     <div className="app__historyRace-data-bottom">
-                        <RaceHistoryRaceWinners data={raceData} />
+                        <RaceHistoryRaceWinners
+                            data={raceData}
+                            mediaQuery={{
+                                mobile: isTabletOrMobile,
+                                portrait: isPortrait,
+                                split: splitRaceWinners,
+                            }}
+                        />
                         <div className="app__historyRace-data-bottom-filter">
-                            <div className="app__historyRace-data-bottom-settings-toggle">
-                                <IoMdSettings size={"90%"}/>
-                            </div>
-                            <div className="app__historyRace-data-bottom-filter-toggle">
-                                <IoFilterOutline size={"90%"} onClick={(e) => { setShowFilters(!showFilters) }} />
-                            </div>
+                            {
+                                !isTabletOrMobile &&
+                                <div className="app__historyRace-data-bottom-settings-toggle">
+                                    <IoMdSettings size={"90%"} onClick={(e) => { setShowSettings(!showSettings) }}/>
+                                </div>
+                            }
+                            {
+                                !isTabletOrMobile &&
+                                <div className="app__historyRace-data-bottom-filter-toggle">
+                                    <IoFilterOutline size={"90%"} onClick={(e) => { setShowFilters(!showFilters) }} />
+                                </div>
+                            }
                             {
                                 <ResizableTableFilter data={{
                                     competitor: raceData?.competitor_data,
                                     race_info: raceData?.race_data
                                     }}
-                                fields={fieldsData}
+                                fields={fields}
                                 callback={getFilterData}
                                 show={showFilters}
+                                mediaQuery={{
+                                    mobile: isTabletOrMobile,
+                                    portrait: isPortrait,
+                                }}
                                 />
                             }
                         </div>
                     </div>
                 </div>
+                {
+                    isTabletOrMobile && !isPortrait &&
+                    <div className="mobile__historyRace-table-settings">
+                        <div className="app__historyRace-data-bottom-filter-toggle">
+                            <IoFilterOutline size={"30px"} color={"azure"} onClick={(e) => { setShowFilters(!showFilters) }} />
+                        </div>
+                    </div>
+                }
+                {
+                    isTabletOrMobile ?
+                    isPortrait ? <div className="mobile__historyRace-data-portait-info">
+                                    <p>
+                                        <FcRotateToPortrait size={"25px"}/>
+                                        Rotate your device horizontaly for detailed results
+                                    </p>
+                                    <div className="mobile__historyRace-data-portait-info-close">
+                                        <AiOutlineClose  size={"20px"} color="#1d5ebf"/>
+                                    </div>
+                                 </div>
+                    : <div className="mobile__historyRace-data-non-portait-info">
+                        <p>
+                            <FcRotateToLandscape size={"25px"}/>
+                            Rotate your device verticaly for simplified results
+                        </p>
+                        <div className="mobile__historyRace-data-portait-info-close">
+                            <AiOutlineClose  size={"20px"} color="#1d5ebf"/>
+                        </div>
+                      </div>
+                    : ""
+                }
                 <div
                     className="app__historyRace-table"
+                    style={{width: isTabletOrMobile ? "100vw" : "1600px"}}
                 >
                     <ResizableTable data={{
                                         competitor: raceData?.competitor_data,
@@ -627,6 +790,10 @@ export const RaceHistoryRace = () => {
                                         fields={fieldsData}
                                         fontSize={fontSize}
                                         colors={selectedColors}
+                                        mediaQuery={{
+                                            mobile: isTabletOrMobile,
+                                            portrait: isPortrait,
+                                        }}
                     />
                 </div>
             </div>

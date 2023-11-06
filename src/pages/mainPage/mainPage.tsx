@@ -10,11 +10,12 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Slider from "react-slick";
+import { useMediaQuery } from 'react-responsive'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const backgrounds = ["Interstellar2", "Lines", "Bubbles", "Triangles", "Retro", "Twilight", "Waves",
-    "Hex", "HexGreen", "Raindrops", "Photon", "Squares"
+    "Hex", "HexGreen", "Raindrops", "Photon", "Photon2", "Squares"
 ];
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
@@ -54,6 +55,9 @@ export const MainPage = () => {
     const navigate = useNavigate();
     const [openBackground, setOpenBackground] = useState(false);
     const [selectedBackground, setSelectedBackground] = useState<string>(localStorage.getItem("background") || "Squares");
+
+    // Media queries
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 850px)" });
 
     return (
         <div
@@ -119,11 +123,14 @@ export const MainPage = () => {
                 <Route path={"/live/full/:hash"} element={<SelectedLiveFull />} />
                 <Route path={"/test"} element={<PositionCanvas_Test />} />
             </Routes>
-            <div className="app__sponsors_line-wrapped">
-                <div className="app__sponsors_line">
-                    <ImageCarousel />
+            {
+                !isTabletOrMobile &&
+                <div className="app__sponsors_line-wrapped">
+                    <div className="app__sponsors_line">
+                        <ImageCarousel />
+                    </div>
                 </div>
-            </div>
+            }
             <footer className="app__live-footer">
                 <span>Motorparks™  2023</span>
             </footer>

@@ -1,5 +1,4 @@
 import "./ScoreboardTable.scss";
-import { useNavigate } from "react-router-dom";
 import SelectField from "../Fields/SelectField/SelectField";
 import { countries, sports, monthNames } from "../../helpers/static/data";
 import { OptionsTransformer } from "../../helpers/OptionsTransformer";
@@ -24,9 +23,28 @@ export interface BoardTableProps {
     customFunctions: any;
 }
 
+const insertLegend = (array: any, legendBar: any, legendItems: any) => {
+    array.forEach((item: any, index: number) => {
+        legendBar.push(
+            <div
+                className="__board_table_legendField"
+                key={`${index}_board_table_field_legend`}
+                style={{
+                    width: `${item.width}%`,
+                    justifyContent : item.center ? "center" : "flex-start"
+                }}
+            >
+            <p
+                style={{marginLeft: item.center ? "0px" : "20px"}}
+            >{item.name}</p>
+            </div>
+        )
+        legendItems.push(item);
+    })
+};
+
 export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties, functions, customFunctions}) => {
 
-    const navigate = useNavigate();
     const legendBar: any = [];
     const legendItems: any = [];
 
@@ -34,27 +52,8 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
         const el = (document.getElementById(id) as HTMLInputElement);
         if (el && el.value) { el.value = ''; }
     };
-
-    const insertLegend = (array: any) => {
-        array.forEach((item: any, index: number) => {
-            legendBar.push(
-                <div
-                    className="__board_table_legendField"
-                    key={`${index}_board_table_field_legend`}
-                    style={{
-                        width: `${item.width}%`,
-                        justifyContent : item.center ? "center" : "flex-start"
-                    }}
-                >
-                <p
-                    style={{marginLeft: item.center ? "0px" : "20px"}}
-                >{item.name}</p>
-                </div>
-            )
-            legendItems.push(item);
-        })
-    };
-    insertLegend(legend);
+    insertLegend(legend, legendBar, legendItems);
+    console.log("???")
 
     return (
         <div className="__board_table_wrapped">
