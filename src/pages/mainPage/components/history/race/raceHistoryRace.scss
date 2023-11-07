@@ -31,6 +31,36 @@
     }
 }
 
+.resizable-table-filter-row {
+    width: 100%;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: transparent;
+    transition: height 0.25s ease-in-out;
+
+    .resizable-table-filter-selector {
+        width: calc(50% - 10px);
+        max-width: 795px;
+        height: 100%;
+        margin-top: 3px;
+        color: azure;
+
+        p {
+            margin-bottom: 3px;
+            font-family: "SF-Pro", sans-serif;
+        }
+    }
+}
+
+.mobile_filter-height {
+    height: fit-content;
+}
+.filter-height-100 {
+    height: min-content !important;
+}
+
 .app__historyRace-table-wrapper-load {
     width: 100%;
     height: 780px;
@@ -363,12 +393,6 @@
                 justify-content: flex-end;
                 cursor: pointer;
             }
-            .mobile_filter-height {
-                height: fit-content;
-            }
-            .filter-height-100 {
-                height: min-content !important;
-            }
             .mobile_resizable-table-filter-row {
                 width: 90%;
                 height: 0;
@@ -389,28 +413,6 @@
                     color: azure;
                     .mobile_resizable-select {
                         width: 100% !important;
-                    }
-                }
-            }
-            .resizable-table-filter-row {
-                width: 100%;
-                height: 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-                background: transparent;
-                transition: height 0.25s ease-in-out;
-
-                .resizable-table-filter-selector {
-                    width: calc(50% - 10px);
-                    max-width: 795px;
-                    height: 100%;
-                    margin-top: 3px;
-                    color: azure;
-
-                    p {
-                        margin-bottom: 3px;
-                        font-family: "SF-Pro", sans-serif;
                     }
                 }
             }

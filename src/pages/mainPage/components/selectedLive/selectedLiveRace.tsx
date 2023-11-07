@@ -5,9 +5,10 @@ import { RiFullscreenLine} from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { BiFontSize } from "react-icons/bi";
 import { BsArrowDownShort, BsArrowUpShort, BsFillCircleFill } from "react-icons/bs";
-import { IoColorPalette } from "react-icons/io5";
+import { IoColorPalette, IoFilterOutline } from "react-icons/io5";
 import ResizableTable from "../../../../components/ResizableTable";
 import { useMediaQuery } from "react-responsive";
+import ResizableTableFilter from "../../../../components/ResizableFilter";
 
 interface raceDataElement {
     race_details: any;
@@ -85,8 +86,8 @@ const ResizableTableStatusComponent = (props: any) => {
 };
 
 const fields = {
-    banned: ["position_by_time", "position_by_lap", "diff_by_time", "diff_by_lap", "gap_by_time", "gap_by_lap"],
-    enabled: ["position", "nr", "state", "status", "firstname", "lastname", "class", "team", "lap", "best_lap_time", "gap"],
+    banned: ["position_by_time", "position_by_lap", "diff_by_time", "diff_by_lap", "gap_by_time", "gap_by_lap", "position_change_by_time", "position_change_by_lap", "finished_time"],
+    enabled: ["position", "nr", "state", "status", "firstname", "lastname", "class", "team", "lap", "best_lap_time", "gap", "diff", "lap_time"],
     verticalModeDefaults: {
             position: {
                             width: 10,  // percentage
@@ -108,7 +109,7 @@ const fields = {
     },
     enabledClasses: [],
     defaultFontSize: 20,
-    order: ["position", "nr", "state", "state2", "status", "firstname", "lastname", "class", "team", "lap", "best_lap_time", "diff", "gap"],
+    order: ["position", "nr", "state", "state2", "status", "firstname", "lastname", "class", "team", "make", "lap", "best_lap_time", "lap_time", "elapsed_time", "diff", "gap"],
     config: {
         position: {
             customElement: ResizableTablePosComponent,
@@ -142,11 +143,18 @@ const fields = {
             label: "Fastest lap time",
             defaultWidth: 150,
         },
+        lap_time: {
+            label: "Last lap time",
+        },
+        elapsed_time: {
+            label: "Elapsed time",
+        },
+        make: { label: "Make" },
+        team: { label: "Team", defaultWidth: 140 },
         lap: { label: "Laps" },
-        diff: { label: "Diff" },
-        gap: { label: "Gap" },
+        diff: { label: "Diff", defaultWidth: 90 },
+        gap: { label: "Gap", defaultWidth: 90 },
         class: { label: "Class"},
-        make: { label: "Make"}
     }
 };
 
@@ -162,6 +170,8 @@ export const SelectedLiveRace = () => {
 
     const bg = localStorage.getItem("background");
 
+    const [showFilters, setShowFilters] = useState<boolean>(false);
+
     const [scrollSpeed, setScrollSpeed] = useState(1); // Adjust scroll speed as needed
     const [enableAutoScroll, setEnableAutoScroll] = useState(false);
 
@@ -174,6 +184,10 @@ export const SelectedLiveRace = () => {
         fontSize: false,
         settings: false,
     });
+
+    const getFilterData = (data: any) => {
+        setFieldData({...fieldsData, enabled: data.fields, enabledClasses: data.classes});
+    };
 
     function openTab(tabName: string) {
         const tmp = {...openedTabs, color: false, fontSize: false, settings: false};
@@ -302,12 +316,31 @@ export const SelectedLiveRace = () => {
                                 <BiFontSize color="#ffffff" size={"25px"}/>
                             </button>
                             <button className="app_liveList-selected-settings-btn"
+                                onClick={() => { setShowFilters(!showFilters) }}
+                            >
+                                <IoFilterOutline color="#ffffff" size={"25px"}/>
+                            </button>
+                            <button className="app_liveList-selected-settings-btn"
                                 onClick={() => { openTab("settings") }}
                             >
                                 <IoMdSettings color="#ffffff" size={"25px"}/>
                             </button>
                         </div>
                     </header>
+                    <div className="app__live-filter">
+                        <ResizableTableFilter data={{
+                                competitor: activeRace?.race_competitors_list,
+                                race_info: activeRace?.race_details
+                                }}
+                            fields={fields}
+                            callback={getFilterData}
+                            show={showFilters}
+                            mediaQuery={{
+                                mobile: isTabletOrMobile,
+                                portrait: isPortrait,
+                            }}
+                        />
+                    </div>
                     <div
                         className="app__historyRace-table"
                         style={{width: isTabletOrMobile ? "100vw" : "1600px"}}
@@ -324,6 +357,12 @@ export const SelectedLiveRace = () => {
                                                 portrait: isPortrait,
                                             }}
                         />
+                    </div>
+                    <div className="app__live_raceLeaders">
+                        <div className="app__live_raceLeaders-inner">
+                            <span>Info about race leader/ 2nd place / 3rd place / fastest lap</span>
+                            <p>Enable simulator button here?</p>
+                        </div>
                     </div>
                     <div className="app__Simulator">
                         <div className="simulator_inner">
