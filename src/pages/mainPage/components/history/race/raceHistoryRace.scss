@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
+    padding-bottom: 50px;
 
     header {
         width: 100%;
@@ -31,6 +31,25 @@
     }
 }
 
+.app__historyRace-table-wrapper-load {
+    width: 100%;
+    height: 780px;
+    background: #0f101a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.load-wheel {
+    width: 20%;
+    height: 350px;
+}
 
 .app__historyRace-table-wrapper {
     width: 100%;
@@ -38,6 +57,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
     &::-webkit-scrollbar {
         height: 7px;
@@ -189,6 +209,7 @@
     }
     .app__historyRace-data-bottom {
         width: 100%;
+        min-height: 60px !important;
 
         .app__historyRace-data-bottom-filter {
             width: 90%;
@@ -250,10 +271,16 @@
 }
 
 .mobile__resiazble_item {
+    height: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: flex;
     align-items: center;
+    margin-right: 3px;
+
+    &:last-child {
+        margin-right: 0px;
+    }
 }
 
 .app__historyRace-data {
@@ -473,6 +500,7 @@
         display: flex;
         flex-direction: column;
         gap: 2px;
+        margin-inline: 5px;
 
         .resizable_wrapper {
             display: flex;
@@ -506,17 +534,10 @@
 
 .mobile__resiazble_content {
     height: 50px;
-    width: 96vw;
-    margin-left: 1vw;
-    border-radius: 5px;
-    background: #7c07b2;
+    width: 100vw;
     margin-bottom: 3px;
     display: flex;
     align-items: center;
-
-    &:nth-child(odd) {
-        background: #03144c;
-    }
 
     img {
         width: 40px;

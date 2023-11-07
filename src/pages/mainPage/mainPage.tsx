@@ -14,8 +14,8 @@ import { useMediaQuery } from 'react-responsive'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const backgrounds = ["Interstellar2", "Lines", "Bubbles", "Triangles", "Retro", "Twilight", "Waves",
-    "Hex", "HexGreen", "Raindrops", "Photon", "Photon2", "Squares"
+const backgrounds = ["Interstellar", "Lines", "Triangles",
+    "Hex", "Clouds", "Sky", "Raindrops", "Photon2", "Squares"
 ];
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
@@ -71,7 +71,7 @@ export const MainPage = () => {
                         </div>
                     </li>
                     <li onClick={() => { navigate("/") }}>Live Timing</li>
-                    <li onClick={() => { navigate("/history") }}>Race History</li>
+                    <li onClick={() => { navigate("/history") }}>Event History</li>
                     <li onClick={() => { setOpenBackground(!openBackground) }}>Backgrounds</li>
                 </ul>
             </nav>

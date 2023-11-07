@@ -3,12 +3,14 @@ import SelectField from "../Fields/SelectField/SelectField";
 import { countries, sports, monthNames } from "../../helpers/static/data";
 import { OptionsTransformer } from "../../helpers/OptionsTransformer";
 import { BsSortUpAlt, BsSortDownAlt } from "react-icons/bs";
+import Select from 'react-select';
 
 export interface BoardField {
     data: string;
     dataParent: string;
     name: string;
     width: number;
+    minWidth: number;
     img: boolean;
     center: boolean;
     customSrc: string;
@@ -31,6 +33,7 @@ const insertLegend = (array: any, legendBar: any, legendItems: any) => {
                 key={`${index}_board_table_field_legend`}
                 style={{
                     width: `${item.width}%`,
+                    minWidth: `${item.minWidth}px`,
                     justifyContent : item.center ? "center" : "flex-start"
                 }}
             >
@@ -43,6 +46,23 @@ const insertLegend = (array: any, legendBar: any, legendItems: any) => {
     })
 };
 
+const getTheme = (theme: any) => {
+    return {
+        ...theme,
+        colors: {
+            ...theme.colors,
+            primary25: "#2e326b",
+            primary: "#131417",
+            neutral0: "#0f101a",
+            neutral15: "#2e326b",
+            neutral10: "#2e326b",
+            neutral20: "#2e326b",
+            neutral80: "azure",
+            neutral90: "azure"
+        }
+    }
+}
+
 export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties, functions, customFunctions}) => {
 
     const legendBar: any = [];
@@ -53,7 +73,6 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
         if (el && el.value) { el.value = ''; }
     };
     insertLegend(legend, legendBar, legendItems);
-    console.log("???")
 
     return (
         <div className="__board_table_wrapped">
@@ -61,12 +80,12 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                 properties.filters &&
                 <div className="__board_table_filter">
                     <div className="__board_table_filter_items">
-                        <SelectField
+                        <Select
                             className="__board_table_filter_item"
                             id="app__historyGroups_selector_country"
                             options={new OptionsTransformer(countries).get()}
                             name="countries"
-                            label="Country"
+                            placeholder={"All Countries"}
                             onChange={(val : any) => {
                                 functions.setCountryFilterValue(val);
                                 customFunctions.filters({
@@ -78,11 +97,14 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                                     }
                                 });
                             }}
+                            theme={(theme) => getTheme(theme)}
                         />
-                        <SelectField
+                        <Select
                             className="__board_table_filter_item"
                             id="app__historyGroups_selector_sport"
                             options={new OptionsTransformer(sports).get()}
+                            name="sports"
+                            placeholder={"All Sports"}
                             onChange={(val: any) => {
                                 functions.setSportFilterValue(val);
                                 customFunctions.filters({
@@ -94,11 +116,9 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                                     }
                                 });
                             }}
-                            label="Sport"
-                            name="sports"
+                            theme={(theme) => getTheme(theme)}
                         />
                         <div className="__board_table_filter_name_filter">
-                            <label>Event Name</label>
                             <input
                                 type="text"
                                 id="board_table_event_name_input"
@@ -137,7 +157,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                         <div className="__board_table_date_sorters">
                             <button
                                 value={"asc"}
-                                style={{background: properties.dateFilterValue === "asc" ? "#424242" : "#171719"}}
+                                style={{background: properties.dateFilterValue === "asc" ? "#2f53e4" : "#2e326b"}}
                                 onClick={() => {
                                         functions.setDateFilterValue("asc");
                                         customFunctions.filters({
@@ -152,7 +172,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                             ><BsSortUpAlt size={"80%"}/></button>
                             <button
                                 value={"desc"}
-                                style={{background:  properties.dateFilterValue === "desc" ? "#424242" : "#171719"}}
+                                style={{background:  properties.dateFilterValue === "desc" ? "#2f53e4" : "#2e326b"}}
                                 onClick={() => {
                                         functions.setDateFilterValue("desc");
                                         customFunctions.filters({
@@ -180,8 +200,15 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                     {
                         !properties.maxPage && properties.maxPage !== 0 ?
                         <div className="__board_table_data_loading">
-                            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-                            <p>Loading Event History...</p>
+                            <div
+                                className="load-wheel"
+                                style={{
+                                    backgroundImage: `url('/svg/Wheel.svg')`,
+                                    backgroundPosition: "center",
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundSize: "cover",
+                                }}
+                            />
                         </div> :
                         !properties.currentPageData ? <div className="__board_table_no_data">No races found</div> :
                         properties.currentPageData && properties.currentPageData.map((item: any, index: number) =>
@@ -193,25 +220,34 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                                 }}
                             >
                                 {
-                                    legendItems.map((item_name: any, index: number) =>
+                                    legendItems.map((item_name: any, index2: number) =>
                                         <p
                                             style={{
-                                                width : `calc(${item_name.width}% - ${item_name.center ? 0 : 20}px`,
+                                                width : `${item_name.width}%`,
+                                                minWidth: `${item_name.minWidth}px`,
                                                 justifyContent : item_name.center ? "center" : "flex-start",
-                                                marginLeft : item_name.center ? "0px" : "20px",
+                                                background: index % 2 === 0 ? "#1a1e2e" : "#141721"
                                             }}
                                             key={`${index}_race_hist_dataItem`}
                                         >{
-                                            item_name.img ?
+                                            item_name.img && item?.[item_name.data] ?
                                             <img
                                                 style={
                                                     {width: item_name.customSrc ? "45px" : "35px", height: item_name.customSrc ? "45px" : "26px"}
                                                 }
-                                                src={item_name.customSrc ? `${item_name.customSrc}${item?.[item_name.data]}.png` : `https://flagcdn.com/${item?.[item_name.data]?.toLowerCase()}.svg`}
+                                                src={
+                                                    item_name.customSrc ?
+                                                    `${item_name.customSrc}${item?.[item_name.data]}.png`
+                                                    :
+                                                    `https://flagcdn.com/${item?.[item_name.data]?.toLowerCase()}.svg`
+                                                }
                                             /> :
                                             item_name.customElement ? item_name.customElement(item) :
-                                            item_name.dataParent ? item?.[item_name.dataParent]?.[item_name.data] : item?.[item_name.data]
-
+                                            <span>
+                                                {
+                                                    item_name.dataParent ? item?.[item_name.dataParent]?.[item_name.data] : item?.[item_name.data]
+                                                }
+                                            </span>
                                         }</p>
                                     )
                                 }
@@ -223,23 +259,26 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
             {
                 properties.maxPage && properties.pageSwitch ?
                 <div className="app__historyGroups_pageChange">
-                    <button
-                        onClick={() => {
-                            if (properties.currentPage - 1 !== 0) {
-                                functions.currentPage(properties.currentPage - 1);
-                                functions.pageData(properties.currentPage - 1);
-                            }
-                        }}
-                    >{`<`}</button>
-                    <span>{`${properties.currentPage} / ${properties.maxPage}`}</span>
-                    <button
-                        onClick={() => {
-                            if (properties.currentPage + 1 <= properties.maxPage!) {
-                                functions.currentPage(properties.currentPage + 1);
-                                functions.pageData(properties.currentPage + 1);
-                            }
-                        }}
-                    >{`>`}</button>
+                    <div className="app__historyGroups_pageChange-inner">
+                        <button
+                            onClick={() => {
+                                if (properties.currentPage - 1 !== 0) {
+                                    functions.currentPage(properties.currentPage - 1);
+                                    functions.pageData(properties.currentPage - 1);
+                                }
+                            }}
+                        >{`<`}</button>
+                        <span>{`${properties.currentPage} / ${properties.maxPage}`}</span>
+                        <button
+                            onClick={() => {
+                                if (properties.currentPage + 1 <= properties.maxPage!) {
+                                    functions.currentPage(properties.currentPage + 1);
+                                    functions.pageData(properties.currentPage + 1);
+                                }
+                            }}
+                        >{`>`}
+                        </button>
+                    </div>
                 </div>
                 :
                 <div className="app__historyGroups_pageChange"/>

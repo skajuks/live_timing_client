@@ -58,10 +58,10 @@ export const RaceHistoryEvent = () => {
             </header>
             <BoardTable
                 legend={[
-                    {data: "race_type", dataParent: "", name: "Run Type", width: 10, img: false, center: true, customSrc: "", customElement: ""},
-                    {data: "name", dataParent: "", name: "Name", width: 70, img: false, center: true, customSrc: "", customElement: ""},
-                    {data: "start_time", dataParent: "", name: "Start Time", width: 10, img: false, center: false, customSrc: "", customElement: ""},
-                    {data: "end_time", dataParent: "", name: "End Time", width: 10, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "race_type", dataParent: "", name: "Type", width: 10, minWidth: 60, img: false, center: true, customSrc: "", customElement: ""},
+                    {data: "name", dataParent: "", name: "Name", width: 70, minWidth: 110, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "start_time", dataParent: "", name: "Start Time", width: 10, minWidth: 90, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "end_time", dataParent: "", name: "End Time", width: 10, minWidth: 90, img: false, center: false, customSrc: "", customElement: ""},
                 ]}
                 data={{}}
                 properties={{navRunHistory: true, currentPageData: eventData, maxPage: 1}}

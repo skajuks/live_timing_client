@@ -84,17 +84,16 @@ export const LiveList: React.FC = () => {
         >
             <header>
                 <h3>Live Timing</h3>
-                <p>View all ongoing races.</p>
             </header>
             <BoardTable
                 legend={[
-                    {data: "race_sport", dataParent: "", name: "Type", width: 5, img: true, center: true, customSrc: "/icons/", customElement: ""},
-                    {data: "race_state", dataParent: "", name: "State", width: 5, img: true, center: true, customSrc: "", customElement: ""},
-                    {data: "race_type_name", dataParent: "race_type_data", name: "Run Type", width: 8, img: false, center: true, customSrc: "", customElement: ""},
-                    {data: "flag", dataParent: "", name: "Flag", width: 5, img: false, center: true, customSrc: "", customElement: getFlagElement},
-                    {data: "track_name", dataParent: "", name: "Track Name", width: 20, img: false, center: true, customSrc: "", customElement: ""},
-                    {data: "race_name", dataParent: "", name: "Event Name", width: 40, img: false, center: false, customSrc: "", customElement: ""},
-                    {data: "elapsed_time", dataParent: "", name: "Elapsed Time", width: 10, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "race_sport", dataParent: "", name: "Type", width: 5, minWidth: 60, img: true, center: true, customSrc: "/icons/", customElement: ""},
+                    {data: "race_state", dataParent: "", name: "State", width: 5, minWidth: 60, img: true, center: true, customSrc: "", customElement: ""},
+                    {data: "race_type_name", dataParent: "race_type_data", name: "Run Type", width: 10, minWidth: 80, img: false, center: true, customSrc: "", customElement: ""},
+                    {data: "flag", dataParent: "", name: "Flag", width: 8, minWidth: 60, img: false, center: true, customSrc: "", customElement: getFlagElement},
+                    {data: "track_name", dataParent: "", name: "Track Name", width: 20, minWidth: 150, img: false, center: true, customSrc: "", customElement: ""},
+                    {data: "race_name", dataParent: "", name: "Event Name", width: 40, minWidth: 150, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "elapsed_time", dataParent: "", name: "Elapsed Time", width: 12, minWidth: 120, img: false, center: false, customSrc: "", customElement: ""},
                 ]}
                 data={{}}
                 properties={{filters: true, currentPageData: activeRaces, maxPage: 1}}

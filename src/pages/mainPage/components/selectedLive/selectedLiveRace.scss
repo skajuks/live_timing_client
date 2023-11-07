@@ -1,8 +1,22 @@
 
+.app_liveList-selected-loading {
+    width: 100%;
+    height: calc((15 * 40px) + 150px);
+    background: #0f101a;
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.finish_flag {
+    width: 25px !important;
+    height: 25px !important;
+}
+
 .app_liveList-selected-main {
     width: 100%;
     font-family: "Outfit", sans-serif;
-    background-size: cover;
     position: relative;
 
     .app_liveList-top-selector {
@@ -58,23 +72,15 @@
             }
         }
     }
-
-    .app_liveList-selected-loading {
+    .app_liveList-selected-results {
         width: 100%;
-        height: calc((15 * 40px) + 150px);
-        background: #000000;
+        height: fit-content;
+        background: #0f101a;
         color: #eeeeee;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-    }
-
-    .app_liveList-selected-results {
-        width: 100%;
-        height: calc((15 * 40px) + 150px);
-        background: #000000;
-        color: #eeeeee;
+        position: relative;
 
 
         .app__liveList-overflow-x-wrapper {
@@ -96,153 +102,15 @@
             }
         }
 
-        .app__liveList-selected-race-data {
-            max-width: max-content;
-            min-width: fit-content;
-            height: calc(15 * 40px);
-            margin-inline: 5px;
-            overflow-y: auto;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-
-            .app__liveList-selected-race-data-item {
-                width: 100%;
-                height: 35px;
-                margin-bottom: 5px;
-                display: flex;
-                align-items: center;
-                font-family: "SF-Pro", sans-serif;
-
-                &:hover {
-                    cursor: pointer;
-                    transform: scale(0.995);
-                }
-
-                &:nth-child(1) {
-                    margin-top: 5px;
-                }
-                .app_liveList-item-pos {
-                    width: 31px;
-                    height: 25px;
-                    margin-inline: 5px;
-                    background: #eeeeee;
-                    color: #000;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    font-size: 1.2rem;
-                    font-family: "SF-Pro-Heavy", sans-serif;
-                    border-bottom-right-radius: 7px;
-                }
-                .app_liveList-item-nr {
-                    margin-inline: 5px;
-                    width: 51px;
-                    text-align: center;
-                    color:#ffb700;
-                    font-weight: 800;
-                }
-                .app_liveList-item-state {
-                    width: 51px;
-                    height: 23px;
-                    margin-inline: 5px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    img {
-                        width: 70%;
-                        height: 100%;
-                    }
-                }
-                .app_liveList-item-status {
-                    margin-inline: 5px;
-                    width: 51px;
-                    display: flex;
-                    justify-content: center;
-                }
-                .app_liveList-item-firstname {
-                    margin-inline: 5px;
-                    width: 151px;
-                    text-overflow: ellipsis;
-                    text-wrap: nowrap;
-                    font-family: "Outfit", sans-serif;
-
-                    font-size: 1.1rem;
-                }
-                .app_liveList-item-lastname {
-                    margin-inline: 5px;
-                    width: 151px;
-                    text-overflow: ellipsis;
-                    text-wrap: nowrap;
-                    font-family: "Outfit", sans-serif;
-                    font-weight: 600;
-
-                    font-size: 1.15rem;
-                }
-                .app_liveList-item-class {
-                    width: 101px;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-overflow: ellipsis;
-                    text-wrap: nowrap;
-                    font-size: 0.8rem;
-                }
-                .app_liveList-item-team {
-                    width: 161px;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-overflow: ellipsis;
-                    text-wrap: nowrap;
-                    font-size: 0.8rem;
-                }
-                .app_liveList-item-lap {
-                    width: 51px;
-                    margin-inline: 5px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                .app_liveList-item-last_time {
-                    width: 131px;
-                    margin-inline: 5px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                .app_liveList-item-best_time {
-                    width: 131px;
-                    margin-inline: 5px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                .app_liveList-item-diff {
-                    width: 131px;
-                    margin-inline: 5px;
-                }
-                .app_liveList-item-speed {
-                    width: 130px;
-                    margin-inline: 5px;
-                }
-            }
-        }
-
         header {
             width: calc(100% - 10px);
+            background: #0f101a;
             max-width: 1600px;
-            margin-right: 5px;
-            margin-left: calc((100% - 1605px) / 2);
             height: 150px;
             display: flex;
             position: relative;
             font-family: "SF-Pro", sans-serif;
+            margin-bottom: 3px;
 
             .app_liveList-selected-track-name {
                 width: 350px;
@@ -337,7 +205,7 @@
 
                 border: none;
                 background: transparent;
-                outline: 1px solid #f2930e;
+                outline: 1px solid #2867d4;
                 color: #fff;
                 font-size: 14px;
                 font-weight: 400;
@@ -345,45 +213,53 @@
                 &:hover {
                     cursor: pointer;
                     transform: scale(0.97);
-                    background: #f2930e;
+                    background: #2867d4;
                     transition: background 0.5s ease-in-out;
                 }
             }
         }
-        .app__liveList-selected-race-legend {
-            max-width: max-content;
-            min-width: fit-content;
-            margin-inline: 5px;
-            height: 35px;
-            background: #151519;
-            display: flex;
-            align-items: center;
-            font-size: 0.8rem;
-
-            .app__liveList-selected-race-legend-item {
-                height: 35px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-right: 1px solid #3e3e3e;
-
-                &:nth-last-child(1) {
-                    border-right: none;
-                }
-            }
-        }
-    }
-    .app_liveList-selected-simulator {
-        width: 100%;
-        height: 400px;
-        background: #161616;
-    }
-    .app_liveList-selected-divider {
-        width: 100%;
-        height: 15px;
-        background: #eeeeee;
     }
 }
+.app__Simulator {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    .simulator_inner {
+        width: 1600px;
+        height: 100%;
+        background: #0f101ac4;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.app__selectedRace-table {
+    width: 1600px;
+    height: calc(15 * 38px);
+    overflow-y: auto;
+    overflow-x: auto;
+    background: #0f101ac4;
+    position: relative;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 7px;
+
+    }
+    &::-webkit-scrollbar-track {
+        background: #0f101a;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #2246bc;
+    }
+
+    font-family: "SF-Pro", sans-serif;
+}
+
 
 @media (max-width: 1600px) {
     .app__liveList-selected-race-data {

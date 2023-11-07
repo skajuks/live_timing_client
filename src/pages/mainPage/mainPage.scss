@@ -41,6 +41,7 @@
         align-items: center;
         list-style-type: none;
         gap: 40px;
+        padding-inline-start: 0px;
 
         li {
             cursor: pointer;
@@ -58,7 +59,8 @@
     }
 }
 .app__navbar-infobox {
-    background: #fbfbfd;
+    // background: #fbfbfd;
+    background: #0b0b11;
     width: 100%;
     height: 48px;
 
@@ -69,7 +71,8 @@
     font-family: "SF-Pro", sans-serif;
     z-index: 5;
     font-size: 0.9rem;
-    color: #272727;
+    // color: #272727;
+    color: #bbbbbb;
 }
 
 .app__live-footer {

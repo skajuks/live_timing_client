@@ -113,15 +113,14 @@ export const RaceHistoryGroups = () => {
         >
             <header>
                 <h3>Event History</h3>
-                <p>Click on a event to view more info about event runs and results.</p>
             </header>
             <BoardTable
                 legend={[
-                    {data: "event_sport", dataParent: "", name: "Type", width: 5, img: true, center: true, customSrc: "/icons/", customElement: ""},
-                    {data: "event_country", dataParent: "", name: "State", width: 5, img: true, center: true, customSrc: "", customElement: ""},
-                    {data: "event_name", dataParent: "", name: "Event Name", width: 40, img: false, center: false, customSrc: "", customElement: ""},
-                    {data: "event_track_name", dataParent: "", name: "Track Name", width: 40, img: false, center: false, customSrc: "", customElement: ""},
-                    {data: "parsed_date", dataParent: "", name: "Date", width: 10, img: false, center: true, customSrc: "", customElement: ""}
+                    {data: "event_sport", dataParent: "", name: "Type", width: 5, minWidth: 50, img: true, center: true, customSrc: "/icons/", customElement: ""},
+                    {data: "event_country", dataParent: "", name: "State", width: 5, minWidth: 40, img: true, center: true, customSrc: "", customElement: ""},
+                    {data: "event_name", dataParent: "", name: "Event Name", width: 40, minWidth: 100, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "event_track_name", dataParent: "", name: "Track Name", width: 30, minWidth: 100, img: false, center: false, customSrc: "", customElement: ""},
+                    {data: "parsed_date", dataParent: "", name: "Date", width: 20, minWidth: 80, img: false, center: true, customSrc: "", customElement: ""}
                 ]}
                 data={{}}
                 properties={{

@@ -6,7 +6,8 @@ import { IoMdSettings } from "react-icons/io";
 import { BiFontSize } from "react-icons/bi";
 import { BsArrowDownShort, BsArrowUpShort, BsFillCircleFill } from "react-icons/bs";
 import { IoColorPalette } from "react-icons/io5";
-import { TbArrowAutofitDown } from "react-icons/tb";
+import ResizableTable from "../../../../components/ResizableTable";
+import { useMediaQuery } from "react-responsive";
 
 interface raceDataElement {
     race_details: any;
@@ -16,13 +17,13 @@ interface raceDataElement {
 
 function flagToColor(flag: string): string {
     switch (flag) {
-        case "Unknown": return "#000";
+        case "Unknown": return "#0f101a";
         case "Green":   return "#47ba79";
         case "Yellow":  return "#f7e705";
         case "Red":     return "#ed4747";
         case "Finish":  return "repeating-conic-gradient(#f2f0f0 0% 25%, #000000 0% 50%) 50% / 4px 4px";
         case "WarmUp":  return "#b205f7";
-        default: return "#000";
+        default: return "#0f101a";
     };
 };
 
@@ -32,7 +33,7 @@ const getPositionArrow = (positionChange: string, size = 20) => {
     switch (positionChange) {
       case "+": return <BsArrowUpShort size={size} color={"#2dcc30"}/>
       case "-": return <BsArrowDownShort size={size} color={"#ff3636"}/>
-      case "F": return <img src={"/flags/finish_small.png"} alt="-" />
+      case "F": return <img className="finish_flag" src={"/flags/finish_small.png"} alt="-" />
       default:  return <BsFillCircleFill size={10} color={"#FFF"}/>
     }
   };
@@ -57,22 +58,97 @@ function getRaceTime(data: any) {
     return `${raceTimerData.name} : ${raceTimerData.data}`;
 };
 
-const legendData: Object[] = [
-    {name: "Pos", width: "40px"},
-    {name: "Nr", width: "60px"},
-    {name: "State", width: "60px"},
-    {name: "Status", width: "60px"},
-    {name: "Name", width: "160px"},
-    {name: "Surname", width: "160px"},
-    {name: "Class", width: "100px"},
-    {name: "Team", width: "160px"},
-    {name: "Lap", width: "60px"},
-    {name: "Last time", width: "140px"},
-    {name: "Best time", width: "140px"},
-    {name: "Diff", width: "140px"},
-    {name: "Gap", width: "140px"},
-    {name: "Speed", width: "140px"},
-];
+const ResizableTableSurnameComponent = (props: any) => {
+    return (
+        <span className="resized_position_surname">{props?.data}</span>
+    );
+};
+const ResizableTablePosComponent = (props: any) => {
+    return (
+        <div className="resized_position_wrapper">
+            <p>{props.data}</p>
+        </div>
+    );
+};
+const ResizableTableImgComponent = (props: any) => {
+    if (!props.data) { return; }
+        return (
+            <img src={`https://flagcdn.com/${props.data?.toLowerCase()}.svg`} alt={props.name}/>
+        );
+};
+const ResizableTableStatusComponent = (props: any) => {
+    if (!props.data) { return; }
+
+        return (
+            getPositionArrow(props.data)
+        );
+};
+
+const fields = {
+    banned: ["position_by_time", "position_by_lap", "diff_by_time", "diff_by_lap", "gap_by_time", "gap_by_lap"],
+    enabled: ["position", "nr", "state", "status", "firstname", "lastname", "class", "team", "lap", "best_lap_time", "gap"],
+    verticalModeDefaults: {
+            position: {
+                            width: 10,  // percentage
+                            maxWidth: 60,   // pixels
+                            shortname: "Pos"
+                      },
+            nr: {
+                width: 15,
+                maxWidth: 60,
+                shortname: "Nr"
+            },
+            state: {
+                width: 10,
+                maxWidth: 80,
+                shortname: "State"
+            },
+            firstname: { width: 30, justifyStart: true},
+            lastname: { width: 30, justifyStart: true},
+    },
+    enabledClasses: [],
+    defaultFontSize: 20,
+    order: ["position", "nr", "state", "state2", "status", "firstname", "lastname", "class", "team", "lap", "best_lap_time", "diff", "gap"],
+    config: {
+        position: {
+            customElement: ResizableTablePosComponent,
+            label: "Position",
+            defaultWidth: 90
+        },
+        nr: { label: "Start nr", defaultWidth: 90 },
+        state: {
+            customElement: ResizableTableImgComponent,
+            label: "Country",
+            isImageElement: true,
+            defaultWidth: 90
+        },
+        state2: {
+            customElement: ResizableTableImgComponent,
+            label: "Country 2",
+            defaultWidth: 90
+        },
+        status: {
+            customElement: ResizableTableStatusComponent,
+            label: "Change",
+            defaultWidth: 90,
+        },
+        firstname: { label: "Name", defaultWidth: 220 },
+        lastname: {
+            customElement: ResizableTableSurnameComponent,
+            label: "Surname",
+            defaultWidth: 220
+        },
+        best_lap_time: {
+            label: "Fastest lap time",
+            defaultWidth: 150,
+        },
+        lap: { label: "Laps" },
+        diff: { label: "Diff" },
+        gap: { label: "Gap" },
+        class: { label: "Class"},
+        make: { label: "Make"}
+    }
+};
 
 const defaultScoreboardColors = ["#1c2431d0", "#191b26d0", "#235430", "#ffffff"];
 
@@ -82,11 +158,16 @@ export const SelectedLiveRace = () => {
     const [activeRace, setActiveRace] = useState<raceDataElement>();
     const [selectedCompetitors, setSelectedCompetitors] = useState<string[]>([]);
     const [selectedColors, setSelectedColors] = useState<string[]>(defaultScoreboardColors);
+    const [fieldsData, setFieldData] = useState<any>(fields);
 
-    const autoscrollRef = useRef(null);
+    const bg = localStorage.getItem("background");
+
     const [scrollSpeed, setScrollSpeed] = useState(1); // Adjust scroll speed as needed
     const [enableAutoScroll, setEnableAutoScroll] = useState(false);
-    const [isScrolling, setIsScrolling] = useState(true);
+
+    // Media queries
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 850px)" });
+    const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
 
     const [openedTabs, setOpenedTabs] = useState<any>({
         color: false,
@@ -111,50 +192,6 @@ export const SelectedLiveRace = () => {
     const handleSpeedChange = (newSpeed: number) => {
         setScrollSpeed(newSpeed);
       };
-
-    useEffect(() => {
-        let scrollInterval: any;
-        const container: any = autoscrollRef.current;
-
-        const scrollBottom = () => {
-            if (container && enableAutoScroll) {
-                if (!enableAutoScroll) {
-                    container.scrollTop = 0;
-                    return;
-                } else {
-                    container.scrollTop += scrollSpeed;
-                    if (container.scrollTop >= container.scrollHeight - container.clientHeight) {
-                        setIsScrolling(false);
-                        clearInterval(scrollInterval);
-                        setTimeout(() => {
-                            setIsScrolling(true);
-                            scrollInterval = setInterval(scrollTop, 10);
-                        }, 5000); // Pause for 5 seconds at the bottom
-                    }
-                }
-            }
-        };
-
-        const scrollTop = () => {
-            if (container && enableAutoScroll) {
-                container.scrollTop = 0;
-                setIsScrolling(false);
-                clearInterval(scrollInterval);
-                if (enableAutoScroll) {
-                    setTimeout(() => {
-                        setIsScrolling(true);
-                        scrollInterval = setInterval(scrollBottom, 10);
-                    }, 5000); // Pause for 5 seconds at the top
-                }
-            }
-        };
-
-        scrollInterval = setInterval(scrollBottom, 10);
-
-        return () => {
-          clearInterval(scrollInterval);
-        };
-      }, [scrollSpeed, enableAutoScroll]);
 
     useEffect(() => {
         const getActiveRace = async () => {
@@ -224,7 +261,15 @@ export const SelectedLiveRace = () => {
             }
             {
                 activeRace ?
-                <div className="app_liveList-selected-results">
+                <div
+                    className="app_liveList-selected-results"
+                    style={{
+                        backgroundImage: bg ? `url('/svg/${bg}.svg')` : "url('/svg/Squares.svg')",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                    }}
+                >
                     <header>
                         <div className="app_liveList-selected-track-name">
                             <p>{activeRace?.race_details?.name}</p>
@@ -263,104 +308,43 @@ export const SelectedLiveRace = () => {
                             </button>
                         </div>
                     </header>
-                    <div className="app__liveList-overflow-x-wrapper">
-                        <div className="app__liveList-selected-race-legend">
-                            {
-                                legendData.map((item: any) =>
-                                    <div
-                                        className="app__liveList-selected-race-legend-item"
-                                        style={{width: item.width}}
-                                    >
-                                        {item.name}
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <div
-                            className="app__liveList-selected-race-data"
-                            ref={autoscrollRef}
-                        >
-                            {
-                                activeRace?.race_competitors_list?.map((item: any, index: number) =>
-                                    <div
-                                        className="app__liveList-selected-race-data-item"
-                                        key={`race_live_item_${index}`}
-                                        style={{background:
-                                                    selectedCompetitors.includes(item.nr) ? selectedColors[2] :
-                                                    index % 2 === 0 ?
-                                                    selectedColors[0] : selectedColors[1],
-                                                color: selectedColors[3]
+                    <div
+                        className="app__historyRace-table"
+                        style={{width: isTabletOrMobile ? "100vw" : "1600px"}}
+                    >
+                        <ResizableTable data={{
+                                            competitor: activeRace?.race_competitors_list,
+                                            race_info: activeRace?.race_details
                                             }}
-                                        onClick={() => {
-                                            if (selectedCompetitors.includes(item.nr)) {
-                                                setSelectedCompetitors(selectedCompetitors.filter(competitor => competitor !== item.nr))
-                                            } else {
-                                                setSelectedCompetitors([...selectedCompetitors, item.nr])
-                                            }
-                                        }}
-                                    >
-                                        <div className="app_liveList-item-pos">
-                                            {item?.position}
-                                        </div>
-                                        <div className="app_liveList-item-nr">
-                                            {item?.nr}
-                                        </div>
-                                        <div className="app_liveList-item-state">
-                                        {
-                                            item.state &&
-                                            <img src={`https://flagcdn.com/${item.state?.toLowerCase()}.svg`} alt="-" />
-                                        }
-                                        </div>
-                                        <div className="app_liveList-item-status">
-                                            {getPositionArrow(item?.status)}
-                                        </div>
-                                        <div className="app_liveList-item-firstname">
-                                            {item?.firstname}
-                                        </div>
-                                        <div className="app_liveList-item-lastname">
-                                            {item?.lastname}
-                                        </div>
-                                        <div className="app_liveList-item-class">
-                                            {item?.class}
-                                        </div>
-                                        <div className="app_liveList-item-team">
-                                            {item?.team}
-                                        </div>
-                                        <div className="app_liveList-item-lap">
-                                            {item?.lap}
-                                        </div>
-                                        <div className="app_liveList-item-last_time">
-                                            {item?.lap_time}
-                                        </div>
-                                        <div className="app_liveList-item-best_time">
-                                            {item?.best_lap_time}
-                                        </div>
-                                        <div className="app_liveList-item-best_time">
-                                            {item?.diff}
-                                        </div>
-                                        <div className="app_liveList-item-best_time">
-                                            {item?.gap}
-                                        </div>
-                                        <div className="app_liveList-item-best_time">
-                                            {item?.speed}
-                                        </div>
-                                    </div>
-                                )
-                            }
+                                            fields={fieldsData}
+                                            fontSize={0.8}
+                                            colors={selectedColors}
+                                            mediaQuery={{
+                                                mobile: isTabletOrMobile,
+                                                portrait: isPortrait,
+                                            }}
+                        />
+                    </div>
+                    <div className="app__Simulator">
+                        <div className="simulator_inner">
+                            Simulator goes herere heehehhehe
                         </div>
+
                     </div>
                 </div>
                 :
                 <div className="app_liveList-selected-loading">
-                    <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-                    <p>Loading Live event data...</p>
+                    <div
+                        className="load-wheel"
+                        style={{
+                            backgroundImage: `url('/svg/Wheel.svg')`,
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                        }}
+                    />
                 </div>
             }
-
-            <div className="app_liveList-selected-divider" />
-            <div className="app_liveList-selected-simulator">
-
-            </div>
         </div>
     );
 };

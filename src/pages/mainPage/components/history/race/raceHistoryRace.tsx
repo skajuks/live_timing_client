@@ -200,7 +200,7 @@ class ResizableTableFilter extends React.Component
             }
         });
         allClasses.forEach((item: any) => {
-            parsedClasses[item] = item.toUpperCase();
+            parsedClasses[item] = item?.toUpperCase();
         });
         allFields.forEach((item: any) => {
             parsedFields[item] = this.fields.config[item]?.label || item
@@ -475,7 +475,6 @@ class ResizableTable extends React.Component
                     <div
                         className="mobile__resiazble_content"
                         key={`resizable_item_content${index}`}
-                        style={{background: `${index % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`}}
                     >
                         {
                             Object.keys(this.fields.verticalModeDefaults).map((field: any, index2: number) =>
@@ -484,6 +483,7 @@ class ResizableTable extends React.Component
                                     key={`resizable_mobile_item_content${index2}$_${field}`}
                                     style={{
                                         width: `${this.fields.verticalModeDefaults[field].width}%`,
+                                        background: `${index % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`,
                                         justifyContent: this.fields.verticalModeDefaults[field].justifyStart ?
                                             "flex-start" : "center"
                                     }}
@@ -556,7 +556,7 @@ const fields = {
                 shortname: "State"
             },
             firstname: { width: 30, justifyStart: true},
-            lastname: { width: 35, justifyStart: true},
+            lastname: { width: 30, justifyStart: true},
     },
     enabledClasses: [],
     defaultFontSize: 20,
@@ -640,7 +640,6 @@ export const RaceHistoryRace = () => {
         const response = await fetch(`http://localhost:3015/api/getRaceData?track_name=${track_name}&id=${eventId}&date=${date}`);
         const data = await response.json();
         setRaceData(data);
-        console.log(data);
     };
     const getFilterData = (data: any) => {
         setFieldData({...fieldsData, enabled: data.fields, enabledClasses: data.classes});
@@ -664,39 +663,17 @@ export const RaceHistoryRace = () => {
         >
             <div className="app__historyRace-table-wrapper">
                 {
-                    showSettings &&
-                    <div
-                        className={`app__historyRace-settings ${showSettings && "historyRace-settings-50"}`}
-                        style={{overflow: showSettings ? "visible" : "hidden"}}
-                    >
-                        <div className="app__historyRace-settings-selector">
-                            <BiFontSize size={"25px"} color="azure"/>
-                            <Select
-                                name="fontSize"
-                                defaultValue={fontSizeOptions[2]}
-                                className="resizable-table-filter-select"
-                                options={fontSizeOptions}
-                                onChange={(data: any) => { setFontSize(data.value) }}
-                                theme={(theme) => ({
-                                    ...theme,
-                                    colors: {
-                                        ...theme.colors,
-                                        primary25: "#0f101a",
-                                        primary: "#131417",
-                                        neutral0: "#0f101a",
-                                        neutral15: "#131417",
-                                        neutral10: "#3d22d4",
-                                        neutral20: "#282b4d",
-                                        neutral80: "azure",
-                                    }
-                                })}
-                            />
-                        </div>
-                        <div className="app__historyRace-settings-selector">
-                            <IoColorPalette size={"25px"} color="azure"/>
-                            <input type="color" id="i65" defaultValue={selectedColors[0]} onChange={(e) => {setSelectedColors([e.target.value ,selectedColors[1]])}}/>
-                            <input type="color" id="i64" defaultValue={selectedColors[1]} onChange={(e) => {setSelectedColors([selectedColors[0], e.target.value])}}/>
-                        </div>
+                    !raceData &&
+                    <div className="app__historyRace-table-wrapper-load">
+                        <div
+                            className="load-wheel"
+                            style={{
+                                backgroundImage: `url('/svg/Wheel.svg')`,
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover",
+                            }}
+                        />
                     </div>
                 }
                 <div className={isTabletOrMobile ? "mobile__historyRace-data" : "app__historyRace-data"}>
@@ -748,6 +725,42 @@ export const RaceHistoryRace = () => {
                             }
                         </div>
                     </div>
+                    {
+                        showSettings &&
+                        <div
+                            className={`app__historyRace-settings ${showSettings && "historyRace-settings-50"}`}
+                            style={{overflow: showSettings ? "visible" : "hidden"}}
+                        >
+                            <div className="app__historyRace-settings-selector">
+                                <BiFontSize size={"25px"} color="azure"/>
+                                <Select
+                                    name="fontSize"
+                                    defaultValue={fontSizeOptions[2]}
+                                    className="resizable-table-filter-select"
+                                    options={fontSizeOptions}
+                                    onChange={(data: any) => { setFontSize(data.value) }}
+                                    theme={(theme) => ({
+                                        ...theme,
+                                        colors: {
+                                            ...theme.colors,
+                                            primary25: "#0f101a",
+                                            primary: "#131417",
+                                            neutral0: "#0f101a",
+                                            neutral15: "#131417",
+                                            neutral10: "#3d22d4",
+                                            neutral20: "#282b4d",
+                                            neutral80: "azure",
+                                        }
+                                    })}
+                                />
+                            </div>
+                            <div className="app__historyRace-settings-selector">
+                                <IoColorPalette size={"25px"} color="azure"/>
+                                <input type="color" id="i65" defaultValue={selectedColors[0]} onChange={(e) => {setSelectedColors([e.target.value ,selectedColors[1]])}}/>
+                                <input type="color" id="i64" defaultValue={selectedColors[1]} onChange={(e) => {setSelectedColors([selectedColors[0], e.target.value])}}/>
+                            </div>
+                        </div>
+                    }
                 </div>
                 {
                     isTabletOrMobile && !isPortrait &&
@@ -797,7 +810,6 @@ export const RaceHistoryRace = () => {
                     />
                 </div>
             </div>
-            <div className="app__historyGroups_pageChange"/>
         </div>
     );
 };
