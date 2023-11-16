@@ -226,6 +226,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            margin-right: 10px;
             span {
                 font-size: 1rem;
             }
@@ -372,7 +373,7 @@
 
             .app__historyRace-data-bottom-settings-toggle {
                 position: absolute;
-                right: 0;
+                right: 10px;
                 top: -60px;
                 width: 60px;
                 height: 30px;
@@ -384,7 +385,7 @@
 
             .app__historyRace-data-bottom-filter-toggle {
                 position: absolute;
-                right: 0;
+                right: 10px;
                 top: -30px;
                 width: 60px;
                 height: 30px;
@@ -596,6 +597,12 @@
     font-size: 1.23rem;
     font-family: "SF-Pro-Bold", sans-serif;
 }
+.resized_position_surname_mobile {
+    font-weight: 700;
+    font-size: 1.06rem;
+    font-family: "SF-Pro-Bold", sans-serif;
+    margin-inline: 5px;
+}
 
 .resized_position_wrapper {
     width: 36px;
@@ -608,4 +615,20 @@
     justify-content: center;
     font-weight: 700;
     font-size: 1.2rem;
+}
+.resized_position_wrapper_mobile {
+    width: 34px;
+    height: 34px;
+    background: #0c0d15;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-family: "F1-Regular", sans-serif;
+}
+.resized_start_nr {
+    font-style: italic;
+    font-weight: 700;
+    color: #d1fffd;
 }

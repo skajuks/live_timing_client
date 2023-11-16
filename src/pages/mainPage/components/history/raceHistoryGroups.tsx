@@ -3,7 +3,11 @@ import { BoardTable } from "../../../../components/ScoreboardTable/ScoreboardTab
 import { useState, useEffect } from "react";
 import { parseDate } from "../../../../helpers/Parsers";
 import { useNavigate } from "react-router-dom";
+import { getBackendServerAddr } from "../../mainPage";
 
+
+import { io } from "socket.io-client";
+const socket = io(getBackendServerAddr());
 
 interface RaceHistoryData {
     id: number;
@@ -19,6 +23,7 @@ export interface RaceHistoryElement {
     current_page: number;
 };
 
+
 export const RaceHistoryGroups = () => {
 
     const navigate = useNavigate();
@@ -33,44 +38,53 @@ export const RaceHistoryGroups = () => {
     const [dateFilterValue, setDateFilterValue] = useState<string>("desc");
 
     const getPageData = async (currentPage: number = 1) => {
-        const response = await fetch(`http://localhost:3015/api/getPageEvents?page=${currentPage}`);
-        const data = await response.json();
-        if (data.data) {
-            data.data.forEach((item: any) => {
-                if (item.event_date) {
-                    item.parsed_date = parseDate(item.event_date);
-                } else {
-                    item.parsed_date = "";
-                }
-            })
-        }
-        setCurrentPageData(data.data);
+        socket.emit("getPageEvents", {page: currentPage}, (resp: any) => {
+            if (resp.data) {
+                resp.data.forEach((item: any) => {
+                    if (item.event_date) {
+                        item.parsed_date = parseDate(item.event_date);
+                    } else {
+                        item.parsed_date = "";
+                    }
+                });
+            }
+            setCurrentPageData(resp.data);
+        });
     };
 
     const getDataWithFilters = async (args: any) => {
         setCurrentPage(1);
         try {
-            const pageStr = `http://localhost:3015/api/getMaxPages?country=${args.values.ctry}&sports=${args.values.sports}&name=${args.values.name}`
-            const response = await fetch(pageStr);
-            const data = await response.json();
-            if (!data.pages || data.pages === 0) {
-                setCurrentPageData(null);
-                return setMaxPage(data.pages);
-            }
-            if (data.pages) {
-                setMaxPage(data.pages);
-                const response = await fetch(`http://localhost:3015/api/getPageEvents?page=${currentPage}&country=${args.values.ctry}&sports=${args.values.sports}&date=${args.values.date}&name=${args.values.name}`);
-                const pageData = await response.json();
-                if (pageData.data) {
-                    pageData.data.forEach((item: any) => {
-                        if (item.event_date) {
-                            item.parsed_date = parseDate(item.event_date);
-                        } else {
-                            item.parsed_date = "";
-                        }
-                    })
+            const searchData = {country: args.values.ctry, sports: args.values.sports, name: args.values.name};
+            let pageCount: any = 0;
+            socket.emit("getMaxPages", searchData, (resp: any) => {
+                if (!resp.pages || resp.pages === 0) {
+                    setCurrentPageData(null);
+                    pageCount = resp.pages;
+                    return setMaxPage(pageCount);
                 }
-                setCurrentPageData(pageData?.data);
+                setMaxPage(pageCount);
+            });
+            if (pageCount && pageCount > 0) {
+                const pageSearchData = {
+                    page: currentPage,
+                    country: args.values.ctry,
+                    sports: args.values.sports,
+                    name: args.values.name,
+                    date: args.values.date
+                };
+                socket.emit("getPageEvents", pageSearchData, (resp: any) => {
+                    if (resp.data) {
+                        resp.data.forEach((item: any) => {
+                            if (item.event_date) {
+                                item.parsed_date = parseDate(item.event_date);
+                            } else {
+                                item.parsed_date = "";
+                            }
+                        })
+                    }
+                    setCurrentPageData(resp.data);
+                });
             }
         } catch (error) {
 
@@ -88,9 +102,9 @@ export const RaceHistoryGroups = () => {
         // get the max page amount
         const getMaxPage = async () => {
             try {
-                const response = await fetch("http://localhost:3015/api/getMaxPages");
-                const data = await response.json();
-                setMaxPage(data.pages);
+                socket.emit("getMaxPages", {}, (resp: any) => {
+                    setMaxPage(resp.pages);
+                });
             } catch (err) {
                 console.log(err);
             }

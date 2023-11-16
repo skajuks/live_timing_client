@@ -62,7 +62,7 @@
     top: 0;
     left: 0;
     z-index: 8;
-    background: #000;
+    background: #0f101a;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -71,7 +71,7 @@
     header {
         width: 100%;
         height: 120px;
-        background: #000000eb;
+        background: #0f101a;
         color: azure;
         display: flex;
         position: relative;
@@ -133,7 +133,7 @@
             &:hover {
                 cursor: pointer;
                 transform: scale(0.97);
-                background: #f2930e;
+                background: #14396d;
                 transition: background 0.5s ease-in-out;
             }
         }
@@ -164,13 +164,13 @@
             .app_liveList-fullscreen-item {
                 width: 100%;
                 height: 50px;
-                background: #14161fef;
+                background: #1a202d;
                 margin-top: 3px;
                 display: flex;
                 align-items: center;
 
                 &:nth-child(odd) {
-                    background: #171d28ef;
+                    background: #171924;
                 }
                 .app_liveList-fullscreen-pos {
                     width: 5%;
@@ -180,16 +180,17 @@
                     align-items: center;
                     justify-content: center;
                     .app_liveList-fullscreen-pos-inner {
-                        width: 60%;
-                        height: 80%;
-                        background: azure;
-                        border-bottom-right-radius: 12px;
+                        width: 43px;
+                        height: 43px;
+                        background: #0d0d14;
+                        color: azure;
+                        border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-family: "SF-Pro-Bold", sans-serif;
+                        font-family: "F1-Regular", sans-serif;
                         font-weight: 900;
-                        font-size: 1.4rem;
+                        font-size: 1.3rem;
                     }
                 }
                 .lastname_bold {
@@ -204,7 +205,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: #f2cc0e;
+                    color: #0ea6f2;
                     font-size: 1.2rem;
                     font-family: "SF-Pro-Bold", sans-serif;
                     font-weight: 900;
@@ -288,7 +289,7 @@
         .app_liveList-fullscreen-legend {
             height: 35px;
             width: calc(100% - 20px);
-            background: #19191ee4;
+            background: #3d22d4;
             display: flex;
             margin-top: 3px;
             margin-left: 10px;
@@ -299,7 +300,6 @@
                 align-items: center;
                 justify-content: center;
                 color: azure;
-                font-size: 0.9rem;
                 border-right: 1px solid #000000;
                 &:nth-last-child(1) {
                     border-right: none;

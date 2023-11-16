@@ -6,6 +6,7 @@ import { countries, sports, monthNames } from "../../helpers/static/data";
 import { OptionsTransformer } from "../../helpers/OptionsTransformer";
 import { parseDate } from "../../helpers/Parsers";
 import { BoardTableProps } from "./ScoreboardTable";
+import { getBackendServerAddr } from "../../pages/mainPage/mainPage";
 
 export const BoardTableMini: React.FC<BoardTableProps> = ({legend, data, properties}) => {
 
@@ -32,7 +33,7 @@ export const BoardTableMini: React.FC<BoardTableProps> = ({legend, data, propert
     };
 
     const getPageData = async (currentPage: number = 1) => {
-        const response = await fetch(`http://localhost:3015/api/getPageEvents?page=${currentPage}`);
+        const response = await fetch(`${getBackendServerAddr()}/api/getPageEvents?page=${currentPage}`);
         const data = await response.json();
         if (data.data) {
             data.data.forEach((item: any) => {
@@ -50,7 +51,7 @@ export const BoardTableMini: React.FC<BoardTableProps> = ({legend, data, propert
         // get the max page amount
         const getMaxPage = async () => {
             try {
-                const response = await fetch("http://localhost:3015/api/getMaxPages");
+                const response = await fetch(`${getBackendServerAddr()}/api/getMaxPages`);
                 const data = await response.json();
                 setMaxPage(data.pages);
             } catch (err) {

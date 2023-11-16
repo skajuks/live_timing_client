@@ -15,10 +15,11 @@
 }
 
 .app__live-filter {
-    width: 100%;
+    width: calc(100% - 10px);
     max-width: 1600px;
     height: fit-content;
     margin-bottom: 5px;
+    margin-inline: 5px;
 }
 
 .app_liveList-selected-main {
@@ -29,7 +30,7 @@
     .app_liveList-top-selector {
         width: 100%;
         height: 100px;
-        background: #f1f1f2;
+        background: #0c0c14;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,9 +46,11 @@
             gap: 5px;
             font-family: "SF-Pro", sans-serif;
             font-size: 0.9rem;
+            color: azure;
 
             input {
-                border: 1px solid #3f3f3f;
+                outline: 1px solid #2867d4;
+                outline-offset: 3px;
                 background: none;
                 padding: 0;
                 cursor: pointer;
@@ -70,11 +73,15 @@
                 border: none;
                 width: 150px;
                 height: 36px;
-                background: #f2930e;
+                background: transparent;
+                outline: 1px solid #2867d4;
+                color: azure;
 
                 &:hover {
                     cursor: pointer;
                     transform: scale(1.01);
+                    background: #2867d4;
+                    outline: none;
                 }
             }
         }
@@ -224,16 +231,51 @@
                     transition: background 0.5s ease-in-out;
                 }
             }
+            .app_liveList-selected-viewers {
+                position: absolute;
+                right: 5px;
+                bottom: 10px;
+                width: 200px;
+                height: 40px;
+                background: #0b0b11;
+                border-radius: 10px;
+                font-family: "SF-Pro", sans-serif;
+
+                display: flex;
+                gap: 5px;
+
+                p {
+                    width: calc(75% - 5px);
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: rgb(85, 183, 244);
+                }
+
+                span {
+                    width: 25%;
+                    height: 100%;
+                    background: #2246bc;
+                    // border-top-right-radius: 10px;
+                    // border-bottom-right-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: azure;
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
 }
 .app__live_raceLeaders {
     width: 100%;
-    height: 100px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
     .app__live_raceLeaders-inner {
         width: 1600px;
         height: 100%;
@@ -256,11 +298,12 @@
     .simulator_inner {
         width: 1600px;
         height: 100%;
-        background: #0f101ac4;
+        background: #0f101a;
 
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: "F1-Regular", sans-serif;
     }
 }
 .app__selectedRace-table {
@@ -307,7 +350,7 @@
         font-size: 0.7rem;
         justify-self: flex-start;
         p {
-            font-size: 1.4rem !important;
+            font-size: 1.6rem !important;
         }
     }
 }

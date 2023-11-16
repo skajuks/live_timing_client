@@ -69,10 +69,10 @@
     align-items: center;
     justify-content: center;
     font-family: "SF-Pro", sans-serif;
-    z-index: 5;
+    z-index: 10;
     font-size: 0.9rem;
     // color: #272727;
-    color: #bbbbbb;
+    color: #4288e4;
 }
 
 .app__live-footer {
@@ -95,9 +95,11 @@
     background: #f0f1f1;
     height: 200px;
     width: 100%;
-    z-index: 5;
+    z-index: 4;
     overflow: hidden;
     overflow-x: auto;
+    display: flex;
+    justify-content: center;
 
     &::-webkit-scrollbar {
         height: 8px;
@@ -112,9 +114,12 @@
     .app_background_opened_inner {
         height: 100%;
         width: fit-content;
+
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         gap: 10px;
+        z-index: 1;
 
         &:nth-child(1) {
             margin-left: 10px;
@@ -174,7 +179,8 @@
     justify-content: center !important;
 }
 
-@media (max-width: 1620px) {
+@media (max-width: 2090px) {
     .app__background_opened {
+        justify-content: flex-start;
     }
 }

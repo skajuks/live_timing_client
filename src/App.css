@@ -36,7 +36,16 @@ html {
   src: local("SF-Pro-Display-Heavy"),
     url("../public/fonts/SF-Pro-Display-Heavy.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "F1-Bold";
+  src: local("Formula1-Bold"),
+    url("../public/fonts/Formula1-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "F1-Regular";
+  src: local("Formula1-Regular"),
+    url("../public/fonts/Formula1-Regular.ttf") format("truetype");
+}
 /* Monospace numbers for time values */
 .monospace_numbers {
   font-family: "Lato", monospace;

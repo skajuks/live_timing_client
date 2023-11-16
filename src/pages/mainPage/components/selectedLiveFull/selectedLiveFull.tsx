@@ -3,6 +3,10 @@ import "./selectedLiveFull.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { RiFullscreenLine } from "react-icons/ri";
 import { BsArrowDownShort, BsArrowUpShort, BsFillCircleFill } from "react-icons/bs";
+import { getBackendServerAddr } from "../../mainPage";
+
+import { io } from "socket.io-client";
+const socket = io(getBackendServerAddr());
 
 interface raceDataElement {
     race_details: any;
@@ -77,32 +81,33 @@ export function SelectedLiveFull() {
     const [activeRace, setActiveRace] = useState<raceDataElement>();
     const [currentPage, setCurrentPage] = useState(1);
 
+
+
     useEffect(() => {
         const getActiveRace = async () => {
             try {
                 if (!hash) { return; }
-                const response = await fetch(`http://localhost:3015/api/activeRace?id=${hash}`);
-                const data = await response.json();
-                if (data?.data?.race_competitors_list?.length > 15) {
-                    const maxPages = Math.ceil(data?.data?.api_data?.race_competitors_list?.length / 15);
-                    console.log(maxPages);
-                    // If there are more than 12 entries, show the entries for the current page.
-                    setActiveRace({
-                        race_details: data.data.api_data?.race_details,
-                        race_competitors_list: data?.data?.api_data?.race_competitors_list?.slice((currentPage - 1) * 15, currentPage * 15),
-                        race_time: data.data?.api_data?.race_time
-                    });
-                    // Schedule moving to the next page after 10 seconds.
-                    setTimeout(() => {
-                        if (currentPage < maxPages) {
-                            setCurrentPage(currentPage + 1);
-                        } else {
-                            setCurrentPage(1); // Reset to the first page when reaching the last page.
-                        }
-                    }, 10000);
-                } else {
-                    setActiveRace(data?.data);
-                }
+                socket.emit("getActiveRaceData", hash, (resp: any) => {
+                    if (resp?.data?.race_competitors_list?.length > 15) {
+                        const maxPages = Math.ceil(resp?.data?.race_competitors_list?.length / 15);
+                        // If there are more than 12 entries, show the entries for the current page.
+                        setActiveRace({
+                            race_details: resp.data.race_details,
+                            race_competitors_list: resp?.data?.race_competitors_list?.slice((currentPage - 1) * 15, currentPage * 15),
+                            race_time: resp.data?.race_time
+                        });
+                        // Schedule moving to the next page after 10 seconds.
+                        setTimeout(() => {
+                            if (currentPage < maxPages) {
+                                setCurrentPage(currentPage + 1);
+                            } else {
+                                setCurrentPage(1); // Reset to the first page when reaching the last page.
+                            }
+                        }, 10000);
+                    } else {
+                        setActiveRace(resp?.data);
+                    }
+                });
             } catch (err) {
                 console.log(err);
             }
@@ -113,10 +118,17 @@ export function SelectedLiveFull() {
         }
     }, [currentPage]);
 
+    const bg = localStorage.getItem("background");
+
     return (
         <div
             className="app_liveList-fullscreen"
-            style={{backgroundImage: "url(/svg/Lines.svg)"}}
+            style={{
+                backgroundImage: bg ? `url('/svg/${bg}.svg')` : "url('/svg/Squares.svg')",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+            }}
         >
             {
                 activeRace &&

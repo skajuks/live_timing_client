@@ -1,7 +1,7 @@
 import React from "react";
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import { OptionsTransformer } from "../helpers/OptionsTransformer";
+import { OptionsTransformer } from "../../helpers/OptionsTransformer";
 
 export default class ResizableTableFilter extends React.Component
     <{data: any, fields: any, callback: Function, show: boolean, mediaQuery: any},

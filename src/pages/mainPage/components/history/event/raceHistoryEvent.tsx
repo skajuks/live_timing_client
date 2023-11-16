@@ -4,6 +4,8 @@ import { BsPlayFill } from "react-icons/bs";
 import "./raceHistoryEvent.scss";
 import { parseDate } from '../../../../../helpers/Parsers';
 import { BoardTable } from '../../../../../components/ScoreboardTable/ScoreboardTable';
+import { getBackendServerAddr } from '../../../mainPage';
+import { io } from "socket.io-client";
 
 interface EventData {
     championship: string,
@@ -19,6 +21,9 @@ interface EventData {
     track_length: string
 };
 
+
+const socket = io(getBackendServerAddr());
+
 export const RaceHistoryEvent = () => {
 
     const navigate = useNavigate();
@@ -26,9 +31,9 @@ export const RaceHistoryEvent = () => {
     const [eventData, setEventData] = useState<EventData[]>([]);
 
     const getEventData = async (date: string, track_name: string) => {
-        const response = await fetch(`http://localhost:3015/api/getEventData?date=${date}&track_name=${track_name}`);
-        const data = await response.json();
-        setEventData(data.data);
+        socket.emit("getEventData", { date: date, track_name: track_name }, async (resp: any) => {
+            setEventData(resp?.data);
+        });
     };
 
     const navigateTo = (item: any) => {

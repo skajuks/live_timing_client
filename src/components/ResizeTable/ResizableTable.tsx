@@ -9,10 +9,13 @@ export default class ResizableTable extends React.Component
 
     // Variables
     fields: any;
+    ref: any;
     data: any;
     defaultColWidth: number = 120;
     maxTableWidth: number = 1600;
     enabledFieldsInitialized: boolean = false;
+    colWidthsFirstInit: boolean = true;
+    defaultTableHeight: number = 570;
 
     constructor(props: any) {
         super(props);
@@ -24,6 +27,9 @@ export default class ResizableTable extends React.Component
         };
         this.fields = props.fields;
         this.data = props.data;
+        this.ref = React.createRef();
+    }
+    componentDidMount(): void {
     }
     componentDidUpdate(prevProps: Readonly<{ data: any; fields: any; }>): void {
         if (this.props.data !== prevProps.data || this.props.fields !== prevProps.fields) {
@@ -32,7 +38,9 @@ export default class ResizableTable extends React.Component
             this.data = this.props.data;
             if (!this.enabledFieldsInitialized) {
                 this.initializeSelectedClasses();
+
                 this.enabledFieldsInitialized = true;
+
             }
             this.importData(this.props.data);
         }
@@ -75,13 +83,18 @@ export default class ResizableTable extends React.Component
             const bIndex = this.fields.order.indexOf(b);
             return aIndex - bIndex;
         })
-        const sum: number = Object.values(columnWidthData).reduce<number>((partial: any, a) => partial + a, 0 as number);
         this.setState({
             groupedData: groupedData,
-            colwidths: columnWidthData,
-            groupedDataKeys: sorted,
-            currentChildWidth: sum
+            groupedDataKeys: sorted
         });
+        if (this.colWidthsFirstInit) {
+            const sum: number = Object.values(columnWidthData).reduce<number>((partial: any, a) => partial + a, 0 as number);
+            this.setState({
+                colwidths: columnWidthData,
+                currentChildWidth: sum
+            });
+            this.colWidthsFirstInit = false;
+        }
     }
     parseHeader(item: string) {
         if (this.state.groupedDataKeys.includes(item)) {
@@ -112,6 +125,7 @@ export default class ResizableTable extends React.Component
         console.log(what);
     }
     render(): any {
+
         if (!this.props.data) {
             return (
                 <div className={
@@ -126,6 +140,7 @@ export default class ResizableTable extends React.Component
         return (
         <div
             className="app__historyRace-table-inside"
+            ref={this.ref}
         >
                 <div className="resizable_wrapper">
                 {
@@ -162,6 +177,8 @@ export default class ResizableTable extends React.Component
                 </div>
             <div
                 className="resizeable_content-wrapper"
+
+                id="resizable_content-wrapper-id"
                 style={{display: this.props.mediaQuery.mobile && this.props.mediaQuery.portrait ? "block" : "flex"}}
             >
                 {

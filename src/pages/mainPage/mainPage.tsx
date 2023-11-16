@@ -8,7 +8,6 @@ import { RaceHistoryRace } from "./components/history/race/raceHistoryRace";
 import { PositionCanvas, PositionCanvas_Test } from "./components/PositionCanvas";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Slider from "react-slick";
 import { useMediaQuery } from 'react-responsive'
 import 'slick-carousel/slick/slick.css';
@@ -17,6 +16,12 @@ import 'slick-carousel/slick/slick-theme.css';
 const backgrounds = ["Interstellar", "Lines", "Triangles",
     "Hex", "Clouds", "Sky", "Raindrops", "Photon2", "Squares"
 ];
+
+export function getBackendServerAddr() {
+    const USE_PROD_MODE = false;
+    return USE_PROD_MODE ? "https://live.motorparks.lv:3015" : "http://192.168.8.252:3015";
+};
+
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
     return r.keys().map(r);
@@ -78,21 +83,16 @@ export const MainPage = () => {
             <div className="app__navbar-infobox">
                 This page is currently running in beta version, please be aware of any occurring bugs.
             </div>
-            <AnimatePresence mode="wait">
             {
                 openBackground &&
-                <motion.div
+                <div
                     className="app__background_opened"
-                    initial={{y: -500}}
-                    animate={{y: 0}}
-                    transition={{bounce: false}}
-                    exit={{y: -500}}
                 >
                     <div className="app_background_opened_inner">
                     {
                         backgrounds.map((item: string, index: number) =>
 
-                        <motion.div
+                        <div
                             className="app__background_card"
                             key={`background_card_${index}`}
                             style={{
@@ -105,14 +105,13 @@ export const MainPage = () => {
                             }}
                         >
                             <span>{item}</span>
-                        </motion.div>
+                        </div>
 
                         )
                     }
                     </div>
-                </motion.div >
+                </div >
             }
-            </AnimatePresence>
             <Routes>
                 <Route path={"/"} element={<LiveList />} />
                 <Route path={"/history"} element={<RaceHistoryGroups />} />

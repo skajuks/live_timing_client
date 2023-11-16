@@ -2,6 +2,8 @@ import "./liveList.scss";
 import { useEffect, useState } from "react";
 import { BoardTable } from "../../../../components/ScoreboardTable/ScoreboardTable";
 import { useNavigate } from "react-router-dom";
+import { getBackendServerAddr } from "../../mainPage";
+import { io } from "socket.io-client";
 
 interface raceTypeData {
     race_type_name: string;
@@ -17,6 +19,8 @@ interface raceInfoElement {
     elapsed_time: string;
     race_type_data: raceTypeData;
 };
+const addr = getBackendServerAddr();
+const socket = io(addr);
 
 export const LiveList: React.FC = () => {
     const [activeRaces, setActiveRaces] = useState<raceInfoElement[]>([]);
@@ -60,9 +64,9 @@ export const LiveList: React.FC = () => {
     useEffect(() => {
         const getActiveRaces = async () => {
             try {
-                const response = await fetch("http://localhost:3015/api/activeRaces");
-                const data = await response.json();
-                setActiveRaces(data);
+                socket.emit("getActiveRaces", async (data: any) => {
+                    setActiveRaces(data);
+                });
             } catch (err) {
                 console.log(err);
             }

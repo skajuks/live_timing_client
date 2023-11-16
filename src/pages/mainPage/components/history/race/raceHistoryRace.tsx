@@ -3,37 +3,51 @@ import "./raceHistoryRace.scss";
 import { useEffect, useState } from "react";
 import { parseDate } from "../../../../../helpers/Parsers";
 import { AiOutlineFieldTime, AiOutlineClose } from "react-icons/ai";
-import { BsTrophyFill } from "react-icons/bs";
 import { BiFontSize } from "react-icons/bi";
 import { IoColorPalette, IoFilterOutline } from "react-icons/io5";
 import { FcRotateToLandscape, FcRotateToPortrait } from "react-icons/fc";
-import { RiTimerFlashFill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
-import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
-import React from "react";
+import { io } from "socket.io-client";
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive'
-import makeAnimated from 'react-select/animated';
-import { OptionsTransformer } from '../../../../../helpers/OptionsTransformer';
+import { getBackendServerAddr } from "../../../mainPage";
+
+// For ResizeTable
+import ResizableTable from "../../../../../components/ResizeTable/ResizableTable";
+import ResizableTableFilter from "../../../../../components/ResizeTable/ResizableFilter";
+import RaceHistoryRaceWinners from "../../../../../components/RaceHistoryRaceWinners";
 
 const ResizableTableSurnameComponent = (props: any) => {
     return (
         <span className="resized_position_surname">{props?.data}</span>
     );
 };
+const ResizableTableSurnameMobileComponent = (props: any) => {
+    return (
+        <span className="resized_position_surname_mobile">{props?.data}</span>
+    );
+};
 const ResizableTableFastestLapComponent = (props: any) => {
     const isFastest = props.data === props.fastest?.best_lap_time;
     return (
         <p style={{
-            color: isFastest ? "#c44df0" : "azure",
-            fontWeight: isFastest ? "800" : "100"
+            color: isFastest ? "#c44df0" : "#51f6ff",
+            fontWeight: isFastest ? "800" : "100",
+            marginLeft: "5px"
         }}>{props.data}</p>
+    );
+};
+const ResizableTablePosMobileComponent = (props: any) => {
+    return (
+        <div className="resized_position_wrapper_mobile">
+            <p>{props.data}</p>
+        </div>
     );
 };
 const ResizableTablePosComponent = (props: any) => {
     return (
-        <div className="resized_position_wrapper">
+        <div className="resized_position_wrapper_mobile">
             <p>{props.data}</p>
         </div>
     );
@@ -53,493 +67,12 @@ const ResizableTableImgComponent = (props: any) => {
         );
 };
 
-
-class RaceHistoryRaceWinners extends React.Component <{data: any, mediaQuery: any}, {raceWinner: any, fastestLap: any, raceType: string}> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            raceWinner: {},
-            fastestLap: {},
-            raceType: "",
-        }
-    }
-    componentDidUpdate(prevProps: Readonly<{ data: any }>): void {
-        if (this.props.data !== prevProps.data) {
-            this.parseData(this.props.data);
-        }
-    }
-    parseData(data: any): void {
-        if (!data) { return; }
-        this.setState({
-                raceWinner: data.race_data.winner,
-                fastestLap: data.race_data.fastest_lap,
-                raceType: data.race_data.race_type
-            });
-    }
-    render() {
-        if (!this.state.raceWinner) { return (<></>); }
-        return (
-            <div
-                className={`${this.props.mediaQuery.mobile ?
-                    "mobile__historyRace-data-race-winners" : "app__historyRace-data-race-winners"
-                }`}
-                style={{
-                    flexDirection: this.props.mediaQuery.mobile ?
-                        !this.props.mediaQuery.split ? "row" : "column"
-                    : "row"
-                }}
-            >
-            {
-                <div className="app__historyRace-data-winner">
-                    <BsTrophyFill color="#ffe608" size={"30px"}/>
-                    <p>#{this.state.raceWinner?.nr}</p>
-                    <h4>{`${this.state.raceWinner?.firstname?.charAt(0)}. ${this.state.raceWinner?.lastname}`}</h4>
-                    <p>{this.state.raceWinner?.class}</p>
-                </div>
-            }
-            {
-                this.state.raceType === "Race" &&
-                <div className="app__historyRace-data-fastest-lap">
-                    <RiTimerFlashFill size={"32px"}/>
-                    <p>#{this.state.fastestLap?.nr}</p>
-                    <h4>{`${this.state.fastestLap?.firstname?.charAt(0)}. ${this.state.fastestLap?.lastname}`}</h4>
-                    <span>{this.state.fastestLap?.best_lap_time}</span>
-                </div>
-            }
-            </div>
-        );
-    }
-}
-
-class ResizableTableFilter extends React.Component
-    <{data: any, fields: any, callback: Function, show: boolean, mediaQuery: any},
-    {selectedClasses: any, selectedColumns: any, availableData: any}> {
-
-    // Variables
-    fields: any;
-    data: any;
-    optionsClass: any;
-    optionsFields: any;
-    allOptionsFields: any;
-    animated: any;
-    enabledFieldsInitialized: boolean = false;
-
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            selectedClasses: [],
-            selectedColumns: [],
-            availableData: {},
-        }
-        this.fields = props.fields;
-        this.data = props.data;
-        this.animated = makeAnimated();
-    }
-    componentDidUpdate(prevProps: Readonly<{ data: any; fields: any; }>): void {
-        if (this.props.data !== prevProps.data || this.props.fields !== prevProps.fields) {
-            this.fields = this.props.fields;
-            this.data = this.props.data;
-            if (!this.enabledFieldsInitialized) {
-                this.initializeSelectedClasses();
-                this.enabledFieldsInitialized = true;
-            }
-            this.initData(this.data);
-        }
-    }
-    initializeSelectedClasses() {
-        this.fields.enabledClasses = this.data?.race_info?.availableClasses || [];
-    }
-    onFilterChange(filter: string, data: any) {
-        if (!data) { return; }
-        switch(filter) {
-            case "class": {
-                const classes = this.state.selectedClasses;
-                const valuesToRemove = new Set(data.map((obj: any) => obj.value));
-                const newClasses = classes.filter((val: any) => valuesToRemove.has(val));
-                this.setState({ selectedClasses: newClasses });
-                this.props.callback({classes: newClasses, fields: this.state.selectedColumns});
-                break;
-            }
-            case "fields": {
-                const fields = this.state.selectedColumns;
-                const filtered: any = {};
-                if (data.length > Object.keys(fields).length) {
-                    data.map((obj: any) => {
-                        filtered[obj.value] = obj.label
-                    });
-                } else {
-                    const valuesToRemove = new Set(data.map((obj: any) => obj.value));
-                    for (const key in fields) {
-                        if (valuesToRemove.has(key)) {
-                            filtered[key] = fields[key];
-                        }
-                    }
-                }
-                this.setState({ selectedColumns: filtered });
-                this.props.callback({classes: this.state.selectedClasses, fields: filtered});
-                break;
-            }
-        }
-    }
-    initData(data: any): void {
-        if (!data) { return; }
-        const allClasses: any[] = [];
-        const allFields: any[] = [];
-        const parsedClasses: any = {};
-        const parsedFields: any = {};
-        let enabledFields: any = {};
-        data.competitor?.forEach((item: any) => {
-            for (const [key, value] of Object.entries(item)) {
-                if (this.fields.banned.includes(key)) { continue; }
-                if (key === "class" && !allClasses.includes(value)) {
-                    allClasses.push(value);
-                }
-                if (!allFields.includes(key)) {
-                    allFields.push(key);
-                }
-            }
-        });
-        allClasses.forEach((item: any) => {
-            parsedClasses[item] = item?.toUpperCase();
-        });
-        allFields.forEach((item: any) => {
-            parsedFields[item] = this.fields.config[item]?.label || item
-            if (typeof(this.fields.enabled) === "object") {
-                if (Array.isArray(this.fields.enabled)) {
-                    if (this.fields.enabled.includes(item)) {
-                        enabledFields[item] = this.fields.config[item]?.label || item
-                    }
-                } else {
-                    enabledFields = this.fields.enabled;
-                }
-            }
-        });
-        this.setState({
-            availableData: {
-                classes: parsedClasses,
-                fields: parsedFields
-            },
-            selectedClasses: allClasses,
-            selectedColumns: enabledFields
-        });
-        this.optionsClass = new OptionsTransformer(parsedClasses).get();
-        this.allOptionsFields = new OptionsTransformer(parsedFields).get();
-        this.optionsFields = new OptionsTransformer(enabledFields).get();
-    }
-
-    render() {
-        return (
-            <div
-                className={`${this.props.mediaQuery.mobile ?
-                    "mobile_resizable-table-filter-row" : "resizable-table-filter-row"
-                } ${this.props.show ? this.props.mediaQuery.mobile ? "mobile_filter-height" : "filter-height-100" : ""}`}
-                style={{
-                    overflow: this.props.show ? "visible" : "hidden",
-                    height: this.props.show ? this.props.mediaQuery.mobile ? "fit-content": "100px" : "0"
-                }}
-            >
-                {
-                    this.optionsClass &&
-                    <div
-                        className={`${this.props.mediaQuery.mobile ?
-                            "mobile_resizable-table-filter-selector" : "resizable-table-filter-selector"}`}
-                    >
-                        <p>Selected Classes</p>
-                        <Select
-                            name="classes"
-                            className={`${this.props.mediaQuery.mobile ? "mobile_resizable-select" : "resizable-table-filter-select"}`}
-                            closeMenuOnSelect={false}
-                            defaultValue={this.optionsClass}
-                            options={this.optionsClass}
-                            onChange={(data: any) => { this.onFilterChange("class", data)}}
-                            components={this.animated}
-                            placeholder={"Select an available class from dropdown"}
-                            isMulti={true}
-                            theme={(theme) => ({
-                                ...theme,
-                                colors: {
-                                    ...theme.colors,
-                                    primary25: "#0f101a",
-                                    primary: "#131417",
-                                    neutral0: "#0f101a",
-                                    neutral15: "#131417",
-                                    neutral10: "#1d5ebf",
-                                    neutral20: "#282b4d",
-                                    neutral80: "azure",
-                                }
-                            })}
-                        />
-                    </div>
-                }
-                {
-                    this.optionsFields &&
-                    <div
-                        className={`${this.props.mediaQuery.mobile ?
-                            "mobile_resizable-table-filter-selector" : "resizable-table-filter-selector"}`}
-                    >
-                        <p>Selected Fields</p>
-                        <Select
-                            name="fields"
-                            defaultValue={this.optionsFields}
-                            className={`${this.props.mediaQuery.mobile ? "mobile_resizable-select" : "resizable-table-filter-select"}`}
-                            options={this.allOptionsFields}
-                            components={this.animated}
-                            isMulti={true}
-                            onChange={(data: any) => { this.onFilterChange("fields", data) }}
-                            closeMenuOnSelect={false}
-                            theme={(theme) => ({
-                                ...theme,
-                                colors: {
-                                    ...theme.colors,
-                                    primary25: "#0f101a",
-                                    primary: "#131417",
-                                    neutral0: "#0f101a",
-                                    neutral15: "#131417",
-                                    neutral10: "#3d22d4",
-                                    neutral20: "#282b4d",
-                                    neutral80: "azure",
-                                }
-                            })}
-                        />
-                    </div>
-                }
-            </div>
-        );
-    }
-};
-
-class ResizableTable extends React.Component
-    <{data: any, fields: any, fontSize: number, colors: any[], mediaQuery: any},
-    {colwidths: any, groupedData: any, groupedDataKeys: string[], currentChildWidth: number}
-    > {
-
-    // Variables
-    fields: any;
-    data: any;
-    defaultColWidth: number = 120;
-    maxTableWidth: number = 1600;
-    enabledFieldsInitialized: boolean = false;
-
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            colwidths: {},
-            groupedData: {},
-            groupedDataKeys: [],
-            currentChildWidth: 0
-        };
-        this.fields = props.fields;
-        this.data = props.data;
-    }
-    componentDidUpdate(prevProps: Readonly<{ data: any; fields: any; }>): void {
-        if (this.props.data !== prevProps.data || this.props.fields !== prevProps.fields) {
-            this.fields = this.props.fields;
-            this.data = this.props.data;
-            if (!this.enabledFieldsInitialized) {
-                this.initializeSelectedClasses();
-                this.enabledFieldsInitialized = true;
-            }
-            this.importData(this.props.data);
-        }
-    }
-    initializeSelectedClasses() {
-        this.fields.enabledClasses = this.data?.race_info?.availableClasses || [];
-    }
-    importData(data: any): void {
-        const columnWidthData: any = {};
-        const groupedData: any = {};
-        data?.competitor?.forEach((item: any) => {
-            for (const [key, value] of Object.entries(item)) {
-                // skips
-                if (Array.isArray(this.fields.enabled)) {
-                    if (!this.fields.enabled.includes(key)) {
-                            continue;
-                        }
-                } else {
-                    if (typeof this.fields.enabled === 'object') {
-                        if (!Object.keys(this.fields.enabled).includes(key)) { continue; }
-                    }
-                }
-                if (this.fields.banned.includes(key)) { continue; }
-
-                if (groupedData.hasOwnProperty(key)) {
-                    if (item.class && this.fields.enabledClasses.includes(item.class)) {
-                        groupedData[key].push(value);
-                    }
-                } else {
-                    groupedData[key] = [];
-                    if (item.class && this.fields.enabledClasses.includes(item.class)) {
-                        groupedData[key].push(value);
-                    }
-                    columnWidthData[key] = this.fields.config[key]?.defaultWidth || this.defaultColWidth;
-                }
-            };
-        });
-        const sorted = [...Object.keys(groupedData)].sort((a, b) => {
-            const aIndex = this.fields.order.indexOf(a);
-            const bIndex = this.fields.order.indexOf(b);
-            return aIndex - bIndex;
-        })
-        const sum: number = Object.values(columnWidthData).reduce<number>((partial: any, a) => partial + a, 0 as number);
-        this.setState({
-            groupedData: groupedData,
-            colwidths: columnWidthData,
-            groupedDataKeys: sorted,
-            currentChildWidth: sum
-        });
-    }
-    parseHeader(item: string) {
-        if (this.state.groupedDataKeys.includes(item)) {
-            const label = this.fields.config[item]?.label;
-            return ( <p>{label || item}</p> );
-        }
-        return ( <p>{item}</p> );
-    }
-    parseItem(item: string, grouped: string) {
-        if (Object.keys(this.fields.config).includes(item)) {
-            const element = this.fields.config[item]?.customElement;
-            if (typeof element === 'string' || typeof element === 'function') {
-                const props = {name: item, data: grouped, fastest: this.data.race_info?.fastest_lap };
-                return React.createElement(element, props, grouped);
-            }
-        }
-        const fontSize = this.fields.config[item]?.fontSize;
-        return ( <p style={{fontSize: fontSize ? `${fontSize * this.props.fontSize}px` : `${20 * this.props.fontSize}px`}}>{grouped}</p> );
-    }
-    handleResize(colkey: any, width: number) {
-        const sum = this.state.currentChildWidth;
-        this.setState({
-            colwidths: {...this.state.colwidths, [colkey]: width},
-            currentChildWidth: Number(sum - this.state.colwidths[colkey] + width)
-        });
-    }
-    print(what: any) {
-        console.log(what);
-    }
-    render(): any {
-        if (!this.props.data) {
-            return (
-                <div className={
-                    this.props.mediaQuery.mobile ? "mobile__historyRace-table-inside-loader" : "app__historyRace-table-inside-loader"
-                }>
-                    <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-                    <p>Loading competitor data...</p>
-                </div>
-            );
-        }
-
-        return (
-        <div
-            className="app__historyRace-table-inside"
-        >
-                <div className="resizable_wrapper">
-                {
-                    ((!this.props.mediaQuery.portrait && this.props.mediaQuery.mobile) ||
-                    (!this.props.mediaQuery.mobile))
-                    ?
-                    this.state.groupedDataKeys.map((item: any, index: number) =>
-                        <ResizableBox
-                            className="resizeable_table_head"
-                            key={`resizeable_item_head${index}`}
-                            width={this.state.colwidths[item]}
-                            height={30}
-                            axis="x"
-                            minConstraints={[80, 30]}
-                            maxConstraints={[300, 30]}
-                            onResize={(e, {size}) => {
-                                this.handleResize(item, size.width);
-                            }}
-                        >
-                            {this.parseHeader(item)}
-                        </ResizableBox>
-                    )
-                    :
-                    Object.keys(this.fields.verticalModeDefaults).map((item: any, index: number) =>
-                        <div
-                            className="non-resizable_table_head"
-                            key={`non-resizeable_item_head${index}`}
-                            style={{width: `${this.fields.verticalModeDefaults[item].width}%`}}
-                        >
-                            {this.parseHeader(this.fields.verticalModeDefaults[item]?.shortname || item)}
-                        </div>
-                    )
-                }
-                </div>
-            <div
-                className="resizeable_content-wrapper"
-                style={{display: this.props.mediaQuery.mobile && this.props.mediaQuery.portrait ? "block" : "flex"}}
-            >
-                {
-                this.props.mediaQuery.mobile && this.props.mediaQuery.portrait ?
-                this.data?.competitor?.map((item: any, index: number) =>
-                    <div
-                        className="mobile__resiazble_content"
-                        key={`resizable_item_content${index}`}
-                    >
-                        {
-                            Object.keys(this.fields.verticalModeDefaults).map((field: any, index2: number) =>
-                                <div
-                                    className="mobile__resiazble_item"
-                                    key={`resizable_mobile_item_content${index2}$_${field}`}
-                                    style={{
-                                        width: `${this.fields.verticalModeDefaults[field].width}%`,
-                                        background: `${index % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`,
-                                        justifyContent: this.fields.verticalModeDefaults[field].justifyStart ?
-                                            "flex-start" : "center"
-                                    }}
-                                >
-                                {
-                                    this.fields.verticalModeDefaults[field].customElement ?
-                                    this.fields.verticalModeDefaults[field].customElement({data: item[field]})
-                                    :
-                                    <p
-                                        key={`${item[field]}_${index}`}
-                                        style={{
-                                            marginLeft: this.fields.verticalModeDefaults[field].justifyStart ?
-                                                "10px": "0px"
-                                        }}
-                                    >{item[field]}
-                                    </p>
-                                }
-                                </div>
-                            )
-                        }
-                    </div>
-                ) :
-                // finish this for simpified results :)))
-                this.state.groupedDataKeys.map((item: any, index: number) =>
-                    <div
-                        className="resiazble_content"
-                        key={`resizeable_item_content${index}`}
-                        style={{width: `100%`}}
-                    >
-                        {this.state.groupedData[item].map((grouped_item: any, index2: number) =>
-                            <div
-                            className="resizable_item"
-                                key={`grouped_item_${item}${index2}`}
-                                style={{
-                                        width: `${this.state.colwidths[item]}px`,
-                                        background: `${index2 % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`
-                                    }}
-                            >
-                                { this.parseItem(item, grouped_item) }
-                            </div>
-                        )}
-                    </div>
-                )
-                }
-            </div>
-        </div>
-        );
-    }
-};
-
 const fields = {
     banned: ["id", "race_id", "position_by_time", "position_by_lap", "diff_by_time", "diff_by_lap", "gap_by_time", "gap_by_lap"],
     enabled: ["position", "nr", "state", "firstname", "lastname", "class", "best_lap_time", "finished_time", "best_lap", "sponsor"],
     verticalModeDefaults: {
             position: {
-                            customElement: ResizableTablePosComponent,
+                            customElement: ResizableTablePosMobileComponent,
                             width: 10,  // percentage
                             maxWidth: 60,   // pixels
                             shortname: "Pos"
@@ -549,14 +82,16 @@ const fields = {
                 maxWidth: 60,
                 shortname: "Nr"
             },
-            state: {
-                customElement: ResizableTableImgComponent,
-                width: 10,
-                maxWidth: 80,
-                shortname: "State"
+            lastname: {
+                width: 40,
+                justifyStart: true,
+                customElement: ResizableTableSurnameMobileComponent
             },
-            firstname: { width: 30, justifyStart: true},
-            lastname: { width: 30, justifyStart: true},
+            best_lap_time: {
+                width: 35,
+                justifyStart: true,
+                customElement: ResizableTableFastestLapComponent
+            }
     },
     enabledClasses: [],
     defaultFontSize: 20,
@@ -587,12 +122,12 @@ const fields = {
         },
         sponsor: { label: "Sponsor", defaultWidth: 150 },
         best_lap_time: {
-            label: "Fastest lap time",
+            label: "Best lap time",
             defaultWidth: 150,
             customElement: ResizableTableFastestLapComponent
         },
         best_lap: {
-            label: "Fastest lap",
+            label: "Best lap",
             defaultWidth: 120,
         },
         finished_time: {
@@ -620,6 +155,8 @@ const fontSizeOptions: any[] = [
     {value: 1.5, label: "1.5x"},
 ];
 
+const socket = io(getBackendServerAddr());
+
 export const RaceHistoryRace = () => {
 
     const {date, track_name, eventId} = useParams();
@@ -637,9 +174,14 @@ export const RaceHistoryRace = () => {
     const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
 
     const getData = async () => {
-        const response = await fetch(`http://localhost:3015/api/getRaceData?track_name=${track_name}&id=${eventId}&date=${date}`);
-        const data = await response.json();
-        setRaceData(data);
+        const searchData = {
+            track_name: track_name,
+            id: eventId,
+            date: date
+        };
+        socket.emit("getRaceData", searchData, (resp: any) => {
+            setRaceData(resp);
+        });
     };
     const getFilterData = (data: any) => {
         setFieldData({...fieldsData, enabled: data.fields, enabledClasses: data.classes});
@@ -664,17 +206,15 @@ export const RaceHistoryRace = () => {
             <div className="app__historyRace-table-wrapper">
                 {
                     !raceData &&
-                    <div className="app__historyRace-table-wrapper-load">
-                        <div
-                            className="load-wheel"
-                            style={{
-                                backgroundImage: `url('/svg/Wheel.svg')`,
-                                backgroundPosition: "center",
-                                backgroundRepeat: "no-repeat",
-                                backgroundSize: "cover",
-                            }}
-                        />
-                    </div>
+                    <div
+                        className="app__historyRace-table-wrapper-load"
+                        style={{
+                            backgroundImage: `url('/svg/Loading.svg')`,
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                        }}
+                    />
                 }
                 <div className={isTabletOrMobile ? "mobile__historyRace-data" : "app__historyRace-data"}>
                     <div className="app__historyRace-data-top">
