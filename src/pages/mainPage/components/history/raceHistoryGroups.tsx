@@ -53,6 +53,7 @@ export const RaceHistoryGroups = () => {
     };
 
     const getDataWithFilters = async (args: any) => {
+        console.log(args);
         setCurrentPage(1);
         try {
             const searchData = {country: args.values.ctry, sports: args.values.sports, name: args.values.name};

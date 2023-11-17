@@ -567,7 +567,12 @@
         overflow: hidden;
         white-space: nowrap;
         text-transform: capitalize;
+
+        &:hover {
+            cursor: move;
+        }
     }
+
 }
 
 .resizable_item {
@@ -631,4 +636,16 @@
     font-style: italic;
     font-weight: 700;
     color: #d1fffd;
+}
+
+
+
+.resizable_ghost_block {
+    height: 30px;
+    background: #6185fb38;
+    cursor: move;
+}
+.resizable-ghost-content {
+    background: #829fff38;
+    cursor: no-drop;
 }

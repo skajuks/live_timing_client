@@ -19,7 +19,7 @@ const backgrounds = ["Interstellar", "Lines", "Triangles",
 
 export function getBackendServerAddr() {
     const USE_PROD_MODE = false;
-    return USE_PROD_MODE ? "https://live.motorparks.lv:3015" : "http://192.168.8.252:3015";
+    return USE_PROD_MODE ? "https://live.motorparks.lv:3015" : "http://localhost:3015";
 };
 
 

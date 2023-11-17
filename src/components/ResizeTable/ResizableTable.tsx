@@ -2,9 +2,20 @@ import React from "react";
 import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
 
+type MouseEvent = React.MouseEvent<HTMLDivElement>;
+
 export default class ResizableTable extends React.Component
     <{data: any, fields: any, fontSize: number, colors: any[], mediaQuery: any},
-    {colwidths: any, groupedData: any, groupedDataKeys: string[], currentChildWidth: number}
+    {
+        colwidths: any,
+        groupedData: any,
+        groupedDataKeys: string[],
+        currentChildWidth: number,
+        dragging: boolean,
+        dragIndex: number,
+        dragItem: string,
+        originalDragItem: string
+    }
     > {
 
     // Variables
@@ -14,8 +25,12 @@ export default class ResizableTable extends React.Component
     defaultColWidth: number = 120;
     maxTableWidth: number = 1600;
     enabledFieldsInitialized: boolean = false;
+    loadedPreviousFieldWidths: boolean = false;
     colWidthsFirstInit: boolean = true;
     defaultTableHeight: number = 570;
+    settings:any = {
+        currentColumnWidth: {}
+    };
 
     constructor(props: any) {
         super(props);
@@ -23,18 +38,53 @@ export default class ResizableTable extends React.Component
             colwidths: {},
             groupedData: {},
             groupedDataKeys: [],
-            currentChildWidth: 0
+            currentChildWidth: 0,
+            dragging: false,
+            dragIndex: -1,
+            dragItem: "",
+            originalDragItem: "",
         };
         this.fields = props.fields;
         this.data = props.data;
         this.ref = React.createRef();
-    }
-    componentDidMount(): void {
-    }
+    };
+
+    swapStrings(arr: string[], str1: string, str2: string) {
+        const index1 = arr.indexOf(str1);
+        const index2 = arr.indexOf(str2);
+
+        if (index1 !== -1 && index2 !== -1) {
+            [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+        } else {
+            console.log("One or both strings not found in the array.");
+        }
+        return arr;
+    };
+
+    handleDragStartEnd = (index: number, item: string) => {
+        if (this.state.dragging) {
+            this.setState({ dragging: false, dragIndex: -1 });
+        } else {
+            this.setState({ dragging: true, dragIndex: index, dragItem: item, originalDragItem: item});
+        }
+    };
+
+    handleDrag = (item: string) => {
+        if (this.state.dragging) {
+            if (item !== this.state.dragItem) {
+                const newIndex = this.state.groupedDataKeys.findIndex((x: any) => x === item);
+                this.setState({ dragItem: item, dragIndex: newIndex});
+                this.fields.order =  this.swapStrings([...this.fields.order], this.state.originalDragItem, item);
+                localStorage.setItem("colorder", JSON.stringify(this.fields.order));
+                this.importData(this.data);
+            }
+        }
+    };
+
     componentDidUpdate(prevProps: Readonly<{ data: any; fields: any; }>): void {
         if (this.props.data !== prevProps.data || this.props.fields !== prevProps.fields) {
-            console.log("resizeTableUpdate() called");
             this.fields = this.props.fields;
+            this.fields.order = prevProps.fields.order;
             this.data = this.props.data;
             if (!this.enabledFieldsInitialized) {
                 this.initializeSelectedClasses();
@@ -51,6 +101,12 @@ export default class ResizableTable extends React.Component
     importData(data: any): void {
         const columnWidthData: any = {};
         const groupedData: any = {};
+        if (!this.loadedPreviousFieldWidths) {
+            this.settings.currentColumnWidth = JSON.parse(localStorage.getItem("colwidths")!) || {};
+            this.fields.order = JSON.parse(localStorage.getItem("colorder")!) || this.fields.order;
+            this.loadedPreviousFieldWidths = true;
+        }
+
         data?.competitor?.forEach((item: any) => {
             for (const [key, value] of Object.entries(item)) {
                 // skips
@@ -74,7 +130,10 @@ export default class ResizableTable extends React.Component
                     if (item.class && this.fields.enabledClasses.includes(item.class)) {
                         groupedData[key].push(value);
                     }
-                    columnWidthData[key] = this.fields.config[key]?.defaultWidth || this.defaultColWidth;
+                    if (!this.settings.currentColumnWidth?.[key]) {
+                        this.settings.currentColumnWidth[key] = this.fields.config[key]?.defaultWidth || this.defaultColWidth;
+                    }
+                    columnWidthData[key] = this.settings.currentColumnWidth[key] || this.fields.config[key]?.defaultWidth || this.defaultColWidth;
                 }
             };
         });
@@ -83,25 +142,31 @@ export default class ResizableTable extends React.Component
             const bIndex = this.fields.order.indexOf(b);
             return aIndex - bIndex;
         })
+        const sum: number = Object.values(columnWidthData).reduce<number>((partial: any, a) => partial + a, 0 as number);
         this.setState({
             groupedData: groupedData,
-            groupedDataKeys: sorted
+            groupedDataKeys: sorted,
+            colwidths: columnWidthData,
+            currentChildWidth: sum
         });
         if (this.colWidthsFirstInit) {
-            const sum: number = Object.values(columnWidthData).reduce<number>((partial: any, a) => partial + a, 0 as number);
-            this.setState({
-                colwidths: columnWidthData,
-                currentChildWidth: sum
-            });
-            this.colWidthsFirstInit = false;
+            // const sum: number = Object.values(columnWidthData).reduce<number>((partial: any, a) => partial + a, 0 as number);
+            // this.setState({
+            //     colwidths: columnWidthData,
+            //     currentChildWidth: sum
+            // });
+            // this.colWidthsFirstInit = false;
         }
     }
-    parseHeader(item: string) {
+    parseHeader(item: string, index: number) {
+        let label = item;
         if (this.state.groupedDataKeys.includes(item)) {
-            const label = this.fields.config[item]?.label;
-            return ( <p>{label || item}</p> );
+            label = this.fields.config[item]?.label;
         }
-        return ( <p>{item}</p> );
+        return ( <p
+            onClick={(event: any) => this.handleDragStartEnd(index, item)}
+            onMouseMove={(event: any) => this.handleDrag(item)}
+            >{label}</p> );
     }
     parseItem(item: string, grouped: string) {
         if (Object.keys(this.fields.config).includes(item)) {
@@ -116,6 +181,8 @@ export default class ResizableTable extends React.Component
     }
     handleResize(colkey: any, width: number) {
         const sum = this.state.currentChildWidth;
+        this.settings.currentColumnWidth[colkey] = width;
+        localStorage.setItem("colwidths", JSON.stringify(this.settings.currentColumnWidth));
         this.setState({
             colwidths: {...this.state.colwidths, [colkey]: width},
             currentChildWidth: Number(sum - this.state.colwidths[colkey] + width)
@@ -148,20 +215,32 @@ export default class ResizableTable extends React.Component
                     (!this.props.mediaQuery.mobile))
                     ?
                     this.state.groupedDataKeys.map((item: any, index: number) =>
-                        <ResizableBox
-                            className="resizeable_table_head"
-                            key={`resizeable_item_head${index}`}
-                            width={this.state.colwidths[item]}
-                            height={30}
-                            axis="x"
-                            minConstraints={[80, 30]}
-                            maxConstraints={[300, 30]}
-                            onResize={(e, {size}) => {
-                                this.handleResize(item, size.width);
-                            }}
-                        >
-                            {this.parseHeader(item)}
-                        </ResizableBox>
+                        <>
+                        {
+                            index === this.state.dragIndex
+                            ?
+                                <div
+                                    className="resizable_ghost_block"
+                                    style={{width: this.state.colwidths[item]}}
+                                    onClick={(event: any) => this.handleDragStartEnd(index, item)}
+                                />
+                            :
+                            <ResizableBox
+                                className="resizeable_table_head"
+                                key={`resizeable_item_head${index}`}
+                                width={this.state.colwidths[item]}
+                                height={30}
+                                axis="x"
+                                minConstraints={[80, 30]}
+                                maxConstraints={[300, 30]}
+                                onResize={(e, {size}) => {
+                                    this.handleResize(item, size.width);
+                                }}
+                            >
+                                {this.parseHeader(item, index)}
+                            </ResizableBox>
+                        }
+                        </>
                     )
                     :
                     Object.keys(this.fields.verticalModeDefaults).map((item: any, index: number) =>
@@ -170,7 +249,7 @@ export default class ResizableTable extends React.Component
                             key={`non-resizeable_item_head${index}`}
                             style={{width: `${this.fields.verticalModeDefaults[item].width}%`}}
                         >
-                            {this.parseHeader(this.fields.verticalModeDefaults[item]?.shortname || item)}
+                            {this.parseHeader(this.fields.verticalModeDefaults[item]?.shortname || item, index)}
                         </div>
                     )
                 }
@@ -220,24 +299,39 @@ export default class ResizableTable extends React.Component
                 ) :
                 // finish this for simpified results :)))
                 this.state.groupedDataKeys.map((item: any, index: number) =>
-                    <div
-                        className="resiazble_content"
-                        key={`resizeable_item_content${index}`}
-                        style={{width: `100%`}}
-                    >
-                        {this.state.groupedData[item].map((grouped_item: any, index2: number) =>
-                            <div
-                            className="resizable_item"
-                                key={`grouped_item_${item}${index2}`}
-                                style={{
-                                        width: `${this.state.colwidths[item]}px`,
-                                        background: `${index2 % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`
-                                    }}
-                            >
-                                { this.parseItem(item, grouped_item) }
-                            </div>
-                        )}
-                    </div>
+                <>
+                    {
+                        index !== this.state.dragIndex
+                        ?
+                        <div
+                            className="resiazble_content"
+                            key={`resizeable_item_content${index}`}
+                            style={{width: `100%`}}
+                        >
+                            {this.state.groupedData[item].map((grouped_item: any, index2: number) =>
+                                <div
+                                className="resizable_item"
+                                    key={`grouped_item_${item}${index2}`}
+                                    style={{
+                                            width: `${this.state.colwidths[item]}px`,
+                                            background: `${index2 % 2 === 0 ? this.props.colors[0] : this.props.colors[1]}`
+                                        }}
+                                >
+                                    { this.parseItem(item, grouped_item) }
+                                </div>
+                            )}
+                        </div>
+                        :
+                        <div
+                            className="resizable-ghost-content"
+                            style={{ width: "100%" }}
+                        >
+                            <div className="resizable-ghost-content-inner"
+                                style={{ width: `${this.state.colwidths[item]}px` }}
+                            />
+                        </div>
+                    }
+                </>
                 )
                 }
             </div>

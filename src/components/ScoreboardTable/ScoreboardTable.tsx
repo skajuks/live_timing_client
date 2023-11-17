@@ -228,7 +228,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                                                 justifyContent : item_name.center ? "center" : "flex-start",
                                                 background: index % 2 === 0 ? "#1a1e2e" : "#141721"
                                             }}
-                                            key={`${index}_race_hist_dataItem`}
+                                            key={`${index}${index2}_race_hist_dataItem`}
                                         >{
                                             item_name.img && item?.[item_name.data] ?
                                             <img
@@ -237,7 +237,7 @@ export const BoardTable: React.FC<BoardTableProps> = ({legend, data, properties,
                                                 }
                                                 src={
                                                     item_name.customSrc ?
-                                                    `${item_name.customSrc}${item?.[item_name.data]}.png`
+                                                    `${process.env.PUBLIC_URL}${item_name.customSrc}${item?.[item_name.data]}.png`
                                                     :
                                                     `https://flagcdn.com/${item?.[item_name.data]?.toLowerCase()}.svg`
                                                 }
